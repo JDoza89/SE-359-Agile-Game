@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cc089b8-be84-4f23-ac49-8bf5e572d392" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameEndState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="165">
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -100,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameEndState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -222,7 +222,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="121" y="23" width="1400" height="987" extended-state="0" />
+    <frame x="152" y="23" width="1400" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
@@ -272,28 +272,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameStateContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameStartState.java">
+    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameEndState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
@@ -307,10 +286,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameEndState.java">
+    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameStartState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameStateContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agilegame/src/main/java/edu/depaul/se359/agilegame/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
         </state>
       </provider>
     </entry>
