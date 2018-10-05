@@ -1,5 +1,13 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The game manager class. This class is a singleton class to prevent multiple game manager instances.
+    Game manager controls all aspect of the game.
+
+    Author:     Ethan Lin
+    Created on: October 5, 2018
+ */
+
 public class GameManager {
 
     private static GameManager instance = null;

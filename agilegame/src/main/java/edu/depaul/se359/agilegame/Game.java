@@ -1,17 +1,15 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The application's starting point (a.k.a., the main class)
+ */
+
 public class Game {
 
     public static void main(String[] args) {
 
+        // start the game when program runs
         GameManager.getInstance().startGame();
-//        System.out.println(GameManager.getInstance().getGameState());
-//
-//        GameManager.getInstance().playGame();
-//        System.out.println(GameManager.getInstance().getGameState());
-//
-//        GameManager.getInstance().endGame();
-//        System.out.println(GameManager.getInstance().getGameState());
 
     }
 

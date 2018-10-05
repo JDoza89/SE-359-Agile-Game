@@ -1,5 +1,13 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The game end state class. Carry out actions that will happen during game start state.
+    No loop because the initial (game start) loop is still active.
+
+    Author:     Ethan Lin
+    Created on: October 5, 2018
+ */
+
 public class GameEndState implements GameState {
 
     @Override

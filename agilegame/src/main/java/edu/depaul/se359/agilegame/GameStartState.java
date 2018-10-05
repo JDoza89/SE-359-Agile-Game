@@ -1,5 +1,13 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The game start state class. Carry out actions that will happen during game start state.
+    Starts initial game loop for user inputs.
+
+    Author:     Ethan Lin
+    Created on: October 5, 2018
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
