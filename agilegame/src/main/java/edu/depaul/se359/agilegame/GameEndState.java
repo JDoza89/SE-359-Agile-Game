@@ -7,6 +7,7 @@ public class GameEndState implements GameState {
 
         System.out.println("Game Ended");
         ctx.setState(this);
+        this.backToMainMenu();
 
     }
 
@@ -14,6 +15,14 @@ public class GameEndState implements GameState {
     public String toString() {
 
         return "End";
+
+    }
+
+    private void backToMainMenu() {
+
+        System.out.println("Would you like to play another [story]?");
+        System.out.println("Enter \"quit\" to quit the game.\n");
+        System.out.println("[List all available stories again...]");
 
     }
 
