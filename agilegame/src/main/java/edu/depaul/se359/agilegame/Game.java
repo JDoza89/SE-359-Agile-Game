@@ -33,8 +33,6 @@ public class Game {
                 new FileReader("asset/JSONSample.json"));
         //System.out.println(jsonObject);
 
-        Deck d = new Deck();
-
         // loop file with array
         JSONArray jsonArray = (JSONArray) jsonObject.get("Cards");
         for (Object array : jsonArray)
@@ -43,10 +41,9 @@ public class Game {
             String cardType = (String) currObj.get("Type");
             String cardContent = (String) currObj.get("Content");
 
-            d.AddCard(cardType, cardContent);
+            Deck.AddCard(cardType, cardContent);
         }
 
-        d.printChanceDeck();
-        d.printStoryDeck();
+        Deck.printAllDecks();
     }
 }
