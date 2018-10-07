@@ -1,0 +1,53 @@
+1:{
+	"deck": "dev",
+	"story": "You stay after work all week",
+	"description": "You finished your stories early",
+	"size": "remove 10 points"
+2:{
+	"deck": "dev",
+	"story": "You finish a story",
+	"description": "Choose one under 15 points and remove it",
+	"size": "remove size of card"
+},
+3:{
+	"deck": "pm",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+4:{
+	"deck": "pm",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+5:{
+	"deck": "sm",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+6:{
+	"deck": "sm",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+7:{
+	"deck": "dev",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+8:{
+	"deck": "pm",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+9:{
+	"deck": "sm",
+	"story": "",
+	"description": "",
+	"size": ""
+}
