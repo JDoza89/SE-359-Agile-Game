@@ -1,0 +1,21 @@
+{
+	"Cards": 
+	[
+		{
+			"Type": "Chance",
+			"Content": "Your Client wants to add a new feature, You add 10 points."
+		}
+
+		{
+			"Type": "Chance",
+			"Content": "A Developer on your team got too lit last night, she called off today. You are behind 2 points."
+		}
+
+		{
+			"Type": "Story",
+			"Content": "We’re connecting to a new REST API."
+		}
+		
+	]
+    
+}
