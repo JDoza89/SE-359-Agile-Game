@@ -1,12 +1,18 @@
 package edu.depaul.se359.agilegame;
 
-public class ProjectManagerPlayer implements Player {
+public class ProjectManagerPlayer extends Player {
 
-    private PlayerType type = PlayerType.PROJECTMANAGER;
+    private int id = Player.id++;
+    private PlayerType type = PlayerType.PROJECT_MANAGER;
 
     @Override
     public void doAction() {
 
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
     }
 
     public PlayerType getPlayerType() {

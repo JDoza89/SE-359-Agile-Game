@@ -1,12 +1,18 @@
 package edu.depaul.se359.agilegame;
 
-public class ScrumMasterPlayer implements Player {
+public class ScrumMasterPlayer extends Player {
 
-    private PlayerType type = PlayerType.SCRUMMASTER;
+    private int id = Player.id++;
+    private PlayerType type = PlayerType.SCRUM_MASTER;
 
     @Override
     public void doAction() {
 
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
     }
 
     public PlayerType getPlayerType() {
