@@ -1,10 +1,10 @@
 package edu.depaul.se359.agilegame;
 
-public abstract class Player {
+abstract class Player {
 
-    public static int id = 1;
+    static int id = 1;
 
-    public abstract int getId();
-    public abstract void doAction();
+    abstract int getId();
+    abstract void doAction();
 
 }

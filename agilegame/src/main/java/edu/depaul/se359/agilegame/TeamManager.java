@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class TeamManager {
 
     private static TeamManager instance = null;
-    private ArrayList<Team> teams = new ArrayList<>();
+    private final ArrayList<Team> teams = new ArrayList<>();
 
     private TeamManager() {}
 

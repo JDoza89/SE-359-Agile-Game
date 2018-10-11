@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Team {
 
-    public static int teamCount = 1;
-    private int id;
+    private static int teamCount = 1;
+    private final int id;
 
-    private ArrayList<Player> players;
+    private final ArrayList<Player> players;
 
     public Team() {
 

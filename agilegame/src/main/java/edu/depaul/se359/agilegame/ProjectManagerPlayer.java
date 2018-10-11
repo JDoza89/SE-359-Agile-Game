@@ -1,9 +1,9 @@
 package edu.depaul.se359.agilegame;
 
-public class ProjectManagerPlayer extends Player {
+class ProjectManagerPlayer extends Player {
 
-    private int id = Player.id++;
-    private PlayerType type = PlayerType.PROJECT_MANAGER;
+    private final int id = Player.id++;
+    private final PlayerType type = PlayerType.PROJECT_MANAGER;
 
     @Override
     public void doAction() {
