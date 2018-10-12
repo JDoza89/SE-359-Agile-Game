@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.GameState;
 
 /*
     The game state context class. Hold the current game state. Also get and set game state.

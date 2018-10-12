@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.GameState;
 
 /*
     The interface for the various game states. Each game state must carry out an action.

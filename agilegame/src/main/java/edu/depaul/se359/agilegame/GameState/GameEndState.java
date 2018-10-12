@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.GameState;
 
 /*
     The game end state class. Carry out actions that will happen during game start state.

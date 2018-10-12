@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.GameState;
 
 /*
     The game manager class. This class is a singleton class to prevent multiple game manager instances.
