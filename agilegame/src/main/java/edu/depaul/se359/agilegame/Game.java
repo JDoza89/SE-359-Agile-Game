@@ -9,7 +9,9 @@ public class Game {
     public static void main(String[] args) {
 
         // start the game when program runs
-        GameManager.getInstance().startGame();
+        //GameManager.getInstance().startGame();
+
+        TeamManager.getInstance().promptForTeamsAndPlayers();
 
     }
 
