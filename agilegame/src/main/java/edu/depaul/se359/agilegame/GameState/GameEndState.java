@@ -13,7 +13,7 @@ public class GameEndState implements GameState {
     @Override
     public void doAction(GameStateContext ctx) {
 
-        System.out.println("Game Ended");
+        System.out.println("Game Ended!\n");
         ctx.setState(this);
         this.backToMainMenu();
 
@@ -28,9 +28,9 @@ public class GameEndState implements GameState {
 
     private void backToMainMenu() {
 
-        System.out.println("Would you like to play another [story]?");
+        System.out.println("Would you like to play another [scenario]?");
         System.out.println("Enter \"quit\" to quit the game.\n");
-        System.out.println("[List all available stories again...]");
+        System.out.println("[List all available scenarios again...]");
 
     }
 

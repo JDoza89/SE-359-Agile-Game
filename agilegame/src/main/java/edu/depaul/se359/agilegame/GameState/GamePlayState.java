@@ -36,8 +36,8 @@ public class GamePlayState implements GameState {
 
         try {
 
-            System.out.println("Welcome to the [story name]!");
-            System.out.println("Enter \"next\" to go to next turn. [Not Coded!]");
+            System.out.println("Welcome to the [scenario name]!");
+            System.out.println("Enter \"next\" to go to next turn. (not coded)");
             System.out.println("Enter \"end\" to end the story.\n");
 
             // list the available stories in the game that user can play
@@ -52,7 +52,7 @@ public class GamePlayState implements GameState {
 
             }  while(!command.equalsIgnoreCase("end"));
 
-            System.out.println("You end the story.");
+            System.out.println("You end the scenario.");
             System.out.println("[Display score...]");
 
             GameManager.getInstance().endGame();

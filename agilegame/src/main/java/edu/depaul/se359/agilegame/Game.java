@@ -5,7 +5,6 @@ package edu.depaul.se359.agilegame;
  */
 
 import edu.depaul.se359.agilegame.GameState.GameManager;
-//import edu.depaul.se359.agilegame.Player.TeamManager;
 
 public class Game {
 
@@ -13,7 +12,6 @@ public class Game {
 
         // start the game when program runs
         GameManager.getInstance().startGame();
-        //TeamManager.getInstance().promptForTeamsAndPlayers();
 
     }
 
