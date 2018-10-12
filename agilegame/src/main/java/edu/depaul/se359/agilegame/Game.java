@@ -4,6 +4,8 @@ package edu.depaul.se359.agilegame;
     The application's starting point (a.k.a., the main class)
  */
 
+import edu.depaul.se359.agilegame.Player.TeamManager;
+
 public class Game {
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.Player;
 
 /*
     The team class represents a team and owns an array list of player objects, which can be any player type because of

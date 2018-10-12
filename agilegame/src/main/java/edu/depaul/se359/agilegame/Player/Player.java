@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.Player;
 
 /*
     An abstract player class that is inherited by other player type classes.
