@@ -15,7 +15,7 @@ import edu.depaul.se359.agilegame.Player.Team;
 class GameStateContext {
 
     private GameState currentState;
-    private Map<Integer, Integer> teamsMap = new HashMap<>();
+    private final Map<Integer, Integer> teamsMap = new HashMap<>();
 
     GameStateContext() {
 

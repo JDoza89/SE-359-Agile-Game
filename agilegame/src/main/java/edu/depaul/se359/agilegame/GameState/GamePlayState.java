@@ -44,11 +44,11 @@ public class GamePlayState implements GameState {
             // read stories from a JSON file
             System.out.println("Display stories...");
 
-            String command = console.readLine();
+            String command;
 
             do {
 
-                // go to next turn code here
+                command = console.readLine();
 
             }  while(!command.equalsIgnoreCase("end"));
 
