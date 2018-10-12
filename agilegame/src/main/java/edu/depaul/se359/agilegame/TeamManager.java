@@ -50,8 +50,10 @@ public class TeamManager {
                     numTeams = Integer.parseInt(command);
 
                     if (numTeams <= 1) {
+
                         System.out.println("Please enter an integer greater than 1.");
                         command = console.readLine();
+
                     }
 
                 } catch (Exception e) {
@@ -65,7 +67,9 @@ public class TeamManager {
 
             // use loop to create teams
             for (int i = 0; i < numTeams; i++) {
+
                 this.createTeam();
+
             }
 
             System.out.println(numTeams + " teams are created.\n");
@@ -87,8 +91,10 @@ public class TeamManager {
                         numPlayers = Integer.parseInt(command);
 
                         if (numPlayers <= 2) {
+
                             System.out.println("Please enter an integer greater than 3.");
                             command = console.readLine();
+
                         }
 
                     } catch (Exception e) {
@@ -102,8 +108,8 @@ public class TeamManager {
 
                 System.out.println(numPlayers + " players in Team " + team.getId() + ".\n");
 
-                // use loop to create play in current team
-                // first two player will always be project manager and scrum master
+                // use loop to create player in current team
+                // first two players will always be project manager and scrum master
                 for (int i = 0; i < numPlayers; i++) {
 
                     switch (i) {
