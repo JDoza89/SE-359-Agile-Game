@@ -31,7 +31,11 @@ public class GameStartState implements GameState {
         System.out.println("Welcome to [game name]!\n");
         System.out.println("Let's setup teams and players per team.\n");
 
+        // prompt for teams and players per team
         TeamManager.getInstance().promptForTeamsAndPlayers();
+
+        // save number of teams and players per team to game state context
+        GameManager.getInstance().saveTeams(TeamManager.getInstance().getTeams());
 
         System.out.println("Thank you!\n");
 
@@ -53,7 +57,6 @@ public class GameStartState implements GameState {
                     // store user's choice some for the game play state class to access
                     System.out.println("Awesome! You selected 1 for [scenario name].\n");
 
-                    command = "";
                     GameManager.getInstance().playGame();
 
                 }

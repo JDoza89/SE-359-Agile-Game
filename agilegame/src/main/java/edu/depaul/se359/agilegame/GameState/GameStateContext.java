@@ -7,9 +7,15 @@ package edu.depaul.se359.agilegame.GameState;
     Created on: October 5, 2018
  */
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+import edu.depaul.se359.agilegame.Player.Team;
+
 class GameStateContext {
 
     private GameState currentState;
+    private Map<Integer, Integer> teamsMap = new HashMap<>();
 
     GameStateContext() {
 
@@ -26,6 +32,18 @@ class GameStateContext {
 
         return currentState;
 
+    }
+
+    void saveTeams(ArrayList<Team> teams) {
+
+        for (Team team : teams) {
+            this.teamsMap.put(team.getId(),team.getPlayerCount());
+        }
+
+    }
+
+    Map getTeams() {
+        return this.teamsMap;
     }
 
 }

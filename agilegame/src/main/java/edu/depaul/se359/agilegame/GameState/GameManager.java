@@ -8,6 +8,9 @@ package edu.depaul.se359.agilegame.GameState;
     Created on: October 5, 2018
  */
 
+import java.util.ArrayList;
+import edu.depaul.se359.agilegame.Player.Team;
+
 public class GameManager {
 
     private static GameManager instance = null;
@@ -50,6 +53,14 @@ public class GameManager {
         GameState endState = new GameEndState();
         endState.doAction(this.gameStateContext);
 
+    }
+
+    public void saveTeams(ArrayList<Team> teams) {
+        this.gameStateContext.saveTeams(teams);
+    }
+
+    public GameStateContext gameContext() {
+        return this.gameStateContext;
     }
 
 }
