@@ -47,6 +47,12 @@ public class Team {
 
     }
 
+    public ArrayList<Player> getAllPlayers() {
+
+        return this.players;
+
+    }
+
     public int getPlayerCount() {
 
         return this.players.size();
