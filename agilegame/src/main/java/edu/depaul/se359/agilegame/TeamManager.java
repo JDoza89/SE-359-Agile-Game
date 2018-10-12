@@ -1,5 +1,13 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The team manager class. This class is a singleton class to prevent multiple team manager instances.
+    Team manager controls all aspect of the team and its players.
+
+    Author:     Ethan Lin
+    Created on: October 11, 2018
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -100,13 +108,13 @@ public class TeamManager {
 
                     switch (i) {
                         case 0:
-                            this.createPlayer(team.getId(), PlayerType.PROJECT_MANAGER);
+                            this.createPlayer(team.getId(), Role.PROJECT_MANAGER);
                             break;
                         case 1:
-                            this.createPlayer(team.getId(), PlayerType.SCRUM_MASTER);
+                            this.createPlayer(team.getId(), Role.SCRUM_MASTER);
                             break;
                         default:
-                            this.createPlayer(team.getId(), PlayerType.DEVELOPER);
+                            this.createPlayer(team.getId(), Role.DEVELOPER);
                             break;
                     }
 
@@ -159,7 +167,7 @@ public class TeamManager {
 
     }
 
-    private void createPlayer(int teamId, PlayerType type) {
+    private void createPlayer(int teamId, Role type) {
 
         Player player = null;
 

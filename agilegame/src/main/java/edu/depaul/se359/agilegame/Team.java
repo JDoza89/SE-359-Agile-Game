@@ -1,5 +1,13 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The team class represents a team and owns an array list of player objects, which can be any player type because of
+    all player classes inherited the Player abstract class.
+
+    Author:     Ethan Lin
+    Created on: October 11, 2018
+ */
+
 import java.util.ArrayList;
 
 public class Team {

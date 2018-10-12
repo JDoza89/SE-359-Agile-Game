@@ -1,9 +1,16 @@
 package edu.depaul.se359.agilegame;
 
+/*
+    The developer player class represents a player with role of a project manager.
+
+    Author:     Ethan Lin
+    Created on: October 11, 2018
+ */
+
 class ProjectManagerPlayer extends Player {
 
     private final int id = Player.id++;
-    private final PlayerType type = PlayerType.PROJECT_MANAGER;
+    private final Role role = Role.PROJECT_MANAGER;
 
     @Override
     public void doAction() {
@@ -15,9 +22,9 @@ class ProjectManagerPlayer extends Player {
         return this.id;
     }
 
-    public PlayerType getPlayerType() {
+    public Role getPlayerRole() {
 
-        return this.type;
+        return this.role;
 
     }
 
