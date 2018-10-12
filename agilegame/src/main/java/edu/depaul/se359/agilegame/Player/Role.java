@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.Player;
 
 /*
     An enum that contains available roles for a player.

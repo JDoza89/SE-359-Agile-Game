@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.Player;
 
 /*
     The developer player class represents a player with role of a scrum master.

@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame;
+package edu.depaul.se359.agilegame.GameState;
 
 /*
     The game manager class. This class is a singleton class to prevent multiple game manager instances.
@@ -7,6 +7,9 @@ package edu.depaul.se359.agilegame;
     Author:     Ethan Lin
     Created on: October 5, 2018
  */
+
+import java.util.ArrayList;
+import edu.depaul.se359.agilegame.Player.Team;
 
 public class GameManager {
 
@@ -50,6 +53,14 @@ public class GameManager {
         GameState endState = new GameEndState();
         endState.doAction(this.gameStateContext);
 
+    }
+
+    public void saveTeams(ArrayList<Team> teams) {
+        this.gameStateContext.saveTeams(teams);
+    }
+
+    public GameStateContext gameContext() {
+        return this.gameStateContext;
     }
 
 }
