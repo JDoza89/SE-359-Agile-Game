@@ -1,8 +1,7 @@
-package deck;
+package edu.depaul.se359.agilegame.Deck;
 
-import card.AbstractCard;
-import card.ChanceCard;
-import card.StoryCard;
+import edu.depaul.se359.agilegame.Card.ChanceCard;
+import edu.depaul.se359.agilegame.Card.StoryCard;
 
 import java.util.ArrayList;
 
@@ -48,7 +47,7 @@ public class Deck
         System.out.println("Here are the chance cards: ");
         for (ChanceCard card: d.m_chanceDeck)
         {
-            System.out.println(card.m_content);
+            System.out.println(card.getContent());
         }
     }
 
@@ -60,7 +59,7 @@ public class Deck
         System.out.println("Here are the story cards: ");
         for (StoryCard card: d.m_storyDeck)
         {
-            System.out.println(card.m_content);
+            System.out.println(card.getContent());
         }
     }
 

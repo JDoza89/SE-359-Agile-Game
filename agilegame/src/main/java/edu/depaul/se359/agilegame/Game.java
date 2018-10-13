@@ -1,14 +1,14 @@
 package edu.depaul.se359.agilegame;
 
 
-import deck.Deck;
+import edu.depaul.se359.agilegame.Deck.Deck;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
+import java.io.InputStreamReader;
 
 /*
     Parse the JSON in Main.
@@ -30,7 +30,7 @@ public class Game {
 
         // grab whole file
         JSONObject jsonObject = (JSONObject)parser.parse(
-                new FileReader("asset/JSONSample.json"));
+                new InputStreamReader(Game.class.getResourceAsStream("/JSONSample.json")));
         //System.out.println(jsonObject);
 
         // loop file with array
