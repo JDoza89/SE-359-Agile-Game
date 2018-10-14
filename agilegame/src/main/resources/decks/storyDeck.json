@@ -1,50 +1,33 @@
 {
-	"1":{
-		"deck": "Story",
-		"story": "Cure Cancer!",
-		"description": "Simple, really. Just cure cancer, how hard can it be?",
-		"size": "30"
-	},
-	"2":{
-		"deck": "Story",
-		"story": "Establish connection to the provider’s API",
-		"description": "We’re connecting to a new REST API.",
-		"size": "5"
-	},
-	"3":{
-		"deck": "Story",
-		"story": "Your client wants an oven that shops and cooks on its own",
-		"description": "Creating a robot that can move, has artificial intelligence, can shop (knows ingredients..so internet connection), has limbs that can get food prepared, and the normal oven operations: heat and cooking",
-		"size": "25"
-	},
-	"4":{
-		"deck": "Story",
-		"story": "Add a new halloween themed photo effect.",
-		"description": " Halloween is approaching. A new halloween themed photo effect would be really nice to get users motivated to use our photo app.",
-		"size": "10"
-	},
-	"5":{
-		"deck": "Story",
-		"story": "",
-		"description": "",
-		"size": ""
-	},
-	"6":{
-		"deck": "Story",
-		"story": "",
-		"description": "",
-		"size": ""
-	},
-	"7":{
-		"deck": "Story",
-		"story": "",
-		"description": "",
-		"size": ""
-	},
-	"8":{
-		"deck": "Story",
-		"story": "",
-		"description": "",
-		"size": ""
-	}
+  "Cards":
+  [
+    {"Type": "Story"},
+
+    {
+      "Content": "Cure Cancer!",
+      "Description": "Simple, really. Just cure cancer, how hard can it be?",
+      "Effect": "30"
+    },
+
+   	{
+      "Content": "Establish connection to the provider’s API",
+      "Description": "We’re connecting to a new REST API.",
+      "Effect": "5"
+    },
+
+    {
+      "Content": "Your client wants an oven that shops and cooks on its own",
+      "Description": "Creating a robot that can move, has artificial intelligence, can shop (knows ingredients..so internet connection), has limbs that can get food prepared, and the normal oven operations: heat and cooking",
+      "Effect": "25"
+    },
+
+    {
+      "Content": "Add a new halloween themed photo effect.",
+      "Description": "Halloween is approaching. A new halloween themed photo effect would be really nice to get users motivated to use our photo app.",
+      "Effect": "10"
+    }
+
+
+  ]
 }
+

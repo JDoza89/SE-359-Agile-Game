@@ -31,7 +31,7 @@ public class Game {
         // grab whole file
         JSONObject jsonObject = (JSONObject)parser.parse(
                 new InputStreamReader(Game.class.
-                        getResourceAsStream("/decks/chanceDeck.json")));        //System.out.println(jsonObject);
+                        getResourceAsStream("/decks/storyDeck.json")));        //System.out.println(jsonObject);
 
         // loop file with array
 
