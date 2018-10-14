@@ -4,37 +4,37 @@
 		{"Type": "Chance"},
 
 		{
-			"Content": "devChance: Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
+			"Content": "devChance - Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
 			"Description": "Your card deck get shuffled.",
 			"Effect": "-5"
 		},
 
 		{
-			"Content": "pmChance: A Developer on your team got too lit last night, she called off today.",
+			"Content": "pmChance - A Developer on your team got too lit last night, she called off today.",
 			"Description": "You are behind",
 			"Effect": "+2"
 		},
 
 		{
-			"Content": "pmChance: Your Client wants to add a new feature",
+			"Content": "pmChance - Your Client wants to add a new feature",
 			"Description": "None",
 			"Effect": "+10"
 		},
 
 		{
-			"Content": "smChance: Priorities change!",
+			"Content": "smChance - Priorities change!",
 			"Description": "Remove one card from the back log",
 			"Effect": "-5"
 		},
 
 		{
-			"Content": "smChance: You’re not quite sure how it happened, but everyone came together and were simply more productive.",
+			"Content": "smChance - You’re not quite sure how it happened, but everyone came together and were simply more productive.",
 			"Description": "Move the top story from the backlog to done",
 			"Effect": "subtract card size"
 		},
 
 		{
-			"Content": "pmChance: Pizza Partyy!! You motivate your team",
+			"Content": "pmChance - Pizza Partyy!! You motivate your team",
 			"Description": "They get ahead",
 			"Effect": "-2"
 		}

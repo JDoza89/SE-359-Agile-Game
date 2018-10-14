@@ -1,7 +1,7 @@
 package edu.depaul.se359.agilegame.Deck;
 
 import edu.depaul.se359.agilegame.Card.ChanceCard;
-import edu.depaul.se359.agilegame.Card.CharacterCard;
+import edu.depaul.se359.agilegame.Card.RoleCard;
 import edu.depaul.se359.agilegame.Card.StoryCard;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class Deck
 {
     private ArrayList<ChanceCard> m_chanceDeck;
     private ArrayList<StoryCard> m_storyDeck;
-    private ArrayList<CharacterCard> m_characterDeck;
+    private ArrayList<RoleCard> m_roleDeck;
 
     private static Deck instance = null;
 
@@ -33,7 +33,7 @@ public class Deck
     {
         m_chanceDeck = new ArrayList<ChanceCard>();
         m_storyDeck = new ArrayList<StoryCard>();
-        m_characterDeck = new ArrayList<CharacterCard>();
+        m_roleDeck = new ArrayList<RoleCard>();
     }
 
     public static void printAllDecks()
@@ -73,7 +73,7 @@ public class Deck
 
         System.out.println();
         System.out.println("Here are the story cards: ");
-        for (CharacterCard card: d.m_characterDeck)
+        for (RoleCard card: d.m_roleDeck)
         {
             System.out.println(card.getContent());
         }
@@ -91,8 +91,8 @@ public class Deck
             case "Story":
                 d.m_storyDeck.add(new StoryCard(content, description, effect));
                 break;
-            case "Character":
-                d.m_characterDeck.add(new CharacterCard(content, description, effect));
+            case "Role":
+                d.m_roleDeck.add(new RoleCard(content, description, effect));
                 break;
         }
 
