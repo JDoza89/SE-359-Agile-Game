@@ -63,18 +63,17 @@ public class Deck
         }
     }
 
-    public static void AddCard(String type,
-                               String content, String description, String effect)
+    public static void AddCard(String type, String content)
     {
         Deck d = Deck.getInstance();
 
         if (type.equals("Chance"))
         {
-            d.m_chanceDeck.add(new ChanceCard(content, description, effect));
+            d.m_chanceDeck.add(new ChanceCard(content));
         }
         else if (type.equals("Story"))
         {
-            d.m_storyDeck.add(new StoryCard(content, description, effect));
+            d.m_storyDeck.add(new StoryCard(content));
         }
         else
         {

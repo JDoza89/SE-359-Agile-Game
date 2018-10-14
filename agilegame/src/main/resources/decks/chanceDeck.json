@@ -1,43 +1,54 @@
-{
-  "Cards":
-  [
-    {"Type": "Chance"},
-
-    {
-      "Content": "devChance: Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
-      "Description": "Your card deck get shuffled.",
-      "Effect": "-5"
-    },
-
-    {
-      "Content": "pmChance: A Developer on your team got too lit last night, she called off today.",
-      "Description": "You are behind",
-      "Effect": "+2"
-    },
-
-    {
-	  "Content": "pmChance: Your Client wants to add a new feature",
-      "Description": "None",
-      "Effect": "+10"
-    },
-
-    {
-	  "Content": "smChance: Priorities change!",
-      "Description": "Remove one card from the back log",
-      "Effect": "-5"
-    },
-
-    {
-	  "Content": "smChance: You’re not quite sure how it happened, but everyone came together and were simply more productive.",
-      "Description": "Move the top story from the backlog to done",
-      "Effect": "subtract card size"
-    },
-
-    {
-	  "Content": "pmChance: Pizza Partyy!! You motivate your team",
-      "Description": "They get ahead",
-      "Effect": "-2"
-    }
-
-  ]
+1:{
+	"deck": "devChance",
+	"story": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
+	"description": "Your card deck get shuffled.",
+	"size": "subtract 5"
+},
+2:{
+	"deck": "devChance",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+3:{
+	"deck": "pmChance",
+	"story": "A Developer on your team got too lit last night, she called off today.",
+	"description": "You are behind",
+	"size": "add 2"
+},
+4:{
+	"deck": "pmChance",
+	"story": "Your Client wants to add a new feature",
+	"description": "",
+	"size": "add 10"
+},
+5:{
+	"deck": "smChance",
+	"story": "Priorities change!",
+	"description": "Remove one card from the back log",
+	"size": "subtract 5"
+},
+6:{
+	"deck": "smChance",
+	"story": "You’re not quite sure how it happened, but everyone came together and were simply more productive.",
+	"description": " Move the top story from the backlog to done",
+	"size": "subtract card size"
+},
+7:{
+	"deck": "devChance",
+	"story": "",
+	"description": "",
+	"size": ""
+},
+8:{
+	"deck": "pmChance",
+	"story": "Pizza Partyy!! You motivate your team",
+	"description": "They get ahead",
+	"size": "subtract 2"
+},
+9:{
+	"deck": "smChance",
+	"story": "",
+	"description": "",
+	"size": ""
 }
