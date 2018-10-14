@@ -5,19 +5,34 @@ package edu.depaul.se359.agilegame.Card;
 public abstract class Card
 {
 	private String content;
+	private String description;
+	private String effect;
 	
 	public Card()
 	{
 		
 	}
 	
-	public Card(String content)
+	public Card(String content, String description, String effect)
 	{
 		this.content = content;
+		this.description = description;
+		this.effect = effect;
 	}
 	
 	public String getContent()
 	{
 		return content;
 	}
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public String getEffect()
+    {
+        return effect;
+    }
+
 }

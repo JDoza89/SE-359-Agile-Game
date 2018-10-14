@@ -30,20 +30,36 @@ public class Game {
 
         // grab whole file
         JSONObject jsonObject = (JSONObject)parser.parse(
-                new InputStreamReader(Game.class.getResourceAsStream("/JSONSample.json")));
+                new InputStreamReader(Game.class.
+                        getResourceAsStream("/decks/chanceDeck.json")));
         //System.out.println(jsonObject);
 
         // loop file with array
         JSONArray jsonArray = (JSONArray) jsonObject.get("Cards");
-        for (Object array : jsonArray)
-        {
-            JSONObject currObj = (JSONObject)array;
-            String cardType = (String) currObj.get("Type");
-            String cardContent = (String) currObj.get("Content");
 
+        JSONObject currObj = (JSONObject) jsonArray.get(0);
+        String cardType = (String) currObj.get("Type");
+        //System.out.println(cardType);
+
+        for (int i = 1; i < jsonArray.size(); ++i)
+        {
+            currObj = (JSONObject) jsonArray.get(i);
+            String cardContent = (String) currObj.get("Content");
+//            String cardDescription = (String) currObj.get("Description");
+//            String cardEffect = (String) currObj.get("Effect");
+//            System.out.println(cardStory);
             Deck.AddCard(cardType, cardContent);
         }
 
+//        for (Object array : jsonArray)
+//        {
+//            JSONObject currObj = (JSONObject)array;
+//            String cardType = (String) currObj.get("Type");
+//            String cardContent = (String) currObj.get("Content");
+//
+//            Deck.AddCard(cardType, cardContent);
+//        }
+//
         Deck.printAllDecks();
     }
 }
