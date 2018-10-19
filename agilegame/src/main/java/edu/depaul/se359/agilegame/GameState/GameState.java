@@ -9,6 +9,6 @@ package edu.depaul.se359.agilegame.GameState;
 
 interface GameState {
 
-    void doAction(GameStateContext ctx);
+    void saveState(GameStateContext ctx);
 
 }
