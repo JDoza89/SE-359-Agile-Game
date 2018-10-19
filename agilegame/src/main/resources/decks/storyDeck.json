@@ -4,29 +4,40 @@
     {"Type": "Story"},
 
     {
+      "ID": "S000",
+      "Role": "None",
       "Content": "Cure Cancer!",
       "Description": "Simple, really. Just cure cancer, how hard can it be?",
-      "Effect": "30"
+      "Effect": "addStory",
+      "Amount": "+30"
     },
 
    	{
+      "ID": "S001",
+      "Role": "None",
       "Content": "Establish connection to the provider’s API",
       "Description": "We’re connecting to a new REST API.",
-      "Effect": "5"
+      "Effect": "addStory",
+      "Amount": "+5"
     },
 
     {
+      "ID": "S002",
+      "Role": "None",
       "Content": "Your client wants an oven that shops and cooks on its own",
       "Description": "Creating a robot that can move, has artificial intelligence, can shop (knows ingredients..so internet connection), has limbs that can get food prepared, and the normal oven operations: heat and cooking",
-      "Effect": "25"
+      "Effect": "addStory",
+      "Amount": "+25"
     },
 
     {
+      "ID": "S003",
+      "Role": "None",
       "Content": "Add a new halloween themed photo effect.",
       "Description": "Halloween is approaching. A new halloween themed photo effect would be really nice to get users motivated to use our photo app.",
-      "Effect": "10"
+      "Effect": "addStory",
+      "Amount": "+10"
     }
-
 
   ]
 }
