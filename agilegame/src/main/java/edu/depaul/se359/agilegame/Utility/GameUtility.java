@@ -67,11 +67,16 @@ public final class GameUtility
         for (int i = 1; i < jsonArray.size(); ++i)
         {
             currObj = (JSONObject) jsonArray.get(i);
+            String cardID = (String) currObj.get("ID");
+            String cardRole = (String) currObj.get("Role");
             String cardContent = (String) currObj.get("Content");
             String cardDescription = (String) currObj.get("Description");
             String cardEffect = (String) currObj.get("Effect");
+            String cardAmount = (String) currObj.get("Amount");
 
-            Deck.AddCard(cardType, cardContent, cardDescription, cardEffect);
+            Deck.AddCard(cardType,
+                         cardID, cardRole, cardContent,
+                         cardDescription, cardEffect, cardAmount);
         }
     }
 		

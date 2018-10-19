@@ -33,7 +33,7 @@
         {
             "ID": "CP002",
             "Role": "PM",
-            "Content": "pmChance - Pizza Partyy!! You motivate your team",
+            "Content": "Pizza Partyy!! You motivate your team",
             "Description": "They get ahead",
             "Effect": "pointChange",
             "Amount": "-2"
@@ -51,7 +51,7 @@
 		{
             "ID": "CS001",
             "Role": "SM",
-			"Content": "smChance - You’re not quite sure how it happened, but everyone came together and were simply more productive.",
+			"Content": "You’re not quite sure how it happened, but everyone came together and were simply more productive.",
 			"Description": "Move the top story from the backlog to done",
 			"Effect": "cardChange",
             "Amount": "-1"

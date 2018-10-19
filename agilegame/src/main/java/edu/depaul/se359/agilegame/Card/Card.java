@@ -4,21 +4,32 @@ package edu.depaul.se359.agilegame.Card;
 //a card.
 public abstract class Card
 {
+	private String id;
+	private String role;
 	private String content;
 	private String description;
 	private String effect;
+	private String amount;
 
 	public Card()
 	{
 
 	}
 
-	public Card(String content, String description, String effect)
+	public Card(String id, String role, String content,
+                String description, String effect, String amount)
 	{
+	    this.id = id;
+	    this.role = role;
 		this.content = content;
 		this.description = description;
 		this.effect = effect;
+		this.amount = amount;
 	}
+
+	public String getId() {return id;}
+
+	public String getRole() {return role;}
 
 	public String getContent()
 	{
@@ -34,5 +45,7 @@ public abstract class Card
 	{
 		return effect;
 	}
+
+	public String getAmount() {return amount;}
 
 }
