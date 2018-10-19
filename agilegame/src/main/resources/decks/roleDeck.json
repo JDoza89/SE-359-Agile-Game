@@ -4,15 +4,21 @@
     {"Type": "Role"},
 
     {
-      "Content": "dev - You stay after work all week.",
+      "ID": "RD000",
+      "Role": "DEV",
+      "Content": "You stay after work all week.",
       "Description": "You finished your stories early",
-      "Effect": "remove 10 points"
+      "Effect": "pointChange",
+      "Amount" : "-10"
     },
 
     {
-      "Content": "dev - You finish a story",
-      "Description": "Choose one under 15 points and remove it",
-      "Effect": "remove size of card"
+      "ID": "RD001",
+      "Role": "DEV",
+      "Content": "You have visited AWS Summit and did a cloud app hackathon there.",
+      "Description": "You learn how to code on a cloud-based app.",
+      "Effect": "storyChange",
+      "Amount": "+100%"
     }
 
   ]
