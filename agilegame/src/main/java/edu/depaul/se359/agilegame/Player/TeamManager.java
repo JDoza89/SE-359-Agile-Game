@@ -180,13 +180,13 @@ public class TeamManager {
         switch (type) {
 
             case DEVELOPER:
-                player = new DeveloperPlayer();
+                player = new DeveloperPlayer(teamId);
                 break;
             case SCRUM_MASTER:
-                player = new ScrumMasterPlayer();
+                player = new ScrumMasterPlayer(teamId);
                 break;
             case PROJECT_MANAGER:
-                player = new ProjectManagerPlayer();
+                player = new ProjectManagerPlayer(teamId);
                 break;
 
         }
@@ -201,9 +201,31 @@ public class TeamManager {
 
     }
 
-    public Player getPlayer(int teamId, int playerId) {
+    public Player getPlayer(int playerId) {
 
-        return this.getTeam(teamId).getPlayer(playerId);
+        Player targetPlayer = null;
+        Boolean found = false;
+
+        for(Team team : this.getTeams()) {
+
+            if ( found ) { break; }
+
+            for (Player player : team.getAllPlayers()) {
+
+                if ( found ) { break; }
+
+                if (player.getId() == playerId) {
+
+                    targetPlayer = player;
+                    found = true;
+
+                }
+
+            }
+
+        }
+
+        return targetPlayer;
 
     }
 

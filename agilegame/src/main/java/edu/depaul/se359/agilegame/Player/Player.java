@@ -7,11 +7,14 @@ package edu.depaul.se359.agilegame.Player;
     Created on: October 11, 2018
  */
 
-abstract class Player {
+public abstract class Player {
 
     static int id = 1;
+    int teamId = 0;
 
-    abstract int getId();
+    public abstract int getTeamId();
+    public abstract int getId();
+    public abstract Role getRole();
     abstract void doAction();
 
 }
