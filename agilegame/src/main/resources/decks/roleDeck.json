@@ -1,0 +1,19 @@
+{
+  "Cards":
+  [
+    {"Type": "Role"},
+
+    {
+      "Content": "dev - You stay after work all week.",
+      "Description": "You finished your stories early",
+      "Effect": "remove 10 points"
+    },
+
+    {
+      "Content": "dev - You finish a story",
+      "Description": "Choose one under 15 points and remove it",
+      "Effect": "remove size of card"
+    }
+
+  ]
+}
