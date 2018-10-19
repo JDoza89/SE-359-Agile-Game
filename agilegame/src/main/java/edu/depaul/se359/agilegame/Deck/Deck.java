@@ -112,21 +112,20 @@ public class Deck
 
     private static void cleanPrint(String type, String pos)
     {
-        System.out.println();
         System.out.println("//----------------------------------------------");
-        System.out.println(pos + ": Here are the " + type + " cards: ");
+        System.out.println(pos + " - " + type + " cards");
         System.out.println("//----------------------------------------------");
         System.out.println();
     }
 
     private static void printOneCard(Card card)
     {
-        System.out.println();
         System.out.println("ID: " + card.getId());
         System.out.println("Role: " + card.getRole());
         System.out.println("Content: " + card.getContent());
         System.out.println("Description: " + card.getDescription());
         System.out.println("Effect: " + card.getEffect());
         System.out.println("Amount: " + card.getAmount());
+        System.out.println();
     }
 }
