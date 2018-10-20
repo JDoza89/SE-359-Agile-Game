@@ -1,5 +1,13 @@
 package edu.depaul.se359.agilegame.GameState;
 
+/*
+    The progress manager class. This class is a singleton class to prevent multiple progress manager instances.
+    Progress Manager controls all aspect of the game progress like player's turn, effect of cards, etc.
+
+    Author:     Ethan Lin
+    Created on: October 19, 2018
+ */
+
 import edu.depaul.se359.agilegame.Player.Player;
 import edu.depaul.se359.agilegame.Player.Team;
 import edu.depaul.se359.agilegame.Player.TeamManager;

@@ -47,9 +47,15 @@ class GameStateContext {
     void saveCurrentTurnPlayer(int id) {
         this.turnPlayerId = id;
     }
+    int getCurrentTurnPlayer(int id) {
+        return this.turnPlayerId;
+    }
 
     void saveCurrentTurn(int counter) {
         this.currentTurn = counter;
+    }
+    int getCurrentTurn(int id) {
+        return this.currentTurn;
     }
 
     Map getTeams() {

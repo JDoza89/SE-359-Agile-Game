@@ -8,10 +8,6 @@ package edu.depaul.se359.agilegame.GameState;
     Created on: October 5, 2018
  */
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class GamePlayState implements GameState {
 
     @Override
