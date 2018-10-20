@@ -57,6 +57,7 @@ public class ProgressManager {
                     int playerTeamId = turnPlayer.getTeamId();
                     String playerRole = turnPlayer.getRole().toString();
 
+                    // save current turn number and player id to game context
                     GameManager.getInstance().gameContext().saveCurrentTurnPlayer(turnPlayer.getId());
                     GameManager.getInstance().gameContext().saveCurrentTurn(turnCounter);
 
@@ -82,6 +83,8 @@ public class ProgressManager {
                     int tempIdHolder = turnPlayer.getId();
                     playersIterator.remove();
                     playersIterator.add(tempIdHolder);
+
+                    // increase the turn counter
                     turnCounter++;
 
                 }
