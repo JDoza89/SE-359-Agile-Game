@@ -32,6 +32,7 @@ public class ProgressManager {
 
     public String startTurn() {
 
+        int turnCounter = 1;
         String command = "";
 
         Player player = TeamManager.getInstance().getPlayer(this.orderedPlayerIds.getFirst());
@@ -56,6 +57,10 @@ public class ProgressManager {
                     int playerTeamId = turnPlayer.getTeamId();
                     String playerRole = turnPlayer.getRole().toString();
 
+                    GameManager.getInstance().gameContext().saveCurrentTurnPlayer(turnPlayer.getId());
+                    GameManager.getInstance().gameContext().saveCurrentTurn(turnCounter);
+
+                    System.out.println(".:: TURN " + turnCounter + " ::.\n");
                     System.out.println("Team " + playerTeamId + " " + playerRole + "'s turn!");
                     System.out.println("[Team " + playerTeamId + " " + playerRole + " picks a card from the story deck...]\n");
 
@@ -77,6 +82,7 @@ public class ProgressManager {
                     int tempIdHolder = turnPlayer.getId();
                     playersIterator.remove();
                     playersIterator.add(tempIdHolder);
+                    turnCounter++;
 
                 }
 
