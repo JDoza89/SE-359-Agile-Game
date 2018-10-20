@@ -12,7 +12,7 @@ import java.util.*;
 public class ProgressManager {
 
     private static ProgressManager instance = null;
-    private LinkedList<Integer> orderedPlayerIds = new LinkedList<>();
+    private final LinkedList<Integer> orderedPlayerIds = new LinkedList<>();
 
     private ProgressManager() {
 
@@ -122,10 +122,10 @@ public class ProgressManager {
         }
 
         // loop through each team
-        for ( int t = 0; t < teamIds.size(); t++ ) {
+        for (Integer teamId : teamIds) {
 
             // set array of players from the current team iteration
-            ArrayList<Player> players = TeamManager.getInstance().getTeam(teamIds.get(t)).getAllPlayers();
+            ArrayList<Player> players = TeamManager.getInstance().getTeam(teamId).getAllPlayers();
 
             // set number of players in current team iteration
             numberOfPlayers = players.size();
@@ -153,9 +153,9 @@ public class ProgressManager {
         // them into one orderedPlayerIds array
         for (int j = 0; j < numberOfPlayers; j++) {
 
-            for (int k = 0; k < playerIds.size(); k++) {
+            for (ArrayList<Integer> playerId : playerIds) {
 
-                orderedPlayerIds.add(index++, playerIds.get(k).get(j));
+                orderedPlayerIds.add(index++, playerId.get(j));
 
             }
 
