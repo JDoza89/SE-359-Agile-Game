@@ -33,6 +33,7 @@ public class TeamManager {
     public void promptForTeamsAndPlayers() {
 
         int numTeams = 0;
+        int numPlayers = 0;
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
         // prompt for number of teams
@@ -74,39 +75,37 @@ public class TeamManager {
 
             System.out.println(numTeams + " teams are created.\n");
 
-            // prompt for number of player per team
-            for (Team team : this.getTeams()) {
+            System.out.println("How many players per Team?");
+            System.out.println("Please enter an integer greater than 3.");
 
-                int numPlayers = 0;
+            command = console.readLine();
 
-                System.out.println("How many players in Team " + team.getId() + "?");
-                System.out.println("Please enter an integer greater than 3.");
+            do {
 
-                command = console.readLine();
+                try {
 
-                do {
+                    numPlayers = Integer.parseInt(command);
 
-                    try {
-
-                        numPlayers = Integer.parseInt(command);
-
-                        if (numPlayers <= 2) {
-
-                            System.out.println("Please enter an integer greater than 3.");
-                            command = console.readLine();
-
-                        }
-
-                    } catch (Exception e) {
+                    if (numPlayers <= 2) {
 
                         System.out.println("Please enter an integer greater than 3.");
                         command = console.readLine();
 
                     }
 
-                }  while(numPlayers <= 1);
+                } catch (Exception e) {
 
-                System.out.println(numPlayers + " players in Team " + team.getId() + ".\n");
+                    System.out.println("Please enter an integer greater than 3.");
+                    command = console.readLine();
+
+                }
+
+            }  while(numPlayers <= 2);
+
+            System.out.println(numPlayers + " players for each team.\n");
+
+            // prompt for number of player per team
+            for (Team team : this.getTeams()) {
 
                 // use loop to create player in current team
                 // first two players will always be project manager and scrum master
@@ -226,6 +225,22 @@ public class TeamManager {
         }
 
         return targetPlayer;
+
+    }
+
+    public Integer getNumberOfMostPlayers() {
+
+        int num = 0;
+
+        for (Team team : this.getTeams()) {
+
+            if (team.getPlayerCount() > num) {
+                num = team.getPlayerCount();
+            }
+
+        }
+
+        return num;
 
     }
 
