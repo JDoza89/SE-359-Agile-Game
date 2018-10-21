@@ -31,6 +31,11 @@ public abstract class Card
 		this.amount = amount;
 	}
 
+	public Card(String content)
+	{
+		this.content = content;
+	}
+
 	public String getId() {return id;}
 
 	public String getRole() {return role;}
