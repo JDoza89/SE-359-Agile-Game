@@ -1,3 +1,5 @@
+package edu.depaul.se359.agilegame.GUI;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;

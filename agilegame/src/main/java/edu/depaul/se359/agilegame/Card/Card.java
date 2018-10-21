@@ -16,6 +16,10 @@ public abstract class Card
 
 	}
 
+	public Card(String content){
+		this.content = content;
+	}
+
 	public Card(String id, String role, String content,
                 String description, String effect, String amount)
 	{
