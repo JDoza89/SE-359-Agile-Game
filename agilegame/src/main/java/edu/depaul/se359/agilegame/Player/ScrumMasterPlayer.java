@@ -10,7 +10,12 @@ package edu.depaul.se359.agilegame.Player;
 class ScrumMasterPlayer extends Player {
 
     private final int id = Player.id++;
+    private int teamId = 0;
     private final Role role = Role.SCRUM_MASTER;
+
+    ScrumMasterPlayer(int teamId) {
+        this.teamId = teamId;
+    }
 
     @Override
     public void doAction() {
@@ -22,7 +27,12 @@ class ScrumMasterPlayer extends Player {
         return this.id;
     }
 
-    public Role getPlayerRole() {
+    @Override
+    public int getTeamId() {
+        return this.teamId;
+    }
+
+    public Role getRole() {
 
         return this.role;
 

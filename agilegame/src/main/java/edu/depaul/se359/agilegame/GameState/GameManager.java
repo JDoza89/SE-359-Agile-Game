@@ -38,21 +38,21 @@ public class GameManager {
     public void startGame() {
 
         GameState startState = new GameStartState();
-        startState.doAction(this.gameStateContext);
+        startState.saveState(this.gameStateContext);
 
     }
 
     public void playGame() {
 
         GameState playState = new GamePlayState();
-        playState.doAction(this.gameStateContext);
+        playState.saveState(this.gameStateContext);
 
     }
 
     public void endGame() {
 
         GameState endState = new GameEndState();
-        endState.doAction(this.gameStateContext);
+        endState.saveState(this.gameStateContext);
 
     }
 

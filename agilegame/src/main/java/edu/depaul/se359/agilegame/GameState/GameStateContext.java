@@ -16,6 +16,8 @@ class GameStateContext {
 
     private GameState currentState;
     private final Map<Integer, Integer> teamsMap = new HashMap<>();
+    private int turnPlayerId = 0;
+    private int currentTurn = 0;
 
     GameStateContext() {
 
@@ -40,6 +42,20 @@ class GameStateContext {
             this.teamsMap.put(team.getId(),team.getPlayerCount());
         }
 
+    }
+
+    void saveCurrentTurnPlayer(int id) {
+        this.turnPlayerId = id;
+    }
+    int getCurrentTurnPlayer(int id) {
+        return this.turnPlayerId;
+    }
+
+    void saveCurrentTurn(int counter) {
+        this.currentTurn = counter;
+    }
+    int getCurrentTurn(int id) {
+        return this.currentTurn;
     }
 
     Map getTeams() {

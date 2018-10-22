@@ -11,7 +11,7 @@ package edu.depaul.se359.agilegame.GameState;
 public class GameEndState implements GameState {
 
     @Override
-    public void doAction(GameStateContext ctx) {
+    public void saveState(GameStateContext ctx) {
 
         System.out.println("Game Ended!\n");
         ctx.setState(this);

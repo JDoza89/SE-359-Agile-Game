@@ -8,14 +8,10 @@ package edu.depaul.se359.agilegame.GameState;
     Created on: October 5, 2018
  */
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class GamePlayState implements GameState {
 
     @Override
-    public void doAction(GameStateContext ctx) {
+    public void saveState(GameStateContext ctx) {
 
         System.out.println("Game Plays");
         ctx.setState(this);
@@ -32,36 +28,24 @@ public class GamePlayState implements GameState {
 
     private void gamePlayLoop() {
 
-        BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Welcome to the [scenario name]!\n");
 
-        try {
+        // list the available stories in the game that user can play
+        // read stories from a JSON file
+        System.out.println("[Display stories...]\n");
 
-            System.out.println("Welcome to the [scenario name]!");
-            System.out.println("Enter \"next\" to go to next turn. (not coded)");
-            System.out.println("Enter \"end\" to end the story.\n");
+        String command;
 
-            // list the available stories in the game that user can play
-            // read stories from a JSON file
-            System.out.println("Display stories...");
+        do {
 
-            String command;
+            command = ProgressManager.getInstance().startTurn();
 
-            do {
+        }  while(!command.equalsIgnoreCase("end"));
 
-                command = console.readLine();
+        System.out.println("You end the scenario.");
+        System.out.println("[Display score...]");
 
-            }  while(!command.equalsIgnoreCase("end"));
-
-            System.out.println("You end the scenario.");
-            System.out.println("[Display score...]");
-
-            GameManager.getInstance().endGame();
-
-        } catch(IOException x) {
-
-            x.printStackTrace();
-
-        }
+        GameManager.getInstance().endGame();
 
     }
 

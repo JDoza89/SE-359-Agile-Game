@@ -16,7 +16,7 @@ import edu.depaul.se359.agilegame.Player.TeamManager;
 public class GameStartState implements GameState {
 
     @Override
-    public void doAction(GameStateContext ctx) {
+    public void saveState(GameStateContext ctx) {
 
         System.out.println("Game Starts");
         ctx.setState(this);
