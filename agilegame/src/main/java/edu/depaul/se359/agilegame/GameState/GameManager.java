@@ -9,6 +9,8 @@ package edu.depaul.se359.agilegame.GameState;
  */
 
 import java.util.ArrayList;
+import java.util.Map;
+
 import edu.depaul.se359.agilegame.Player.Team;
 
 public class GameManager {
@@ -30,38 +32,50 @@ public class GameManager {
     }
 
     public String getGameState() {
-
         return gameStateContext.getState().toString();
-
     }
 
     public void startGame() {
-
         GameState startState = new GameStartState();
         startState.saveState(this.gameStateContext);
-
     }
 
     public void playGame() {
-
         GameState playState = new GamePlayState();
         playState.saveState(this.gameStateContext);
-
     }
 
     public void endGame() {
-
         GameState endState = new GameEndState();
         endState.saveState(this.gameStateContext);
+    }
 
+    public GameStateContext gameContext() {
+        return this.gameStateContext;
     }
 
     public void saveTeams(ArrayList<Team> teams) {
         this.gameStateContext.saveTeams(teams);
     }
 
-    public GameStateContext gameContext() {
-        return this.gameStateContext;
+    public Map getTeamsInContext() {
+        return this.gameStateContext.getTeams();
+    }
+
+    public void saveCurrentTurn(int counter) {
+        this.gameStateContext.saveCurrentTurn(counter);
+    }
+
+    public int getCurrentTurnInContext() {
+        return this.gameStateContext.getCurrentTurn();
+    }
+
+    void saveCurrentTurnPlayer(int id) {
+        this.gameStateContext.saveCurrentTurnPlayer(id);
+    }
+
+    public int getCurrentTurnPlayerInContext() {
+        return this.gameStateContext.getCurrentTurnPlayer();
     }
 
 }
