@@ -22,9 +22,7 @@ public class ProgressManager {
     private int currentTurnCount = 1;
 
     private ProgressManager() {
-
         this.determinePlayerTurns();
-
     }
 
     public static ProgressManager getInstance() {
@@ -44,8 +42,8 @@ public class ProgressManager {
         Player player = TeamManager.getInstance().getPlayer(playerId);
 
         // save current game state to GameStateContext
-        GameManager.getInstance().gameContext().saveCurrentTurnPlayer(player.getId());
-        GameManager.getInstance().gameContext().saveCurrentTurn(this.currentTurnCount);
+        GameManager.getInstance().saveCurrentTurnPlayer(player.getId());
+        GameManager.getInstance().saveCurrentTurn(this.currentTurnCount);
 
         // TODO: DISPLAY CARDS ON CURRENT PLAYER'S HAND
         // TODO: CARRY OUT CARD EFFECT SELECTED BY THE CURRENT PLAYER (PLAYERS PLAY CARD)
@@ -60,7 +58,7 @@ public class ProgressManager {
 
     }
 
-    public Integer getCurrentTurnCount() {
+    public int getCurrentTurnCount() {
         return this.currentTurnCount;
     }
 

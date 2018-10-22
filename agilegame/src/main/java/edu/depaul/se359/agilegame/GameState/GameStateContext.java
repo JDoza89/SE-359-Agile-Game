@@ -20,46 +20,41 @@ class GameStateContext {
     private int currentTurn = 0;
 
     GameStateContext() {
-
         currentState = null;
     }
 
     void setState(GameState state) {
-
         currentState = state;
-
     }
 
     GameState getState() {
-
         return currentState;
-
     }
 
     void saveTeams(ArrayList<Team> teams) {
-
         for (Team team : teams) {
             this.teamsMap.put(team.getId(),team.getPlayerCount());
         }
+    }
 
+    Map getTeams() {
+        return this.teamsMap;
     }
 
     void saveCurrentTurnPlayer(int id) {
         this.turnPlayerId = id;
     }
-    int getCurrentTurnPlayer(int id) {
+
+    int getCurrentTurnPlayer() {
         return this.turnPlayerId;
     }
 
     void saveCurrentTurn(int counter) {
         this.currentTurn = counter;
     }
-    int getCurrentTurn(int id) {
-        return this.currentTurn;
-    }
 
-    Map getTeams() {
-        return this.teamsMap;
+    int getCurrentTurn() {
+        return this.currentTurn;
     }
 
 }

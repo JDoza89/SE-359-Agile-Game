@@ -35,9 +35,7 @@ public class TeamManager {
 
         // use loop to create teams
         for (int i = 0; i < numTeams; i++) {
-
             this.createTeam();
-
         }
 
         // use loop to create player in each team
@@ -62,20 +60,17 @@ public class TeamManager {
 
         }
 
+        // save teams to the game state context
         GameManager.getInstance().saveTeams(this.getTeams());
 
     }
 
     private void createTeam() {
-
         this.addTeam(new Team());
-
     }
 
     private void addTeam(Team team) {
-
         this.teams.add(team);
-
     }
 
     public Team getTeam(int teamId) {
@@ -98,9 +93,7 @@ public class TeamManager {
     }
 
     public ArrayList<Team> getTeams() {
-
         return this.teams;
-
     }
 
     private void createPlayer(int teamId, Role type) {
@@ -126,9 +119,7 @@ public class TeamManager {
     }
 
     private void addPlayer( int teamId, Player player) {
-
         this.getTeam(teamId).addPlayer(player);
-
     }
 
     public Player getPlayer(int playerId) {
