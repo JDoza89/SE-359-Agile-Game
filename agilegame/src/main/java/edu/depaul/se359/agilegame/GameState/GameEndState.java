@@ -12,26 +12,15 @@ public class GameEndState implements GameState {
 
     @Override
     public void saveState(GameStateContext ctx) {
-
-        System.out.println("Game Ended!\n");
         ctx.setState(this);
-        this.backToMainMenu();
+
+        // do something here after the game ended (like displaying the score)
 
     }
 
     @Override
     public String toString() {
-
         return "End";
-
-    }
-
-    private void backToMainMenu() {
-
-        System.out.println("Would you like to play another [scenario]?");
-        System.out.println("Enter \"quit\" to quit the game.\n");
-        System.out.println("[List all available scenarios again...]");
-
     }
 
 }

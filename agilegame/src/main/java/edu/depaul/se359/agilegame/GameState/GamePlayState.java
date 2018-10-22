@@ -12,41 +12,17 @@ public class GamePlayState implements GameState {
 
     @Override
     public void saveState(GameStateContext ctx) {
-
-        System.out.println("Game Plays");
         ctx.setState(this);
-        this.gamePlayLoop();
+        this.gamePlay();
+    }
 
+    private void gamePlay() {
+        ProgressManager.getInstance().circulateTurns();
     }
 
     @Override
     public String toString() {
-
         return "Play";
-
-    }
-
-    private void gamePlayLoop() {
-
-        System.out.println("Welcome to the [scenario name]!\n");
-
-        // list the available stories in the game that user can play
-        // read stories from a JSON file
-        System.out.println("[Display stories...]\n");
-
-        String command;
-
-        do {
-
-            command = ProgressManager.getInstance().startTurn();
-
-        }  while(!command.equalsIgnoreCase("end"));
-
-        System.out.println("You end the scenario.");
-        System.out.println("[Display score...]");
-
-        GameManager.getInstance().endGame();
-
     }
 
 }
