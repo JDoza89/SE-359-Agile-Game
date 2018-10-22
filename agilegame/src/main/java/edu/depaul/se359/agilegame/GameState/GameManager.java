@@ -18,6 +18,7 @@ public class GameManager {
 
     private GameManager() {}
 
+
     public static GameManager getInstance() {
 
         if (instance == null) {
