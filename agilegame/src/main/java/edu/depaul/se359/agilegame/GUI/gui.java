@@ -1,6 +1,7 @@
 package edu.depaul.se359.agilegame.Gui;
 
 import edu.depaul.se359.agilegame.GameState.GameManager;
+import edu.depaul.se359.agilegame.Player.TeamManager;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -17,6 +18,8 @@ import javafx.scene.text.Text;
 public class Gui extends Application {
 
     GameManager game;
+    TeamManager teams;
+
     Text team1Score = new Text("Team 1: " + 120);
     Text team2Score = new Text("Team 2: " + 120);
 
@@ -61,12 +64,14 @@ public class Gui extends Application {
         TextField t1 = new TextField();
         TextField t2 = new TextField();
         //Add the method to start the game
-        game = game.getInstance();
 
         button1.setOnAction(action -> {
             text.setText("The Game has started");
-
-            //game.startGame();
+            game = game.getInstance();
+            teams = teams.getInstance();
+            teams.setNumberOfTeams(2);
+            teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
+            GameManager.getInstance().startGame();
         });
 
         //Add the method that will play the card selected
@@ -77,7 +82,9 @@ public class Gui extends Application {
         //Add the method that ends the game
         button4.setOnAction(action -> {
             text.setText("Game has ended");
-            //game.endGame();
+            if(game.getInstance() != null) {
+                game.endGame();
+            }
         });
 
         VBox vbox = new VBox(team1Score, team2Score, team, team1, t1, team2, t2, button1, num, textField, button3, button4, root);
