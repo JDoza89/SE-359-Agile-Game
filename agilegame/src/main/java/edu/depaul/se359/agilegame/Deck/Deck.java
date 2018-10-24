@@ -59,6 +59,13 @@ public class Deck
         return m_storyDeck;
     }
 
+    public void clearDecks()
+    {
+        m_chanceDeck.clear();
+        m_roleDeck.clear();
+        m_storyDeck.clear();
+    }
+
     private static void printChanceDeck()
     {
         Deck d = Deck.getInstance();

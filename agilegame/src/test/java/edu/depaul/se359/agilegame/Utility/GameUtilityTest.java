@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.io.FileReader;
@@ -32,6 +33,11 @@ class GameUtilityTest {
         GameUtility.parseJSONtoDecks();
     }
 
+    @AfterAll
+    static void clearDecks()
+    {
+        Deck.getInstance().clearDecks();
+    }
 
     @Test
     //Test Shuffle Card Function by checking length of the card deck is the same as before.  Can't really test shuffle functionality since
@@ -49,6 +55,8 @@ class GameUtilityTest {
     //Test chance card deck to see if parsing method was able to successfully parse json file into cards with all the given attributes.
     void parseJSONChanceDeck() throws IOException, ParseException
     {
+        //Get json data from file and store in JSON Object variable, then use JSON Array to store all the cards inside
+        //the "Cards" key section of the file.
         Object obj = jsonParser.parse(new FileReader(chanceDeckPath));
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray jsonArray = (JSONArray)jsonObject.get("Cards");
@@ -71,6 +79,8 @@ class GameUtilityTest {
     //Test role card deck to see if parsing method was able to successfully parse json file into cards with all the given attributes.
     void parseJSONRoleDeck() throws IOException, ParseException
     {
+        //Get json data from file and store in JSON Object variable, then use JSON Array to store all the cards inside
+        //the "Cards" key section of the file.
         Object obj = jsonParser.parse(new FileReader(roleDeckPath));
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray jsonArray = (JSONArray)jsonObject.get("Cards");
@@ -93,6 +103,8 @@ class GameUtilityTest {
     //Test story card deck to see if parsing method was able to successfully parse json file into cards with all the given attributes.
     void parseJSONStoryDeck() throws IOException, ParseException
     {
+        //Get json data from file and store in JSON Object variable, then use JSON Array to store all the cards inside
+        //the "Cards" key section of the file.
         Object obj = jsonParser.parse(new FileReader(storyDeckPath));
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray jsonArray = (JSONArray)jsonObject.get("Cards");

@@ -1,12 +1,9 @@
-package edu.depaul.se359.agilegame.Gui;
+package edu.depaul.se359.agilegame.GUI;
 
 import edu.depaul.se359.agilegame.GameState.GameManager;
-import edu.depaul.se359.agilegame.Player.TeamManager;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,10 +15,7 @@ import javafx.scene.text.Text;
 public class Gui extends Application {
 
     GameManager game;
-    TeamManager teams;
 
-    Text team1Score = new Text("Team 1: " + 120);
-    Text team2Score = new Text("Team 2: " + 120);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -29,7 +23,7 @@ public class Gui extends Application {
 
         TextField textField = new TextField();
         Text text = new Text();
-        text.setText("Welcome to Agile Game");
+        text.setText("Hello how are you");
 
         text.setFont(Font.font ("Verdana", 25));
         //setting the position of the text
@@ -37,7 +31,7 @@ public class Gui extends Application {
         text.setX(100);
         text.setY(550);
 
-
+        //Creating a Group object
         Group root = new Group(text);
 
 
@@ -64,14 +58,12 @@ public class Gui extends Application {
         TextField t1 = new TextField();
         TextField t2 = new TextField();
         //Add the method to start the game
+        game = game.getInstance();
 
         button1.setOnAction(action -> {
             text.setText("The Game has started");
-            game = game.getInstance();
-            teams = teams.getInstance();
-            teams.setNumberOfTeams(2);
-            teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
-            GameManager.getInstance().startGame();
+
+            //game.startGame();
         });
 
         //Add the method that will play the card selected
@@ -82,12 +74,10 @@ public class Gui extends Application {
         //Add the method that ends the game
         button4.setOnAction(action -> {
             text.setText("Game has ended");
-            if(game.getInstance() != null) {
-                game.endGame();
-            }
+            //game.endGame();
         });
 
-        VBox vbox = new VBox(team1Score, team2Score, team, team1, t1, team2, t2, button1, num, textField, button3, button4, root);
+        VBox vbox = new VBox(team, team1, t1, team2, t2, button1, num, textField, button3, button4, root);
 
 
         Scene scene = new Scene(vbox, 800, 800);
