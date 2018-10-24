@@ -7,6 +7,8 @@ package edu.depaul.se359.agilegame.Player;
     Created on: October 11, 2018
  */
 
+import edu.depaul.se359.agilegame.Hand.Hand;
+
 class DeveloperPlayer extends Player {
 
     private final int id = Player.id++;
@@ -15,6 +17,7 @@ class DeveloperPlayer extends Player {
 
     DeveloperPlayer(int teamId) {
         this.teamId = teamId;
+        this.ownHand = new Hand(teamId, id, role);
     }
 
     @Override
