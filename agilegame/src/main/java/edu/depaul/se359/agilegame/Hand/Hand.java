@@ -7,15 +7,16 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public class Hand{
+public class Hand {
     private int team;
     private int player;
-
+    private Role role;
     private ArrayList<PlayerCard> hand;
 
-    public Hand(int playerTeam, int playerNumber, Role playerRole){
+    public Hand(int playerTeam, int playerNumber, Role playerRole) {
         team = playerTeam;
         player = playerNumber;
+        role = playerRole;
         hand = new ArrayList<>();
     }
 
