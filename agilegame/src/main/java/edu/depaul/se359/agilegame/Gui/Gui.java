@@ -1,4 +1,4 @@
-package edu.depaul.se359.agilegame.GUI;
+package edu.depaul.se359.agilegame.Gui;
 
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import javafx.application.Application;
