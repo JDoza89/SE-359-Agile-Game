@@ -14,12 +14,14 @@ public class Team {
 
     private static int teamCount = 1;
     private final int id;
+    private int storyPoint;
 
     private final ArrayList<Player> players;
 
     public Team() {
 
         this.id = Team.teamCount++;
+        this.storyPoint = 0;
         this.players = new ArrayList<>();
 
     }
@@ -29,6 +31,25 @@ public class Team {
         return this.id;
 
     }
+
+    public int setStoryPoint(String sign, int val)
+    {
+        if (sign.equals("-"))
+        {
+            this.storyPoint -= val;
+        }
+        else
+        {
+            this.storyPoint += val;
+        }
+        return this.storyPoint;
+    }
+
+    public int getStoryPoint()
+    {
+        return this.storyPoint;
+    }
+
 
     public void addPlayer(Player player) {
 
