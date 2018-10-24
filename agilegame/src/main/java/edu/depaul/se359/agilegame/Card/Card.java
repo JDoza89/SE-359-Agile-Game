@@ -16,10 +16,6 @@ public abstract class Card
 
 	}
 
-	public Card(String content){
-		this.content = content;
-	}
-
 	public Card(String id, String role, String content,
                 String description, String effect, String amount)
 	{
@@ -29,6 +25,11 @@ public abstract class Card
 		this.description = description;
 		this.effect = effect;
 		this.amount = amount;
+	}
+
+	public Card(String content)
+	{
+		this.content = content;
 	}
 
 	public String getId() {return id;}

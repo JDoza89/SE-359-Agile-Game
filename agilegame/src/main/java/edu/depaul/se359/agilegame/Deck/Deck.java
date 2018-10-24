@@ -44,6 +44,28 @@ public class Deck
         printRoleDeck();
     }
 
+    public ArrayList<ChanceCard> getChanceCards()
+    {
+        return m_chanceDeck;
+    }
+
+    public ArrayList<RoleCard> getRoleCards()
+    {
+        return m_roleDeck;
+    }
+
+    public ArrayList<StoryCard> getStoryCards()
+    {
+        return m_storyDeck;
+    }
+
+    public void clearDecks()
+    {
+        m_chanceDeck.clear();
+        m_roleDeck.clear();
+        m_storyDeck.clear();
+    }
+
     private static void printChanceDeck()
     {
         Deck d = Deck.getInstance();
