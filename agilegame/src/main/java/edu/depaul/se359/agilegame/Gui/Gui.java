@@ -1,6 +1,8 @@
 package edu.depaul.se359.agilegame.Gui;
 
+import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
+import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Player.TeamManager;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -19,6 +21,8 @@ public class Gui extends Application {
 
     GameManager game;
     TeamManager teams;
+    ProgressManager progress;
+    Deck deck = Deck.getInstance();
 
     Text team1Score = new Text("Team 1: " + 120);
     Text team2Score = new Text("Team 2: " + 120);
@@ -71,12 +75,18 @@ public class Gui extends Application {
             teams = teams.getInstance();
             teams.setNumberOfTeams(2);
             teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
+            teams.createTeamsAndPlayers();
             GameManager.getInstance().startGame();
         });
 
         //Add the method that will play the card selected
         button3.setOnAction(action -> {
+            progress = ProgressManager.getInstance();
+            progress.circulateTurns();
+            System.out.println(progress.getCurrentTurnCount());
             System.out.println(textField.getText());
+            Deck.printAllDecks();
+
         });
 
         //Add the method that ends the game
