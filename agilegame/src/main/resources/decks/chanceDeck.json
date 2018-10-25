@@ -1,54 +1,61 @@
-1:{
-	"deck": "devChance",
-	"story": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
-	"description": "Your card deck get shuffled.",
-	"size": "subtract 5"
-},
-2:{
-	"deck": "devChance",
-	"story": "",
-	"description": "",
-	"size": ""
-},
-3:{
-	"deck": "pmChance",
-	"story": "A Developer on your team got too lit last night, she called off today.",
-	"description": "You are behind",
-	"size": "add 2"
-},
-4:{
-	"deck": "pmChance",
-	"story": "Your Client wants to add a new feature",
-	"description": "",
-	"size": "add 10"
-},
-5:{
-	"deck": "smChance",
-	"story": "Priorities change!",
-	"description": "Remove one card from the back log",
-	"size": "subtract 5"
-},
-6:{
-	"deck": "smChance",
-	"story": "You’re not quite sure how it happened, but everyone came together and were simply more productive.",
-	"description": " Move the top story from the backlog to done",
-	"size": "subtract card size"
-},
-7:{
-	"deck": "devChance",
-	"story": "",
-	"description": "",
-	"size": ""
-},
-8:{
-	"deck": "pmChance",
-	"story": "Pizza Partyy!! You motivate your team",
-	"description": "They get ahead",
-	"size": "subtract 2"
-},
-9:{
-	"deck": "smChance",
-	"story": "",
-	"description": "",
-	"size": ""
+{
+	"Cards":
+	[
+		{"Type": "Chance"},
+
+		{
+			"ID": "CD000",
+            "Role": "DEV",
+			"Content": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
+			"Description": "Your card deck get shuffled.",
+			"Effect": "pointChange",
+            "Amount": "-10"
+		},
+
+		{
+            "ID": "CP000",
+            "Role": "PM",
+			"Content": "A Developer on your team got too lit last night, she called off today.",
+			"Description": "You are behind",
+            "Effect": "pointChange",
+            "Amount": "+2"
+		},
+
+		{
+            "ID": "CP001",
+            "Role": "PM",
+			"Content": "Your Client wants to add a new feature",
+			"Description": "None",
+            "Effect": "pointChange",
+            "Amount": "+10"
+		},
+
+        {
+            "ID": "CP002",
+            "Role": "PM",
+            "Content": "Pizza Partyy!! You motivate your team",
+            "Description": "They get ahead",
+            "Effect": "pointChange",
+            "Amount": "-2"
+        },
+
+		{
+            "ID": "CS000",
+            "Role": "SM",
+			"Content": "Priorities change!",
+			"Description": "Remove one card from the back log",
+            "Effect": "pointChange",
+            "Amount": "-5"
+		},
+
+		{
+            "ID": "CS001",
+            "Role": "SM",
+			"Content": "You’re not quite sure how it happened, but everyone came together and were simply more productive.",
+			"Description": "Move the top story from the backlog to done",
+			"Effect": "cardChange",
+            "Amount": "-1"
+        }
+
+	]
 }

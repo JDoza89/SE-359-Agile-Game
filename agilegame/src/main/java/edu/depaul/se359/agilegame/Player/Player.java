@@ -7,11 +7,18 @@ package edu.depaul.se359.agilegame.Player;
     Created on: October 11, 2018
  */
 
-abstract class Player {
+import edu.depaul.se359.agilegame.Hand.Hand;
+
+public abstract class Player
+{
 
     static int id = 1;
+    int teamId = 0;
+    Hand ownHand;
 
-    abstract int getId();
+    public abstract int getTeamId();
+    public abstract int getId();
+    public abstract Role getRole();
     abstract void doAction();
 
 }

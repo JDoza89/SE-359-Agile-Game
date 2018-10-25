@@ -7,10 +7,18 @@ package edu.depaul.se359.agilegame.Player;
     Created on: October 11, 2018
  */
 
+import edu.depaul.se359.agilegame.Hand.Hand;
+
 class DeveloperPlayer extends Player {
 
     private final int id = Player.id++;
+    private int teamId = 0;
     private final Role role = Role.DEVELOPER;
+
+    DeveloperPlayer(int teamId) {
+        this.teamId = teamId;
+        this.ownHand = new Hand(teamId, id, role);
+    }
 
     @Override
     public void doAction() {
@@ -22,7 +30,12 @@ class DeveloperPlayer extends Player {
         return this.id;
     }
 
-    public Role getPlayerRole() {
+    @Override
+    public int getTeamId() {
+        return this.teamId;
+    }
+
+    public Role getRole() {
 
         return this.role;
 

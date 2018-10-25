@@ -1,0 +1,25 @@
+{
+  "Cards":
+  [
+    {"Type": "Role"},
+
+    {
+      "ID": "RD000",
+      "Role": "DEV",
+      "Content": "You stay after work all week.",
+      "Description": "You finished your stories early",
+      "Effect": "pointChange",
+      "Amount" : "-10"
+    },
+
+    {
+      "ID": "RD001",
+      "Role": "DEV",
+      "Content": "You have visited AWS Summit and did a cloud app hackathon there.",
+      "Description": "You learn how to code on a cloud-based app.",
+      "Effect": "storyChange",
+      "Amount": "+100%"
+    }
+
+  ]
+}
