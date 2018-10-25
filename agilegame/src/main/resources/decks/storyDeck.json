@@ -37,6 +37,150 @@
       "Description": "Halloween is approaching. A new halloween themed photo effect would be really nice to get users motivated to use our photo app.",
       "Effect": "addStory",
       "Amount": "+10"
+    },
+
+    {
+      "ID": "S004",
+      "Role": "None",
+      "Content": "Write the great American Novel",
+      "Description": "We haven't liked any of the modern writers. Make us something that will sell like crazy.",
+      "Effect": "addStory",
+      "Amount": "+20"
+    },
+
+    {
+      "ID": "S005",
+      "Role": "None",
+      "Content": "Make it social",
+      "Description": "Users should be able to comment and share things with each other.",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S006",
+      "Role": "None",
+      "Content": "Put it on the blockchain!",
+      "Description": "I don't know what a blockchain is, but I've heard mauve is the fastest!",
+      "Effect": "addStory",
+      "Amount": "+5"
+    },
+
+    {
+      "ID": "S007",
+      "Role": "None",
+      "Content": "Make the app cloud native.",
+      "Description": "As we scale it is becoming harder to shelf host. We should embrace the cloud",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S008",
+      "Role": "None",
+      "Content": "Support localization",
+      "Description": "We cannot assume that our users will all speak the same language. Make sure nothing is hard coded to a specific language",
+      "Effect": "addStory",
+      "Amount": "+15"
+    },
+
+    {
+      "ID": "S009",
+      "Role": "None",
+      "Content": "Build a demo",
+      "Description": "We need something people can play around with at the next conference. It should at least seem to work, even if it's hacked together.",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S010",
+      "Role": "None",
+      "Content": "Support Virtual Reality",
+      "Description": "Virtual reality is finally here. Unlike the last four times, this time is for real.",
+      "Effect": "addStory",
+      "Amount": "+20"
+    },
+
+    {
+      "ID": "S011",
+      "Role": "None",
+      "Content": "Start using acceptance tests",
+      "Description": "This will, hopefully, let the business write tests to make sure that the software is behaving like they wish",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S012",
+      "Role": "None",
+      "Content": "Address technical debt",
+      "Description": "As developers come and go and the program ages, it starts to be weighed down by it's age. Take a pass and fix it up some",
+      "Effect": "addStory",
+      "Amount": "+15"
+    },
+
+    {
+      "ID": "S013",
+      "Role": "None",
+      "Content": "Update the terms of service",
+      "Description": "We know no one reads them, but our lawyers say adding these lines is in our best interest.",
+      "Effect": "addStory",
+      "Amount": "+5"
+    },
+
+    {
+      "ID": "S014",
+      "Role": "None",
+      "Content": "Make it cross platform",
+      "Description": "More and more of the world are getting on line through their phones. We need to support them or else we'll get left behind",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S015",
+      "Role": "None",
+      "Content": "Make it Mars ready",
+      "Description": "Several companies are looking into creating colonies on Mars. Let's make sure our app can go with them",
+      "Effect": "addStory",
+      "Amount": "+20"
+    },
+
+    {
+      "ID": "S016",
+      "Role": "None",
+      "Content": "Add an AI assistant",
+      "Description": "It turns out some people prefer to talk to their assistant instead of typing it out themselves.",
+      "Effect": "addStory",
+      "Amount": "+15"
+    },
+
+    {
+      "ID": "S017",
+      "Role": "None",
+      "Content": "Add a dashboard",
+      "Description": "Centralizing monitoring and adding graphs can help us detect problems sooner",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S018",
+      "Role": "None",
+      "Content": "Give the program pre-cog abilities",
+      "Description": "Our app should predict what the user wants before they even know it themselves",
+      "Effect": "addStory",
+      "Amount": "+10"
+    },
+
+    {
+      "ID": "S019",
+      "Role": "None",
+      "Content": "Support SSL",
+      "Description": "It is important that we keep our users' data safe, from the moment it leaves them.",
+      "Effect": "addStory",
+      "Amount": "+5"
     }
 
   ]
