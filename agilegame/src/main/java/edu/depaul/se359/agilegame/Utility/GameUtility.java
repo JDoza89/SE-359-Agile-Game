@@ -3,6 +3,7 @@ package edu.depaul.se359.agilegame.Utility;
 import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.Game;
+import edu.depaul.se359.agilegame.Player.Team;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -80,5 +81,24 @@ public final class GameUtility
         }
     }
 
+    public static void doEffect(Card card, Team team)
+    {
+        String effectType = card.getEffect();
+        String amount = card.getAmount();
 
+        doEffect(effectType, amount, team);
+    }
+
+    private static void doEffect(String effectType, String amount, Team team)
+    {
+        String sign = amount.substring(0, 1);
+        int score = Integer.parseInt(amount.substring(1));
+
+        switch (effectType)
+        {
+            case "pointChange":
+                team.setStoryPoint(sign, score);
+                break;
+        }
+    }
 }
