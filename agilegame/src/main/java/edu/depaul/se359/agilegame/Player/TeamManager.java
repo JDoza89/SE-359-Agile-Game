@@ -92,6 +92,14 @@ public class TeamManager {
 
     }
 
+    public void getID(){
+        Team t;
+        for(int i =0; i< this.teams.size(); i++)
+        {   t = this.teams.get(i);
+            System.out.println(t.getId());
+        }
+    }
+
     public ArrayList<Team> getTeams() {
         return this.teams;
     }

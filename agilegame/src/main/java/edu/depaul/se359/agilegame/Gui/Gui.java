@@ -3,6 +3,7 @@ package edu.depaul.se359.agilegame.Gui;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
+import edu.depaul.se359.agilegame.Hand.Hand;
 import edu.depaul.se359.agilegame.Player.TeamManager;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -16,13 +17,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import org.json.simple.JSONObject;
 
 public class Gui extends Application {
 
+    VBox vBox;
+    Scene scene;
+    int score = 120;
     GameManager game;
     TeamManager teams;
     ProgressManager progress;
     Deck deck = Deck.getInstance();
+
+
 
     Text team1Score = new Text("Team 1: " + 120);
     Text team2Score = new Text("Team 2: " + 120);
@@ -50,9 +57,8 @@ public class Gui extends Application {
         Button button4 = new Button("End Game");
 
         Text num = new Text("Enter card number you wish to select: ");
-        Text team = new Text("How many Players per Team?");
-        Text team1 = new Text("Team 1: ");
-        Text team2 = new Text("Team 2: ");
+        Text team = new Text("Number of players per team: ");
+
 
 
         button1.setStyle("-fx-font-size: 2em;");
@@ -61,12 +67,8 @@ public class Gui extends Application {
 
         num.setFont(Font.font ("Verdana", 20));
         team.setFont(Font.font ("Verdana", 20));
-        team1.setFont(Font.font ("Verdana", 20));
-        team2.setFont(Font.font ("Verdana", 20));
-        team2.setX(400);
 
         TextField t1 = new TextField();
-        TextField t2 = new TextField();
         //Add the method to start the game
 
         button1.setOnAction(action -> {
@@ -77,15 +79,24 @@ public class Gui extends Application {
             teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
             teams.createTeamsAndPlayers();
             GameManager.getInstance().startGame();
+            teams.getID();
+            System.out.println("Num players: " + teams.getNumberOfPlayers());
+            System.out.println("Num teams: " + teams.getNumberOfTeams());
+            vBox.getChildren().remove(team);
+            vBox.getChildren().remove(t1);
+            vBox.getChildren().remove(button1);
         });
 
         //Add the method that will play the card selected
         button3.setOnAction(action -> {
+
             progress = ProgressManager.getInstance();
             progress.circulateTurns();
+
             System.out.println(progress.getCurrentTurnCount());
             System.out.println(textField.getText());
             Deck.printAllDecks();
+
 
         });
 
@@ -97,10 +108,10 @@ public class Gui extends Application {
             }
         });
 
-        VBox vbox = new VBox(team1Score, team2Score, team, team1, t1, team2, t2, button1, num, textField, button3, button4, root);
+        vBox = new VBox(team1Score, team2Score, team, t1, button1, num, textField, button3, button4, root);
 
 
-        Scene scene = new Scene(vbox, 800, 800);
+        scene = new Scene(vBox, 800, 800);
 
         primaryStage.setScene(scene);
         primaryStage.show();
