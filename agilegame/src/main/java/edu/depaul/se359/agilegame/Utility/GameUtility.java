@@ -35,8 +35,7 @@ public final class GameUtility
         JSONParser parser = new JSONParser();
 
         // get the current project directory
-        // System.out.println("Working Directory = " +
-        // System.getProperty("user.dir"));
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         File folder = new File(System.getProperty("user.dir") + "/src/main/resources/decks");
         File[] listOfFiles = folder.listFiles();

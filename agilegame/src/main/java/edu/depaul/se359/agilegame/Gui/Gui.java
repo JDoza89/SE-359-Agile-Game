@@ -31,7 +31,6 @@ public class Gui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Agile Game");
-
         GameUtility.parseJSONtoDecks();
 
         Deck.printAllDecks();
