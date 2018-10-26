@@ -37,7 +37,7 @@ public final class GameUtility
         // System.out.println("Working Directory = " +
         // System.getProperty("user.dir"));
 
-        File folder = new File(System.getProperty("user.dir") + "/src/main/resources/decks");
+        File folder = new File(System.getProperty("user.dir") + "/agilegame/src/main/resources/decks");
         File[] listOfFiles = folder.listFiles();
 
         // the current directory should contain the JSON files

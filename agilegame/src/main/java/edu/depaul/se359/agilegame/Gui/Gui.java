@@ -5,6 +5,7 @@ import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Hand.Hand;
 import edu.depaul.se359.agilegame.Player.TeamManager;
+import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -18,21 +19,24 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 
 public class Gui extends Application {
 
     VBox vBox;
     Scene scene;
-    int score = 120;
+    int score = 50;
     GameManager game;
     TeamManager teams;
     ProgressManager progress;
-    Deck deck = Deck.getInstance();
+    Deck deck;
 
 
 
-    Text team1Score = new Text("Team 1: " + 120);
-    Text team2Score = new Text("Team 2: " + 120);
+    Text team1Score = new Text("Team 1: " + 50);
+    Text team2Score = new Text("Team 2: " + 50);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -78,7 +82,17 @@ public class Gui extends Application {
             teams.setNumberOfTeams(2);
             teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
             teams.createTeamsAndPlayers();
-            GameManager.getInstance().startGame();
+            game.startGame();
+            //will give you Missing JavaFX application class edu.depaul.se359.agilegame.Gui.Gui error
+         /*   GameUtility gu = new GameUtility();
+            try {
+                gu.parseJSONtoDecks();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            } */
+            Deck.getInstance().printAllDecks();
             teams.getID();
             System.out.println("Num players: " + teams.getNumberOfPlayers());
             System.out.println("Num teams: " + teams.getNumberOfTeams());
@@ -117,7 +131,13 @@ public class Gui extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        Application.launch(args);
+    public static void main(String[] args) throws IOException, ParseException {
+       //gives you  java.lang.reflect.InvocationTargetException
+        // &  java.lang.NoClassDefFoundError: org/json/simple/parser/ParseException
+        // & java.lang.ClassNotFoundException: org.json.simple.parser.ParseException
+        /* GameUtility gu = new GameUtility();
+        gu.parseJSONtoDecks();
+        */
+        launch(args);
     }
 }

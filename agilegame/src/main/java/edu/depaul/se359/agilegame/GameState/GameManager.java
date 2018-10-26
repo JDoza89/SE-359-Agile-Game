@@ -38,6 +38,7 @@ public class GameManager {
     public void startGame() {
         GameState startState = new GameStartState();
         startState.saveState(this.gameStateContext);
+        System.out.println("game started");
     }
 
     public void playGame() {
