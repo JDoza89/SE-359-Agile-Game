@@ -157,8 +157,8 @@ public class Deck
 
     private static String guiPrint(String type, String pos)
     {   StringBuilder sb = new StringBuilder();
-        sb.append(pos + " - " + type + " cards/n" );
-        sb.append("/n");
+        sb.append(pos + " - " + type + " cards\n" );
+        sb.append("\n");
         return sb.toString();
     }
 
@@ -176,13 +176,13 @@ public class Deck
     private static String getOneCard(Card card)
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("ID: " + card.getId() + "/n");
-        sb.append("Role: " + card.getRole() + "/n");
-        sb.append("Content: " + card.getContent() + "/n");
-        sb.append("Description: " + card.getDescription()+ "/n");
-        sb.append("Effect: " + card.getEffect() + "/n");
-        sb.append("Amount: " + card.getAmount() + "/n");
-        sb.append("/n");
+        sb.append("ID: " + card.getId() + "\n");
+        sb.append("Role: " + card.getRole() + "\n");
+        sb.append("Content: " + card.getContent() + "\n");
+        sb.append("Description: " + card.getDescription()+ "\n");
+        sb.append("Effect: " + card.getEffect() + "\n");
+        sb.append("Amount: " + card.getAmount() + "\n");
+        sb.append("\n");
 
         return sb.toString();
     }

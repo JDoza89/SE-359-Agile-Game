@@ -4,6 +4,7 @@ import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Hand.Hand;
+import edu.depaul.se359.agilegame.Player.Role;
 import edu.depaul.se359.agilegame.Player.TeamManager;
 import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
@@ -22,6 +23,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Gui extends Application {
 
@@ -36,6 +38,17 @@ public class Gui extends Application {
 
     Text team1Score = new Text("Team 1: " + 50);
     Text team2Score = new Text("Team 2: " + 50);
+    ArrayList<Hand> team1Hand = new ArrayList<>();
+    ArrayList<Hand> team2Hand = new ArrayList<>();
+
+    public void checkTeam(int n, Hand h){
+        if(n == 1){
+            team1Hand.add(h);
+        }
+        else{
+            team2Hand.add(h);
+        }
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -76,6 +89,7 @@ public class Gui extends Application {
         TextField t1 = new TextField();
         //Add the method to start the game
 
+
         button1.setOnAction(action -> {
             text.setText("The Game has started");
             game = game.getInstance();
@@ -83,12 +97,30 @@ public class Gui extends Application {
             teams.setNumberOfTeams(2);
             teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
             teams.createTeamsAndPlayers();
+            for(int i = 1; i< Integer.parseInt(t1.getText()); i++){
+                for(int j = 1; j < 3; j++){
+                    if(i == 1 ){
+                        Hand h1 = new Hand(j, i, Role.PROJECT_MANAGER);
+                        checkTeam(j,h1);
+                    }
+                    else if(i == 2){
+                        Hand h2 = new Hand(j, i, Role.SCRUM_MASTER);
+                        checkTeam(j, h2);
+                    }
+                    else{
+                        Hand h3 = new Hand(j, i, Role.DEVELOPER);
+                        checkTeam(j, h3);
+                    }
+                }
+            }
             game.startGame();
             System.out.println("Num players: " + teams.getNumberOfPlayers());
             System.out.println("Num teams: " + teams.getNumberOfTeams());
             vBox.getChildren().remove(team);
             vBox.getChildren().remove(t1);
             vBox.getChildren().remove(button1);
+
+            text.setText(Deck.getRoleDeck());
         });
 
         //Add the method that will play the card selected
@@ -96,7 +128,6 @@ public class Gui extends Application {
 
             progress = ProgressManager.getInstance();
             progress.circulateTurns();
-            text.setText(Deck.getRoleDeck());
             System.out.println(progress.getCurrentTurnCount());
             System.out.println(textField.getText());
             Deck.printAllDecks();
