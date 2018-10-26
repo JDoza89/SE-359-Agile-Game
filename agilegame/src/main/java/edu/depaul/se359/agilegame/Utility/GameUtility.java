@@ -38,18 +38,28 @@ public final class GameUtility
         // System.out.println("Working Directory = " +
         // System.getProperty("user.dir"));
 
-        File folder = new File(System.getProperty("user.dir") + "/src/main/resources/decks");
-        File[] listOfFiles = folder.listFiles();
+        //File folder = new File(System.getProperty("user.dir") + "/src/main/resources/decks");
+        //File[] listOfFiles = folder.listFiles();
+        String[] fileNames = {"chanceDeck","roleDeck","storyDeck"};
 
         // the current directory should contain the JSON files
-        assert listOfFiles != null;
+//        assert listOfFiles != null;
+//
+//        for (File file : listOfFiles) {
+//            if (file.isFile())
+//            {
+//                parseJSONtoDecks(parser, file.getName());
+//            }
+//        }
 
-        for (File file : listOfFiles) {
-            if (file.isFile())
-            {
-                parseJSONtoDecks(parser, file.getName());
+        if (fileNames.length > 0) {
+
+            for (String name : fileNames) {
+                parseJSONtoDecks(parser, name);
             }
+
         }
+
     }
 
     private static void parseJSONtoDecks(JSONParser parser, String fileName) throws IOException, ParseException {
@@ -57,7 +67,7 @@ public final class GameUtility
 	    // grab whole file
         JSONObject jsonObject = (JSONObject)parser.parse(
                 new InputStreamReader(Game.class.
-                        getResourceAsStream("/decks/" + fileName)));
+                        getResourceAsStream("/decks/" + fileName + ".json")));
 
         JSONArray jsonArray = (JSONArray) jsonObject.get("Cards");
         JSONObject currObj = (JSONObject) jsonArray.get(0);
