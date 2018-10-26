@@ -1,6 +1,6 @@
 This project was created for SE-359
 
-https://travis-ci.org/JDoza89/SE-359-Agile-Game.svg?branch=master
+[![Build Status](https://travis-ci.org/JDoza89/SE-359-Agile-Game.svg?branch=master)](https://travis-ci.org/JDoza89/SE-359-Agile-Game)
 ## How to run our app
 
 In order to run our game in the command line you must:
