@@ -4,6 +4,7 @@ import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Player.TeamManager;
+import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -30,6 +31,10 @@ public class Gui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Agile Game");
+
+        GameUtility.parseJSONtoDecks();
+
+        Deck.printAllDecks();
 
         TextField textField = new TextField();
         Text text = new Text();
