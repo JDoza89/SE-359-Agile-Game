@@ -108,6 +108,21 @@ public class Deck
         cleanPrint("Role", "END");
 
     }
+    public static String getRoleDeck()
+    {   StringBuilder sb = new StringBuilder();
+        Deck d = Deck.getInstance();
+
+        sb.append(guiPrint("Role", "START"));
+
+        for (RoleCard card: d.m_roleDeck)
+        {
+            sb.append(getOneCard(card));
+        }
+
+        sb.append(guiPrint("Role", "END"));
+
+        return sb.toString();
+    }
 
     public static void AddCard(String type,
                                String id, String role, String content,
@@ -140,6 +155,13 @@ public class Deck
         System.out.println();
     }
 
+    private static String guiPrint(String type, String pos)
+    {   StringBuilder sb = new StringBuilder();
+        sb.append(pos + " - " + type + " cards\n" );
+        sb.append("\n");
+        return sb.toString();
+    }
+
     private static void printOneCard(Card card)
     {
         System.out.println("ID: " + card.getId());
@@ -149,5 +171,19 @@ public class Deck
         System.out.println("Effect: " + card.getEffect());
         System.out.println("Amount: " + card.getAmount());
         System.out.println();
+    }
+
+    private static String getOneCard(Card card)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID: " + card.getId() + "\n");
+        sb.append("Role: " + card.getRole() + "\n");
+        sb.append("Content: " + card.getContent() + "\n");
+        sb.append("Description: " + card.getDescription()+ "\n");
+        sb.append("Effect: " + card.getEffect() + "\n");
+        sb.append("Amount: " + card.getAmount() + "\n");
+        sb.append("\n");
+
+        return sb.toString();
     }
 }
