@@ -1,5 +1,6 @@
 package edu.depaul.se359.agilegame.Gui;
 
+import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
@@ -10,6 +11,7 @@ import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -29,17 +31,20 @@ public class Gui extends Application {
 
     VBox vBox;
     Scene scene;
-    int score = 50;
+    int score = 0;
     GameManager game;
     TeamManager teams;
     ProgressManager progress;
+    Text hands = new Text();
+    SecondStage cards;
 
 
 
-    Text team1Score = new Text("Team 1: " + 50);
-    Text team2Score = new Text("Team 2: " + 50);
+    Text team1Score = new Text("Team 1: " + score);
+    Text team2Score = new Text("Team 2: " + score);
     ArrayList<Hand> team1Hand = new ArrayList<>();
     ArrayList<Hand> team2Hand = new ArrayList<>();
+    ArrayList<Card> story;
 
     public void checkTeam(int n, Hand h){
         if(n == 1){
@@ -54,6 +59,7 @@ public class Gui extends Application {
     public void start(Stage primaryStage) throws Exception {
         GameUtility.parseJSONtoDecks();
         Deck.printAllDecks();
+        story = Deck.getStoryDeck();
         primaryStage.setTitle("Agile Game");
 
         TextField textField = new TextField();
@@ -120,7 +126,7 @@ public class Gui extends Application {
             vBox.getChildren().remove(t1);
             vBox.getChildren().remove(button1);
 
-            text.setText(Deck.getRoleDeck());
+            text.setText(Deck.getOneCard(story.get(0)));
         });
 
         //Add the method that will play the card selected
@@ -129,6 +135,9 @@ public class Gui extends Application {
             progress = ProgressManager.getInstance();
             progress.circulateTurns();
             System.out.println(progress.getCurrentTurnCount());
+            cards = new SecondStage();
+        //    hands.setText(Deck.getRoleDeck());
+
             System.out.println(textField.getText());
             Deck.printAllDecks();
 
@@ -143,13 +152,28 @@ public class Gui extends Application {
             }
         });
 
-        vBox = new VBox(team1Score, team2Score, team, t1, button1, num, textField, button3, button4, root);
+        Text player = new Text("Player Hand: ");
 
+
+        vBox = new VBox(team1Score, team2Score, team, t1, button1, num, textField, button3, button4, root);
 
         scene = new Scene(vBox, 800, 800);
 
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    //Second stage that will contain the players' hand
+    public class SecondStage extends Stage {
+        Label x = new Label("Player Hand");
+        Group root2 = new Group(hands);
+        VBox y = new VBox(hands, root2);
+
+        SecondStage(){
+            y.getChildren().add(x);
+            this.setScene(new Scene(y, 800, 800));
+            this.show();
+        }
     }
 
     public static void main(String[] args) {
