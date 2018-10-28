@@ -1,8 +1,12 @@
 package edu.depaul.se359.agilegame.Utility;
 
 import edu.depaul.se359.agilegame.Card.Card;
+import edu.depaul.se359.agilegame.Card.ChanceCard;
+import edu.depaul.se359.agilegame.Card.RoleCard;
+import edu.depaul.se359.agilegame.Card.StoryCard;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.Game;
+import edu.depaul.se359.agilegame.Player.Role;
 import edu.depaul.se359.agilegame.Player.Team;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,45 +16,66 @@ import org.json.simple.parser.ParseException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 //Utility class responsible for providing utility functions for agile game such as shuffling cards in deck.
 public final class GameUtility
 {
 	//Shuffles card for a given deck of cards,uses Knuth algorithm.
-	public static void shuffleCards(Card[] deck)
+    // TODO: refactor the shuffle function to one function, might need to
+    // TODO: change add more child classes for Deck (chanceDeck, etcs)
+	public static void shuffleCards()
 	{
-		int deckSize = deck.length;
-		for(int i=0; i < deckSize; i++)
-		{
-			int randomIndex = i + (int)(Math.random() *(deckSize-i));
-			Card temp = deck[i];
-			deck[i] = deck[randomIndex];
-			deck[randomIndex] = temp;
-		}
+        shuffleStoryCards();
+        shuffleRoleCards();
+        shuffleChanceCards();
 	}
+
+	private static void shuffleStoryCards()
+    {
+        ArrayList<StoryCard> deck = Deck.getStoryCards();
+        int deckSize = deck.size();
+        for(int i=0; i < deckSize; i++)
+        {
+            int randomIndex = i + (int)(Math.random() *(deckSize-i));
+            StoryCard temp = deck.get(i);
+            deck.set(i, deck.get(randomIndex));
+            deck.set(randomIndex, temp);
+        }
+    }
+
+    private static void shuffleChanceCards()
+    {
+        ArrayList<ChanceCard> deck = Deck.getChanceCards();
+        int deckSize = deck.size();
+        for(int i=0; i < deckSize; i++)
+        {
+            int randomIndex = i + (int)(Math.random() *(deckSize-i));
+            ChanceCard temp = deck.get(i);
+            deck.set(i, deck.get(randomIndex));
+            deck.set(randomIndex, temp);
+        }
+    }
+
+    private static void shuffleRoleCards()
+    {
+        ArrayList<RoleCard> deck = Deck.getRoleCards();
+        int deckSize = deck.size();
+        for(int i=0; i < deckSize; i++)
+        {
+            int randomIndex = i + (int)(Math.random() *(deckSize-i));
+            RoleCard temp = deck.get(i);
+            deck.set(i, deck.get(randomIndex));
+            deck.set(randomIndex, temp);
+        }
+    }
 
 	public static void parseJSONtoDecks() throws IOException, ParseException {
 
 	    // JSON.Simple lib
         JSONParser parser = new JSONParser();
 
-        // get the current project directory
-        // System.out.println("Working Directory = " +
-        // System.getProperty("user.dir"));
-
-        //File folder = new File(System.getProperty("user.dir") + "/src/main/resources/decks");
-        //File[] listOfFiles = folder.listFiles();
         String[] fileNames = {"chanceDeck","roleDeck","storyDeck"};
-
-        // the current directory should contain the JSON files
-//        assert listOfFiles != null;
-//
-//        for (File file : listOfFiles) {
-//            if (file.isFile())
-//            {
-//                parseJSONtoDecks(parser, file.getName());
-//            }
-//        }
 
         if (fileNames.length > 0) {
 

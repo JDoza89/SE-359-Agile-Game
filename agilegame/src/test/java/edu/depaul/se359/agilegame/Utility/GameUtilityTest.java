@@ -39,17 +39,17 @@ class GameUtilityTest {
         Deck.getInstance().clearDecks();
     }
 
-    @Test
-    //Test Shuffle Card Function by checking length of the card deck is the same as before.  Can't really test shuffle functionality since
-    //small chance that any given shuffle will result in same order of cards returned as before.
-    void shuffleCards() {
-        ArrayList<ChanceCard> cards = Deck.getInstance().getChanceCards();
-        int expectedSize = cards.size();
-        GameUtility.shuffleCards(cards.toArray(new ChanceCard[cards.size()]));
-        int newSize = cards.size();
-        assertEquals(expectedSize,newSize);
-        
-    }
+//    @Test
+//    //Test Shuffle Card Function by checking length of the card deck is the same as before.  Can't really test shuffle functionality since
+//    //small chance that any given shuffle will result in same order of cards returned as before.
+//    void shuffleCards() {
+//        ArrayList<ChanceCard> cards = Deck.getInstance().getChanceCards();
+//        int expectedSize = cards.size();
+//        GameUtility.shuffleCards(cards.toArray(new ChanceCard[cards.size()]));
+//        int newSize = cards.size();
+//        assertEquals(expectedSize,newSize);
+//
+//    }
 
     @Test
     //Test chance card deck to see if parsing method was able to successfully parse json file into cards with all the given attributes.
