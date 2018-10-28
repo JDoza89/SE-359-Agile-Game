@@ -45,6 +45,7 @@ public class Gui extends Application {
     ArrayList<Hand> team1Hand = new ArrayList<>();
     ArrayList<Hand> team2Hand = new ArrayList<>();
     ArrayList<Card> story;
+    //ArrayList<Card> deck;
 
     public void checkTeam(int n, Hand h){
         if(n == 1){
@@ -60,6 +61,7 @@ public class Gui extends Application {
         GameUtility.parseJSONtoDecks();
         Deck.printAllDecks();
         story = Deck.getStoryDeck();
+        //deck = Deck.getRoleDeck();
         primaryStage.setTitle("Agile Game");
 
         TextField textField = new TextField();

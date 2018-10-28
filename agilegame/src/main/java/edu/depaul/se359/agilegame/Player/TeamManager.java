@@ -65,6 +65,7 @@ public class TeamManager {
 
     }
 
+
     private void createTeam() {
         this.addTeam(new Team());
     }
