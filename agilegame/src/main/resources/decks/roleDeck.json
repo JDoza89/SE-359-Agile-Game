@@ -7,7 +7,7 @@
       "ID": "RD000",
       "Role": "DEV",
       "Content": "You stay after work all week.",
-      "Description": "You finished your stories early",
+      "Description": "You finished your stories early.",
       "Effect": "pointChange",
       "Amount" : "-10"
     },
@@ -19,7 +19,90 @@
       "Description": "You learn how to code on a cloud-based app.",
       "Effect": "storyChange",
       "Amount": "+100%"
-    }
+    },
 
+    {
+      "ID": "RD002",
+      "Role": "DEV",
+      "Content": "You choose to go on vacation and you could only work remotely in part-time in this sprint.",
+      "Description": "You take your time now so you could produce more work later.",
+      "Effect": "pointChange",
+      "Amount": "+5"
+    },
+
+    {
+      "ID": "RD003",
+      "Role": "DEV",
+      "Content": "You choose to drink 3 cans of red bull a day in this sprint.",
+      "Description": "You develop stuff like crazy in this sprint but feel spacey for the next sprint.",
+      "Effect": "pointChange",
+      "Amount": "-10"
+    },
+
+    {
+      "ID": "RD004",
+      "Role": "DEV",
+      "Content": "You have read the book “Head First Fix Server” in your free time.",
+      "Description": "You finished fixing the server 2 days earlier.",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+
+    {
+      "ID": "RD005",
+      "Role": "DEV",
+      "Content": "I Work out a lot, no cold could conquer me.",
+      "Description": "You won’t get any effect when you are experiencing “Cold” from a chance card.",
+      "Effect": "chanceCardRemove",
+      "Amount": "1",
+      "ChanceCard": "CD001"
+    },
+
+    {
+      "ID": "RD006",
+      "Role": "DEV",
+      "Content": "You choose to invest yourself to Grad school so you could become a better coder.",
+      "Description": "You become a better coder",
+      "Effect": "pointChange",
+      "Amount": "-10"
+    },
+
+    {
+      "ID": "RD007",
+      "Role": "DEV",
+      "Content": "You win a Hackathon and your boss decide to have mercy on you in this sprint.",
+      "Description": "Temporary push the top of the story to the next sprint.",
+      "Effect": "storyChange",
+      "Amount": "+100%"
+    },
+
+    {
+      "ID": "RD008",
+      "Role": "DEV",
+      "Content": "You are lucky.",
+      "Description": "You remove one of the chance cards out of your face.(randomly)",
+      "Effect": "chanceCardRemove",
+      "Amount": "1",
+      "ChanceCard": "Random"
+    },
+
+    {
+      "ID": "RD009",
+      "Role": "DEV",
+      "Content": "You are super-lucky.",
+      "Description": "You could remove all the chance cards out of your face.",
+      "Effect": "chanceCardRemove",
+      "Amount": "All"
+    },
+
+    {
+      "ID": "RD010",
+      "Role": "DEV",
+      "Content": "You participate frequently on Hackerrank.",
+      "Description": "You could fix the legacy code problem.",
+      "Effect": "pointChange",
+      "Amount": "-5",
+      "ChanceCard": "CD005"
+    }
   ]
 }
