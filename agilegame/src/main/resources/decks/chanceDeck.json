@@ -12,6 +12,96 @@
             "Amount": "-10"
 		},
 
+        {
+            "ID": "CD001",
+            "Role": "DEV",
+            "Content": "“Welcome” Cold!",
+            "Description": "Yes, you will get cold.",
+            "Effect": "pointChange",
+            "Amount": "+5"
+        },
+
+        {
+            "ID": "CD002",
+            "Role": "DEV",
+            "Content": "Server is down!",
+            "Description": "You have to spend some time to fix the server in this sprint.",
+            "Effect": "pointChange",
+            "Amount": "+10"
+        },
+
+        {
+            "ID": "CD003",
+            "Role": "DEV",
+            "Content": "The user is pissed!",
+            "Description": "You have to spend some time to redesign the user interface in this sprint.",
+            "Effect": "pointChange",
+            "Amount": "+5"
+        },
+
+        {
+            "ID": "CD004",
+            "Role": "DEV",
+            "Content": "There is a security breach!",
+            "Description": "You have to spend some time to fix it in this sprint.",
+            "Effect": "pointChange",
+            "Amount": "+8"
+        },
+
+        {
+            "ID": "CD005",
+            "Role": "DEV",
+            "Content": "Your function touch the legacy code and it breaks.",
+            "Description": "You have to spend some time to fix it in this sprint.",
+            "Effect": "pointChange",
+            "Amount": "+6"
+        },
+
+        {
+            "ID": "CD006",
+            "Role": "DEV",
+            "Content": "Google has just announced their new Android SDK.",
+            "Description": "You have to spend some time to learn the SDK in the this sprint.",
+            "Effect": "pointChange",
+            "Amount": "+6"
+        },
+
+        {
+            "ID": "CD007",
+            "Role": "DEV",
+            "Content": "Microsoft finally did something correct to the developer. They push a brand new feature that helps the developer doing work.",
+            "Description": "It improves your efficiency.",
+            "Effect": "pointChange",
+            "Amount": "-6"
+        },
+
+        {
+            "ID": "CD008",
+            "Role": "DEV",
+            "Content": "Amazon has made a huge push in its Amazon API Gateway.",
+            "Description": "It improves your efficiency.",
+            "Effect": "pointChange",
+            "Amount": "-8"
+        },
+
+        {
+            "ID": "CD009",
+            "Role": "DEV",
+            "Content": "The company spends money on you to let you have a training at Snapshot.",
+            "Description": "It improves your efficiency.",
+            "Effect": "pointChange",
+            "Amount": "-10"
+        },
+
+        {
+            "ID": "CD010",
+            "Role": "DEV",
+            "Content": "Your friend at Intel told you some tricks about how to debug efficiently.",
+            "Description": "It improves your efficiency.",
+            "Effect": "pointChange",
+            "Amount": "-8"
+        },
+
 		{
             "ID": "CP000",
             "Role": "PM",
