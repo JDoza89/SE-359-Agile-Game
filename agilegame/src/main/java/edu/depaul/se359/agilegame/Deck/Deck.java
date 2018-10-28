@@ -100,6 +100,46 @@ public class Deck
         cleanPrint("Story", "END");
     }
 
+
+ public static ArrayList<Card> getStoryDeck()
+ {   ArrayList<Card> sb = new ArrayList<>();
+     Deck d = Deck.getInstance();
+
+     for (StoryCard card: d.m_storyDeck)
+     {
+         sb.add(card);
+     }
+
+
+     return sb;
+ }
+
+    public static ArrayList<Card> getRoleDeck()
+    {   ArrayList<Card> sb = new ArrayList<>();
+        Deck d = Deck.getInstance();
+
+        for (RoleCard card: d.m_roleDeck)
+        {
+            sb.add(card);
+        }
+
+
+        return sb;
+    }
+
+    public static ArrayList<Card> getChanceDeck()
+    {   ArrayList<Card> sb = new ArrayList<>();
+        Deck d = Deck.getInstance();
+
+        for (ChanceCard card: d.m_chanceDeck)
+        {
+            sb.add(card);
+        }
+
+
+        return sb;
+    }
+
     private static void printRoleDeck()
     {
         Deck d = Deck.getInstance();
@@ -114,21 +154,7 @@ public class Deck
         cleanPrint("Role", "END");
 
     }
-    public static String getRoleDeck()
-    {   StringBuilder sb = new StringBuilder();
-        Deck d = Deck.getInstance();
 
-        sb.append(guiPrint("Role", "START"));
-
-        for (RoleCard card: d.m_roleDeck)
-        {
-            sb.append(getOneCard(card));
-        }
-
-        sb.append(guiPrint("Role", "END"));
-
-        return sb.toString();
-    }
 
     public static void AddCard(String type,
                                String id, String role, String content,
@@ -179,7 +205,7 @@ public class Deck
         System.out.println();
     }
 
-    private static String getOneCard(Card card)
+    public static String getOneCard(Card card)
     {
         StringBuilder sb = new StringBuilder();
         sb.append("ID: " + card.getId() + "\n");
