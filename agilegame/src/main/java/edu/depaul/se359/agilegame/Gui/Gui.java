@@ -53,7 +53,7 @@ public class Gui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         GameUtility.parseJSONtoDecks();
-        Deck.printAllDecks();
+        //Deck.printAllDecks();
         primaryStage.setTitle("Agile Game");
 
         TextField textField = new TextField();
