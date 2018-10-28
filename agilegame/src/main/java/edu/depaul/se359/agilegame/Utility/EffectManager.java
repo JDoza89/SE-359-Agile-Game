@@ -29,6 +29,9 @@ public class EffectManager
             case "pointChange":
                 team.setStoryPoint(sign, score);
                 break;
+            case "addStory":
+                team.setStoryPoint(sign, score);
+                break;
         }
     }
 }
