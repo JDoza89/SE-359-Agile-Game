@@ -19,6 +19,7 @@ public abstract class Player
     public abstract int getTeamId();
     public abstract int getId();
     public abstract Role getRole();
+    public abstract Hand showHand();
     abstract void doAction();
 
 }
