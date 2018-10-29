@@ -24,7 +24,6 @@ public class GameStartState implements GameState {
 
     private void startGame()
     {
-        GameUtility.shuffleCards();
         Deck.printAllDecks();
 
         GameManager.getInstance().playGame();
