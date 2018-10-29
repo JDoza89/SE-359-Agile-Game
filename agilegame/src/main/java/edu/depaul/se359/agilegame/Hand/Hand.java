@@ -1,6 +1,8 @@
 package edu.depaul.se359.agilegame.Hand;
 
+import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Card.PlayerCard;
+import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.Player.Role;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,13 +13,13 @@ public class Hand {
     private int team;
     private int player;
     private Role role;
-    private ArrayList<PlayerCard> hand;
+    private ArrayList<Card> hand;
 
     public Hand(int playerTeam, int playerNumber, Role playerRole) {
         team = playerTeam;
         player = playerNumber;
         role = playerRole;
-        hand = new ArrayList<>();
+        hand = this.assignRoleCards();
     }
 
     public Hand(JSONObject serializedHand){
@@ -29,6 +31,21 @@ public class Hand {
         for (Object card : jsonHand) {
             hand.add(new PlayerCard((String) card));
         }
+    }
+
+    public ArrayList<Card> assignRoleCards() {
+
+        ArrayList<Card> cards = new ArrayList<>();
+
+        for (Card card : Deck.getRoleCards() ) {
+
+            if ( (this.role.toString().equalsIgnoreCase(card.getRole()))) {
+                cards.add(card);
+            }
+        }
+
+        return cards;
+
     }
 
     public int getTeam() {
@@ -44,7 +61,7 @@ public class Hand {
     }
 
     // Assumed this would be passed in as player input (i.e. the player plays card 2 (position 1)
-    public PlayerCard removeCard(int cardPosition){
+    public Card removeCard(int cardPosition){
         return hand.remove(cardPosition - 1);
     }
 

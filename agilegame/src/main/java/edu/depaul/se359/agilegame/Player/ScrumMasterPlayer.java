@@ -35,6 +35,11 @@ class ScrumMasterPlayer extends Player {
         return this.teamId;
     }
 
+    @Override
+    public Hand showHand() {
+        return this.ownHand;
+    }
+
     public Role getRole() {
 
         return this.role;
