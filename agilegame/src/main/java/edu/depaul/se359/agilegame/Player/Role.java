@@ -9,9 +9,9 @@ package edu.depaul.se359.agilegame.Player;
 
 public enum Role {
 
-    SCRUM_MASTER("Scrum Master"),
-    PROJECT_MANAGER("Project Manager"),
-    DEVELOPER("Developer");
+    SCRUM_MASTER("SM"),
+    PROJECT_MANAGER("PM"),
+    DEVELOPER("DEV");
 
     private String title;
 
