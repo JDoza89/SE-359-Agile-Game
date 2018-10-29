@@ -5,6 +5,7 @@ import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Hand.Hand;
+import edu.depaul.se359.agilegame.Player.Player;
 import edu.depaul.se359.agilegame.Player.Role;
 import edu.depaul.se359.agilegame.Player.TeamManager;
 import edu.depaul.se359.agilegame.Utility.GameUtility;
@@ -37,6 +38,9 @@ public class Gui extends Application {
     ProgressManager progress;
     Text hands = new Text();
     SecondStage cards;
+    TextField textField;
+    Button button3;
+    Text player = new Text("Player 1 : ");
 
 
 
@@ -44,7 +48,9 @@ public class Gui extends Application {
     Text team2Score = new Text("Team 2: " + score);
     ArrayList<Hand> team1Hand = new ArrayList<>();
     ArrayList<Hand> team2Hand = new ArrayList<>();
-    ArrayList<Card> story;
+    ArrayList<Card> storyTeam1;
+    ArrayList<Card> storyTeam2;
+
     //ArrayList<Card> deck;
 
     public void checkTeam(int n, Hand h){
@@ -59,18 +65,24 @@ public class Gui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         GameUtility.parseJSONtoDecks();
-      
-        Deck.printAllDecks();
-        story = Deck.getStoryDeck();
+        GameUtility.shuffleCards();
+        //Deck.printAllDecks();
+        int len = Deck.getStoryDeck().size()-1;
+        ArrayList<Card> temp = new ArrayList<Card>(Deck.getStoryDeck().subList(0,len/2));
+        storyTeam1 = temp;
+        temp = new ArrayList<Card>(Deck.getStoryDeck().subList((len/2)+1, len));
+        storyTeam2 = temp;
         //deck = Deck.getRoleDeck();
+
 
         primaryStage.setTitle("Agile Game");
 
-        TextField textField = new TextField();
+        textField = new TextField();
         Text text = new Text();
+        Text text2 = new Text();
         text.setText("Welcome to Agile Game");
 
-        text.setFont(Font.font ("Verdana", 25));
+        //text.setFont(Font.font ("Verdana", 25));
         //setting the position of the text
         text.setWrappingWidth(800);
         text.setX(100);
@@ -81,7 +93,7 @@ public class Gui extends Application {
 
 
         Button button1 = new Button("Start");
-        Button button3 = new Button("Play Card");
+        button3 = new Button("Play Card");
         Button button4 = new Button("End Game");
 
         Text num = new Text("Enter card number you wish to select: ");
@@ -98,6 +110,17 @@ public class Gui extends Application {
 
         TextField t1 = new TextField();
         //Add the method to start the game
+        hands.setFont(Font.font ("Verdana", 25));
+        hands.setWrappingWidth(800);
+
+        player.setFont(Font.font ("Verdana", 30));
+
+        Text team1 = new Text("Team 1 Stories: ");
+        Text team2 = new Text("Team 2 Stories: ");
+        text.setWrappingWidth(800);
+        text2.setWrappingWidth(800);
+        text.setFont(Font.font ("Verdana", 20));
+        text2.setFont(Font.font ("Verdana", 20));
 
 
         button1.setOnAction(action -> {
@@ -107,39 +130,31 @@ public class Gui extends Application {
             teams.setNumberOfTeams(2);
             teams.setNumberOfPlayers(Integer.parseInt(t1.getText()));
             teams.createTeamsAndPlayers();
-            for(int i = 1; i< Integer.parseInt(t1.getText()); i++){
-                for(int j = 1; j < 3; j++){
-                    if(i == 1 ){
-                        Hand h1 = new Hand(j, i, Role.PROJECT_MANAGER);
-                        checkTeam(j,h1);
-                    }
-                    else if(i == 2){
-                        Hand h2 = new Hand(j, i, Role.SCRUM_MASTER);
-                        checkTeam(j, h2);
-                    }
-                    else{
-                        Hand h3 = new Hand(j, i, Role.DEVELOPER);
-                        checkTeam(j, h3);
-                    }
-                }
-            }
+
             game.startGame();
+            Player players = TeamManager.getInstance().getPlayer(1);
+            hands.setText(players.showHand().getHand());
+            cards = new SecondStage();
             System.out.println("Num players: " + teams.getNumberOfPlayers());
             System.out.println("Num teams: " + teams.getNumberOfTeams());
             vBox.getChildren().remove(team);
             vBox.getChildren().remove(t1);
             vBox.getChildren().remove(button1);
 
-            text.setText(Deck.getOneCard(story.get(0)));
+            text.setText(Deck.getInstance().getStory(0, len/2));
+            text2.setText(Deck.getInstance().getStory((len/2)+1, len));
         });
 
         //Add the method that will play the card selected
         button3.setOnAction(action -> {
 
             progress = ProgressManager.getInstance();
+            int turn = progress.getCurrentTurnCount();
+            Player players = TeamManager.getInstance().getPlayer(progress.getCurrentTurnCount());
             progress.circulateTurns();
-            System.out.println(progress.getCurrentTurnCount());
-            cards = new SecondStage();
+            player.setText("Player: " + turn);
+            hands.setText(players.showHand().getHand());
+
         //    hands.setText(Deck.getRoleDeck());
 
             System.out.println(textField.getText());
@@ -154,12 +169,13 @@ public class Gui extends Application {
             if(game.getInstance() != null) {
                 game.endGame();
             }
+            vBox.getChildren().remove(text2);
         });
 
         Text player = new Text("Player Hand: ");
 
 
-        vBox = new VBox(team1Score, team2Score, team, t1, button1, num, textField, button3, button4, root);
+        vBox = new VBox(team1Score, team2Score, team, t1, button1, num, button4, team1, text, team2, text2, root);
 
         scene = new Scene(vBox, 800, 800);
 
@@ -171,7 +187,8 @@ public class Gui extends Application {
     public class SecondStage extends Stage {
         Label x = new Label("Player Hand");
         Group root2 = new Group(hands);
-        VBox y = new VBox(hands, root2);
+
+        VBox y = new VBox(player, textField, button3, hands, root2);
 
         SecondStage(){
             y.getChildren().add(x);

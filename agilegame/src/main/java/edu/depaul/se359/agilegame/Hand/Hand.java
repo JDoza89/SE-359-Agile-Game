@@ -70,7 +70,7 @@ public class Hand {
         for (int i = 0; i < hand.size(); i++){
             sb.append(i+1);
             sb.append(". ");
-            sb.append(hand.get(i).getContent());
+            sb.append(hand.get(i).getContent()+ " - amount: " + hand.get(i).getAmount());
             sb.append("\n");
         }
         return sb.toString();

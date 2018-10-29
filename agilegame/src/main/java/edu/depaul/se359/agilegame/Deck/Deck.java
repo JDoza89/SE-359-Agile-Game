@@ -100,6 +100,18 @@ public class Deck
         cleanPrint("Story", "END");
     }
 
+    public String getStory(int start, int end){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<StoryCard> s = getStoryCards();
+
+        for (int i = start; i < end; i++){
+            sb.append(i+1);
+            sb.append(". ");
+            sb.append(s.get(i).getContent() + " - amount: " + s.get(i).getAmount());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 
  public static ArrayList<Card> getStoryDeck()
  {   ArrayList<Card> sb = new ArrayList<>();
