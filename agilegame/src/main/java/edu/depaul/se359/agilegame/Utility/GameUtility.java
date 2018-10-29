@@ -21,56 +21,26 @@ import java.util.ArrayList;
 //Utility class responsible for providing utility functions for agile game such as shuffling cards in deck.
 public final class GameUtility
 {
-	//Shuffles card for a given deck of cards,uses Knuth algorithm.
-    // TODO: refactor the shuffle function to one function, might need to
-    // TODO: change add more child classes for Deck (chanceDeck, etcs)
-	public static void shuffleCards()
-	{
-        shuffleStoryCards();
-        shuffleRoleCards();
-        shuffleChanceCards();
-	}
-
-	private static void shuffleStoryCards()
+    //Wrapper function that calls private shuffleDeck function by casting cards to ArrayList<? super Card>.
+    public static void shuffleCards(ArrayList<? extends Card> deck)
     {
-        ArrayList<StoryCard> deck = Deck.getStoryCards();
+        shuffleDeck((ArrayList<? super Card>) deck);
+    }
+
+    //Shuffles card for a given deck of cards,uses Knuth algorithm.
+    private static void shuffleDeck(ArrayList<? super Card> deck)
+    {
         int deckSize = deck.size();
         for(int i=0; i < deckSize; i++)
         {
             int randomIndex = i + (int)(Math.random() *(deckSize-i));
-            StoryCard temp = deck.get(i);
-            deck.set(i, deck.get(randomIndex));
+            Card temp = (Card) deck.get(i);
+            deck.set(i, (Card)deck.get(randomIndex));
             deck.set(randomIndex, temp);
         }
     }
 
-    private static void shuffleChanceCards()
-    {
-        ArrayList<ChanceCard> deck = Deck.getChanceCards();
-        int deckSize = deck.size();
-        for(int i=0; i < deckSize; i++)
-        {
-            int randomIndex = i + (int)(Math.random() *(deckSize-i));
-            ChanceCard temp = deck.get(i);
-            deck.set(i, deck.get(randomIndex));
-            deck.set(randomIndex, temp);
-        }
-    }
-
-    private static void shuffleRoleCards()
-    {
-        ArrayList<RoleCard> deck = Deck.getRoleCards();
-        int deckSize = deck.size();
-        for(int i=0; i < deckSize; i++)
-        {
-            int randomIndex = i + (int)(Math.random() *(deckSize-i));
-            RoleCard temp = deck.get(i);
-            deck.set(i, deck.get(randomIndex));
-            deck.set(randomIndex, temp);
-        }
-    }
-
-	public static void parseJSONtoDecks() throws IOException, ParseException {
+    public static void parseJSONtoDecks() throws IOException, ParseException {
 
 	    // JSON.Simple lib
         JSONParser parser = new JSONParser();
