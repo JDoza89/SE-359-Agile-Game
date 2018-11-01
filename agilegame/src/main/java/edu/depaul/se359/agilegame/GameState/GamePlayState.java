@@ -17,7 +17,7 @@ public class GamePlayState implements GameState {
     }
 
     private void gamePlay() {
-        ProgressManager.getInstance().circulateTurns();
+        // do something in game play if any
     }
 
     @Override
