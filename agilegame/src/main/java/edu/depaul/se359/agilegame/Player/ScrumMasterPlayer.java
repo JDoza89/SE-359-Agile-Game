@@ -7,22 +7,34 @@ package edu.depaul.se359.agilegame.Player;
     Created on: October 11, 2018
  */
 
+import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Hand.Hand;
+import java.util.ArrayList;
 
 class ScrumMasterPlayer extends Player {
 
     private final int id = Player.id++;
-    private int teamId = 0;
     private final Role role = Role.SCRUM_MASTER;
 
     ScrumMasterPlayer(int teamId) {
         this.teamId = teamId;
         this.ownHand = new Hand(teamId, id, role);
+        this.playedCards = new ArrayList<>();
     }
 
     @Override
-    public void doAction() {
+    public void playCard(int num) {
 
+        Card card = this.ownHand.getCard(num - 1);
+
+        playedCards.add(card);
+        this.ownHand.removeCard(card);
+
+    }
+
+    @Override
+    public ArrayList<Card> getPlayedCards() {
+        return this.playedCards;
     }
 
     @Override
