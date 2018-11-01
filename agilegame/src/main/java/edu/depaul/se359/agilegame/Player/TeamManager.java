@@ -151,6 +151,16 @@ public class TeamManager {
 
     }
 
+    public void playCard(int playerId, int cardNum) {
+
+        if (playerId > 0 && cardNum > 0) {
+
+            this.getPlayer(playerId).playCard(cardNum);
+
+        }
+
+    }
+
     public void setNumberOfTeams(int num) {
         this.numTeams = num;
     }
