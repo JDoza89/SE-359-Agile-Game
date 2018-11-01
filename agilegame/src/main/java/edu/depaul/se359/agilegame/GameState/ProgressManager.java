@@ -35,7 +35,7 @@ public class ProgressManager {
 
     }
 
-    public void circulateTurns() {
+    public int circulateTurns() {
 
         // get current turn player
         int playerId = this.orderedPlayerIds.get(this.playerTurnCount);
@@ -45,9 +45,7 @@ public class ProgressManager {
         GameManager.getInstance().saveCurrentTurnPlayer(player.getId());
         GameManager.getInstance().saveCurrentTurn(this.currentTurnCount);
 
-        // TODO: DISPLAY CARDS ON CURRENT PLAYER'S HAND
-        // TODO: CARRY OUT CARD EFFECT SELECTED BY THE CURRENT PLAYER (PLAYERS PLAY CARD)
-
+        // set turn to next player
         this.currentTurnCount++;
         this.playerTurnCount++;
 
@@ -55,6 +53,8 @@ public class ProgressManager {
         if (this.playerTurnCount >= this.orderedPlayerIds.size()) {
             this.playerTurnCount = 0;
         }
+
+        return playerId;
 
     }
 
