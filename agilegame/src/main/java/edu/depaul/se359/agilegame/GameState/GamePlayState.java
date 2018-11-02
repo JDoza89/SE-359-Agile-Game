@@ -16,7 +16,11 @@ public class GamePlayState implements GameState {
         this.gamePlay();
     }
 
-    private void gamePlay() {
+    private void gamePlay()
+    {
+        // int playerID = ProgressManager.getInstance().circulateTurns();
+
+
         // do something in game play if any
     }
 

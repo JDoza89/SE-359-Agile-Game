@@ -62,8 +62,10 @@ public class Hand {
 
     // Assumed this would be passed in as player input (i.e. the player plays card 2 (position 1)
     public Card removeCard(Card card){
-        hand.contains(card);
-        hand.remove(card);
+        if(hand.contains(card))
+        {
+            hand.remove(card);
+        }
         return card;
     }
 

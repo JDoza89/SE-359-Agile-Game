@@ -9,8 +9,8 @@ import edu.depaul.se359.agilegame.Player.TeamManager;
 import java.util.ArrayList;
 
 /*
-    EffectManager does all the calculation and update for each Team for its
-    storyPoint
+    EffectManager does all the calculation and
+    update for each Team for its storyPoint
 
  */
 
@@ -47,10 +47,9 @@ public class EffectManager
     {
         // get the list of the team
         ArrayList<Team> teams = TeamManager.getInstance().getTeams();
-        int teamSz = teams.size();
 
         // assume the # of team is 2
-        assert teamSz == 2;
+        assert teams.size() == 2;
 
         // get the storyDeck
         ArrayList<StoryCard> storyDeck = Deck.getStoryDeck();
