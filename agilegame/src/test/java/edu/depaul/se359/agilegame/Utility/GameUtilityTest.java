@@ -49,7 +49,7 @@ class GameUtilityTest {
     //Test Shuffle Card Function by checking length of the card deck is the same as before.  Can't really test shuffle functionality since
     //small chance that any given shuffle will result in same order of cards returned as before.
     void shuffleCards() {
-        ArrayList<ChanceCard> cards = Deck.getInstance().getChanceCards();
+        ArrayList<ChanceCard> cards = Deck.getChanceDeck();
         int expectedSize = cards.size();
         GameUtility.shuffleCards(cards);
         int newSize = cards.size();
@@ -65,7 +65,7 @@ class GameUtilityTest {
         Object obj = jsonParser.parse(new FileReader(chanceDeckPath));
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray jsonArray = (JSONArray)jsonObject.get("Cards");
-        ArrayList<ChanceCard> chanceCards = Deck.getInstance().getChanceCards();
+        ArrayList<ChanceCard> chanceCards = Deck.getChanceDeck();
 
         //check contents of list of chance cards to match what is in json file.
         for(int i =1;i < jsonArray.size(); i++)
@@ -89,7 +89,7 @@ class GameUtilityTest {
         Object obj = jsonParser.parse(new FileReader(roleDeckPath));
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray jsonArray = (JSONArray)jsonObject.get("Cards");
-        ArrayList<RoleCard> roleCards = Deck.getInstance().getRoleCards();
+        ArrayList<RoleCard> roleCards = Deck.getRoleDeck();
 
         //check contents of list of chance cards to match what is in json file.
         for(int i =1;i < jsonArray.size(); i++)
@@ -113,7 +113,7 @@ class GameUtilityTest {
         Object obj = jsonParser.parse(new FileReader(storyDeckPath));
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray jsonArray = (JSONArray)jsonObject.get("Cards");
-        ArrayList<StoryCard> storyCards = Deck.getInstance().getStoryCards();
+        ArrayList<StoryCard> storyCards = Deck.getStoryDeck();
 
         //check contents of list of chance cards to match what is in json file.
         for(int i =1;i < jsonArray.size(); i++)

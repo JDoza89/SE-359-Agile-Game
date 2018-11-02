@@ -9,13 +9,15 @@ import edu.depaul.se359.agilegame.Player.TeamManager;
 import java.util.ArrayList;
 
 /*
-    EffectManager does all the calculation and update for each Team for its
-    storyPoint
+    EffectManager does all the calculation and
+    update for each Team for its storyPoint
 
  */
 
 public class EffectManager
 {
+    // effect is based on the overall team score
+    // only do work in team not in each player
     public static void doEffect(Card card, Team team)
     {
         String effectType = card.getEffect();
@@ -40,17 +42,20 @@ public class EffectManager
         }
     }
 
-    // assume we only have 2 team
+    // first step for the game: Assign storyCard to each team
     public static void assignStoryPointToEachTeam()
     {
+        // get the list of the team
         ArrayList<Team> teams = TeamManager.getInstance().getTeams();
-        int teamSz = teams.size();
 
-        assert teamSz == 2;
+        // assume the # of team is 2
+        assert teams.size() == 2;
 
-        ArrayList<StoryCard> storyDeck = Deck.getStoryCards();
+        // get the storyDeck
+        ArrayList<StoryCard> storyDeck = Deck.getStoryDeck();
         int deckSz = storyDeck.size();
 
+        // loop through the story deck
         for (int i = 0; i < deckSz; ++i)
         {
             StoryCard currCard = storyDeck.get(i);
@@ -58,6 +63,7 @@ public class EffectManager
             String sign = amount.substring(0, 1);
             int score = Integer.parseInt(amount.substring(1));
 
+            // assign even index of card to team 0, odd to team 1
             if (i % 2 == 0) teams.get(0).setStoryPoint(sign, score);
             else teams.get(1).setStoryPoint(sign, score);
         }

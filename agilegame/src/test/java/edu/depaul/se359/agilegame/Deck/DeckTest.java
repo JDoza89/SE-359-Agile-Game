@@ -33,7 +33,7 @@ class DeckTest {
         String effect = "pointChange";
         String amount = "+10";
         Deck.AddCard(type,id,role,content,description,effect,amount);
-        ArrayList<ChanceCard> cards = Deck.getInstance().getChanceCards();
+        ArrayList<ChanceCard> cards = Deck.getChanceDeck();
         Card card = cards.get(0);
         assertEquals(card.getId(),id);
         assertEquals(card.getRole(),role);
@@ -54,7 +54,7 @@ class DeckTest {
         String effect = "pointChange";
         String amount = "-10";
         Deck.AddCard(type,id,role,content,description,effect,amount);
-        ArrayList<RoleCard> cards = Deck.getInstance().getRoleCards();
+        ArrayList<RoleCard> cards = Deck.getRoleDeck();
         Card card = cards.get(0);
         assertEquals(card.getId(),id);
         assertEquals(card.getRole(),role);
@@ -75,7 +75,7 @@ class DeckTest {
         String effect = "addStory";
         String amount = "+30";
         Deck.AddCard(type,id,role,content,description,effect,amount);
-        ArrayList<StoryCard> cards = Deck.getInstance().getStoryCards();
+        ArrayList<StoryCard> cards = Deck.getStoryDeck();
         Card card = cards.get(0);
         assertEquals(card.getId(),id);
         assertEquals(card.getRole(),role);
