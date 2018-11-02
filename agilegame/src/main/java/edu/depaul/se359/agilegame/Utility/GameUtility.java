@@ -21,6 +21,12 @@ import java.util.ArrayList;
 //Utility class responsible for providing utility functions for agile game such as shuffling cards in deck.
 public final class GameUtility
 {
+    public static void shuffleAllDecks()
+    {
+        shuffleCards(Deck.getRoleDeck());
+        shuffleCards(Deck.getStoryDeck());
+        shuffleCards(Deck.getChanceDeck());
+    }
     //Wrapper function that calls private shuffleDeck function by casting cards to ArrayList<? super Card>.
     public static void shuffleCards(ArrayList<? extends Card> deck)
     {

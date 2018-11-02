@@ -53,7 +53,7 @@ public class EffectManager
         assert teamSz == 2;
 
         // get the storyDeck
-        ArrayList<StoryCard> storyDeck = Deck.getStoryCards();
+        ArrayList<StoryCard> storyDeck = Deck.getStoryDeck();
         int deckSz = storyDeck.size();
 
         // loop through the story deck

@@ -1,6 +1,7 @@
 package edu.depaul.se359.agilegame.Gui;
 
 import edu.depaul.se359.agilegame.Card.Card;
+import edu.depaul.se359.agilegame.Card.StoryCard;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
@@ -44,7 +45,7 @@ public class Gui extends Application {
     Text team2Score = new Text("Team 2: " + score);
     ArrayList<Hand> team1Hand = new ArrayList<>();
     ArrayList<Hand> team2Hand = new ArrayList<>();
-    ArrayList<Card> story;
+    ArrayList<StoryCard> story;
     //ArrayList<Card> deck;
 
     public void checkTeam(int n, Hand h){

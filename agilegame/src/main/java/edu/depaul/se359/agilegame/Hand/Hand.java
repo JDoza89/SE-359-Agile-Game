@@ -37,7 +37,7 @@ public class Hand {
 
         ArrayList<Card> cards = new ArrayList<>();
 
-        for (Card card : Deck.getRoleCards() ) {
+        for (Card card : Deck.getRoleDeck() ) {
 
             if ( (this.role.toString().equalsIgnoreCase(card.getRole()))) {
                 cards.add(card);

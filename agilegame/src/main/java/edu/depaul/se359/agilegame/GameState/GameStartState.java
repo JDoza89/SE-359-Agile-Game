@@ -8,6 +8,7 @@ package edu.depaul.se359.agilegame.GameState;
     Created on: October 5, 2018
  */
 
+import edu.depaul.se359.agilegame.Card.StoryCard;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.Game;
 import edu.depaul.se359.agilegame.Utility.GameUtility;
@@ -24,6 +25,7 @@ public class GameStartState implements GameState {
 
     private void startGame()
     {
+        GameUtility.shuffleAllDecks();
         Deck.printAllDecks();
 
         GameManager.getInstance().playGame();
