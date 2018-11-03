@@ -6,26 +6,23 @@ import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Hand.Hand;
+import edu.depaul.se359.agilegame.Player.Player;
 import edu.depaul.se359.agilegame.Player.Role;
+import edu.depaul.se359.agilegame.Player.Team;
 import edu.depaul.se359.agilegame.Player.TeamManager;
+import edu.depaul.se359.agilegame.Utility.EffectManager;
 import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Gui extends Application {
@@ -34,8 +31,6 @@ public class Gui extends Application {
     private TeamManager teams;
     private ProgressManager progress;
 
-    private VBox vBox;
-    private Scene scene;
     private int score = 0;
     private Text hands = new Text();
     private SecondStage cards;
@@ -56,6 +51,8 @@ public class Gui extends Application {
     private TextField tFieldNumOfPerTeam;
     private TextField tFieldCardNum;
     private Group root;
+    private VBox vBox;
+    private Scene scene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -158,13 +155,33 @@ public class Gui extends Application {
     {
         //Add the method that will play the card selected
         btnPlay.setOnAction(action -> {
-            progress.circulateTurns();
+            int currPlayerID = progress.circulateTurns();
+
+            // get the current player
+            Player currPlayer = TeamManager.getInstance().getPlayer(currPlayerID);
+
+            // get the current team from this player
+            Team currTeam = TeamManager.getInstance().getTeam(currPlayer.getTeamId());
+
+            // get the player's choice
+            // TODO: either the index in the player's hand object
+            // TODO: or the with the card ID
+            int cardIndex = Integer.parseInt(tFieldCardNum.getText());
+
+            // get the player's cards
+            ArrayList<Card> playerCards = currPlayer.getPlayedCards();
+
+            // get the player's chosen card
+            Card chosenCard = playerCards.get(cardIndex);
+
+            // do the back-end effect, which is adding or reducing score
+            EffectManager.doEffect(currTeam, chosenCard);
+
             System.out.println(progress.getCurrentTurnCount());
             cards = new SecondStage();
             //    hands.setText(Deck.getRoleDeck());
 
             System.out.println(tFieldCardNum.getText());
-            Deck.printAllDecks();
         });
     }
 

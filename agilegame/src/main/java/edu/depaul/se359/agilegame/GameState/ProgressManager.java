@@ -37,6 +37,7 @@ public class ProgressManager {
 
     public int circulateTurns() {
 
+        // TODO: need to initialize orderedPlayerIds with 2 team's players' ID
         // get current turn player
         int playerId = this.orderedPlayerIds.get(this.playerTurnCount);
         Player player = TeamManager.getInstance().getPlayer(playerId);

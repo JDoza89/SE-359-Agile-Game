@@ -18,15 +18,15 @@ public class EffectManager
 {
     // effect is based on the overall team score
     // only do work in team not in each player
-    public static void doEffect(Card card, Team team)
+    public static void doEffect(Team team, Card card)
     {
         String effectType = card.getEffect();
         String amount = card.getAmount();
 
-        doEffect(effectType, amount, team);
+        doEffect(team, effectType, amount);
     }
 
-    private static void doEffect(String effectType, String amount, Team team)
+    private static void doEffect(Team team, String effectType, String amount)
     {
         String sign = amount.substring(0, 1);
         int score = Integer.parseInt(amount.substring(1));
