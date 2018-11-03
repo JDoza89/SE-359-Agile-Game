@@ -58,9 +58,6 @@ public class Deck
         return d.m_storyDeck;
     }
 
-
-
-
 //     public static ArrayList<Card> getStoryDeck()
 //     {   ArrayList<Card> sb = new ArrayList<>();
 //         Deck d = Deck.getInstance();
