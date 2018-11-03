@@ -30,12 +30,13 @@ import java.util.ArrayList;
 
 public class Gui extends Application {
 
-    private VBox vBox;
-    private Scene scene;
-    private int score = 0;
     private GameManager game;
     private TeamManager teams;
     private ProgressManager progress;
+
+    private VBox vBox;
+    private Scene scene;
+    private int score = 0;
     private Text hands = new Text();
     private SecondStage cards;
 
@@ -66,6 +67,42 @@ public class Gui extends Application {
         story = Deck.getStoryDeck();
         //deck = Deck.getRoleDeck();
 
+        setUpUIEnvironment(primaryStage);
+
+        listenButtons();
+
+    }
+
+    //Second stage that will contain the players' hand
+    public class SecondStage extends Stage {
+        Label x = new Label("Player Hand");
+        Group root2 = new Group(hands);
+        VBox y = new VBox(hands, root2);
+
+        SecondStage(){
+            y.getChildren().add(x);
+            this.setScene(new Scene(y, 800, 800));
+            this.show();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        launch(args);
+    }
+
+    private void listenButtons()
+    {
+        btnStartListen();
+        btnPlayListen();
+        btnEndListen();
+    }
+
+    private void setUpUIEnvironment(Stage primaryStage)
+    {
+        // link 3 Managers
+        setUpManagers();
+
         // initialize txtGameState on screen
         setGameTexts();
 
@@ -75,13 +112,18 @@ public class Gui extends Application {
         // initialize 2 txtField for user input on screen
         setGameTextField();
 
-        root = new Group(txtGameState);
+        // initialize group object
+        setGameGroup();
 
+        // initial the game on screen
+        setPrimaryStageOnScreen(primaryStage);
+    }
+
+    private void btnStartListen()
+    {
         //Add the method to start the game
         btnStart.setOnAction(action -> {
             txtGameState.setText("The Game has started");
-            game = GameManager.getInstance();
-            teams = TeamManager.getInstance();
             teams.setNumberOfTeams(2);
             teams.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
             teams.createTeamsAndPlayers();
@@ -110,22 +152,24 @@ public class Gui extends Application {
 
             txtGameState.setText(Deck.getOneCard(story.get(0)));
         });
+    }
 
+    private void btnPlayListen()
+    {
         //Add the method that will play the card selected
         btnPlay.setOnAction(action -> {
-
-            progress = ProgressManager.getInstance();
             progress.circulateTurns();
             System.out.println(progress.getCurrentTurnCount());
             cards = new SecondStage();
-        //    hands.setText(Deck.getRoleDeck());
+            //    hands.setText(Deck.getRoleDeck());
 
             System.out.println(tFieldCardNum.getText());
             Deck.printAllDecks();
-
-
         });
+    }
 
+    private void btnEndListen()
+    {
         //Add the method that ends the game
         btnEnd.setOnAction(action -> {
             txtGameState.setText("Game has ended");
@@ -133,28 +177,6 @@ public class Gui extends Application {
                 game.endGame();
             }
         });
-
-
-        // initial the game on screen
-        setPrimaryStageOnScreen(primaryStage);
-    }
-
-    //Second stage that will contain the players' hand
-    public class SecondStage extends Stage {
-        Label x = new Label("Player Hand");
-        Group root2 = new Group(hands);
-        VBox y = new VBox(hands, root2);
-
-        SecondStage(){
-            y.getChildren().add(x);
-            this.setScene(new Scene(y, 800, 800));
-            this.show();
-        }
-    }
-
-    public static void main(String[] args) {
-
-        launch(args);
     }
 
     private void checkTeam(int n, Hand h) {
@@ -165,20 +187,6 @@ public class Gui extends Application {
         else{
             team2Hand.add(h);
         }
-    }
-
-    private void setPrimaryStageOnScreen(Stage primaryStage)
-    {
-        vBox = new VBox(team1Score, team2Score, txtNumOfTeam,
-                tFieldNumOfPerTeam, btnStart, txtCardNum,
-                tFieldCardNum, btnPlay, btnEnd, root);
-
-        scene = new Scene(vBox, 800, 800);
-
-        // set the app title on top of the window
-        primaryStage.setTitle("Agile Game");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     private void setGameTexts()
@@ -203,12 +211,6 @@ public class Gui extends Application {
         txtPlayer = new Text("Player Hand: ");
     }
 
-    private void setGameTextField()
-    {
-        tFieldNumOfPerTeam = new TextField();
-        tFieldCardNum = new TextField();
-    }
-
     private void setGameButtons()
     {
         btnStart = new Button("Start");
@@ -218,5 +220,37 @@ public class Gui extends Application {
         btnStart.setStyle("-fx-font-size: 2em;");
         btnPlay.setStyle("-fx-font-size: 2em; -fx-border-color: #ff0000; -fx-border-width: 5px;");
         btnEnd.setStyle("-fx-font-size: 2em;");
+    }
+
+    private void setGameTextField()
+    {
+        tFieldNumOfPerTeam = new TextField();
+        tFieldCardNum = new TextField();
+    }
+
+    private void setGameGroup()
+    {
+        root = new Group(txtGameState);
+    }
+
+    private void setPrimaryStageOnScreen(Stage primaryStage)
+    {
+        vBox = new VBox(team1Score, team2Score, txtNumOfTeam,
+                tFieldNumOfPerTeam, btnStart, txtCardNum,
+                tFieldCardNum, btnPlay, btnEnd, root);
+
+        scene = new Scene(vBox, 800, 800);
+
+        // set the app title on top of the window
+        primaryStage.setTitle("Agile Game");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void setUpManagers()
+    {
+        game = GameManager.getInstance();
+        teams = TeamManager.getInstance();
+        progress = ProgressManager.getInstance();
     }
 }
