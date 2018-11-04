@@ -202,68 +202,68 @@
             "Amount": "-1"
         },
         {
-          "ID": "CS002",
-          "Role": "SM",
+          "ID": "COS000",
+          "Role": "NONE",
           "Content": "Servers are down through a power outage",
           "Description": "Team has to spend time fixing servers, and getting everything back to normal operations.",
           "Effect": "addStory",
           "Amount": "+5"
         },
         {
-          "ID": "CS003",
-          "Role": "SM",
+          "ID": "COS001",
+          "Role": "NONE",
           "Content": "Your team has just been infected with the flu",
           "Description": "Team is unable to do any work for a while",
           "Effect": "skipTurn",
           "Amount": "+2"
         },
         {
-          "ID": "CS004",
-          "Role": "SM",
+          "ID": "COS002",
+          "Role": "NONE",
           "Content": "Legal team just informed your team that a copyright lawsuit was brought to court. Further development was delayed",
           "Description": "Skip two turns",
             "Effect": "skipTurn",
           "Amount": "+2"
         },
         {
-          "ID": "CS005",
-          "Role": "SM",
-          "Content": "Client has decided that the features you are currently working on are not needed soon, team re-prioritizes backlog.",
-          "Description": "Shuffle the story deck",
-          "Effect": "shuffleDeck",
-          "Amount": "+1"
-        },
-        {
-          "ID": "CS006",
-          "Role": "SM",
+          "ID": "COS003",
+          "Role": "NONE",
           "Content": "A new third party has just been released, and allows your team to do a certain story more easily",
           "Description": "Reduce points for a specific story from backlog.",
           "Effect": "pointChange",
           "Amount": "-5"
         },
         {
-          "ID": "CS007",
-          "Role": "SM",
+          "ID": "COS004",
+          "Role": "NONE",
           "Content": "An existing third party library your team is using has had a serious bug found in it, compromising anyone else using this library. ",
           "Description": "Your team must remove library from project and write new functionality that does what library was doing.",
           "Effect": "addStory",
           "Amount": "+10"
         },
         {
-          "ID": "CS008",
-          "Role": "SM",
+          "ID": "COS005",
+          "Role": "NONE",
           "Content": "Fresh off of Halloween weekend, your developers are feeling extra motivated and happy, and are able to get more work done",
           "Description": "Remove small story from backlog",
           "Effect": "removeStory",
           "Amount": "-1"
         },
         {
-          "ID": "CS009",
-          "Role": "SM",
+          "ID": "COS006",
+          "Role": "NONE",
           "Content": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog. Your card deck get shuffled",
           "Description": "Shuffle the story deck",
           "Effect": "shuffleDeck",
           "Amount": "+1"
+        },
+        {
+          "ID": "COS007",
+          "Role": "NONE",
+          "Content": "Google has recently just updated one of its API's, which has more functionality that can be used.",
+          "Description": "Updated API allows you to reduce estimate for a specific story from backlog.",
+          "Effect": "pointChange",
+          "Amount": "-5"
         }
 
 	]
