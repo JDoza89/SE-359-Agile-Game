@@ -128,7 +128,62 @@
             "Effect": "pointChange",
             "Amount": "-2"
         },
-
+        {
+          "ID": "CP003",
+          "Role": "PM",
+          "Content": "Your Client decides he doesn't need a certain feature",
+          "Description": "None",
+          "Effect": "removeStory",
+          "Amount": "-1"
+        },
+        {
+          "ID": "CP004",
+          "Role": "PM",
+          "Content": "A Developer on your team called in sick, and is unable to work for a few days",
+          "Description": "You are behind",
+          "Effect": "pointChange",
+          "Amount": "+5"
+        },
+        {
+          "ID": "CP005",
+          "Role": "PM",
+          "Content": "During backlog grooming, you and your team realizes their needs to be additional story added to the backlog to fulfill a certain request",
+          "Description": "Add story to backlog",
+          "Effect": "addStory",
+          "Amount": "+5"
+        },
+        {
+          "ID": "CP006",
+          "Role": "PM",
+          "Content": "Going over the product backlog, you realize there is redundancy in some stories being the same",
+          "Description": "Remove duplicate story from backlog",
+          "Effect": "removeStory",
+          "Amount": "-1"
+        },
+        {
+          "ID": "CP007",
+          "Role": "PM",
+          "Content": "During backlog grooming, you realize a story the was given too many story points.",
+          "Description": "Decrease story points for specific story",
+          "Effect": "pointChange",
+          "Amount": "-5"
+        },
+        {
+          "ID": "CP008",
+          "Role": "PM",
+          "Content": "During backlog grooming, the team realizes a story is no longer needed",
+          "Description": "Remove story from backlog",
+          "Effect": "removeStory",
+          "Amount": "-1"
+        },
+        {
+          "ID": "CP009",
+          "Role": "PM",
+          "Content": "During backlog grooming, the team realizes that a story was given too few story points",
+          "Description": "Add story points for specific story",
+          "Effect": "pointChange",
+          "Amount": "+5"
+        },
 		{
             "ID": "CS000",
             "Role": "SM",
@@ -145,6 +200,70 @@
 			"Description": "Move the top story from the backlog to done",
 			"Effect": "cardChange",
             "Amount": "-1"
+        },
+        {
+          "ID": "CS002",
+          "Role": "SM",
+          "Content": "Servers are down through a power outage",
+          "Description": "Team has to spend time fixing servers, and getting everything back to normal operations.",
+          "Effect": "addStory",
+          "Amount": "+5"
+        },
+        {
+          "ID": "CS003",
+          "Role": "SM",
+          "Content": "Your team has just been infected with the flu",
+          "Description": "Team is unable to do any work for a while",
+          "Effect": "skipTurn",
+          "Amount": "+2"
+        },
+        {
+          "ID": "CS004",
+          "Role": "SM",
+          "Content": "Legal team just informed your team that a copyright lawsuit was brought to court. Further development was delayed",
+          "Description": "Skip two turns",
+            "Effect": "skipTurn",
+          "Amount": "+2"
+        },
+        {
+          "ID": "CS005",
+          "Role": "SM",
+          "Content": "Client has decided that the features you are currently working on are not needed soon, team re-prioritizes backlog.",
+          "Description": "Shuffle the story deck",
+          "Effect": "shuffleDeck",
+          "Amount": "+1"
+        },
+        {
+          "ID": "CS006",
+          "Role": "SM",
+          "Content": "A new third party has just been released, and allows your team to do a certain story more easily",
+          "Description": "Reduce points for a specific story from backlog.",
+          "Effect": "pointChange",
+          "Amount": "-5"
+        },
+        {
+          "ID": "CS007",
+          "Role": "SM",
+          "Content": "An existing third party library your team is using has had a serious bug found in it, compromising anyone else using this library. ",
+          "Description": "Your team must remove library from project and write new functionality that does what library was doing.",
+          "Effect": "addStory",
+          "Amount": "+10"
+        },
+        {
+          "ID": "CS008",
+          "Role": "SM",
+          "Content": "Fresh off of Halloween weekend, your developers are feeling extra motivated and happy, and are able to get more work done",
+          "Description": "Remove small story from backlog",
+          "Effect": "removeStory",
+          "Amount": "-1"
+        },
+        {
+          "ID": "CS009",
+          "Role": "SM",
+          "Content": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog. Your card deck get shuffled",
+          "Description": "Shuffle the story deck",
+          "Effect": "shuffleDeck",
+          "Amount": "+1"
         }
 
 	]
