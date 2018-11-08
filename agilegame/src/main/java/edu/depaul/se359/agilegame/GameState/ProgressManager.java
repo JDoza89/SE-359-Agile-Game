@@ -21,10 +21,6 @@ public class ProgressManager {
     private int playerTurnCount = 0;
     private int currentTurnCount = 1;
 
-    private ProgressManager() {
-        this.determinePlayerTurns();
-    }
-
     public static ProgressManager getInstance() {
 
         if (instance == null) {
@@ -64,7 +60,7 @@ public class ProgressManager {
     }
 
     // function to determine player's turns from different team
-    private void determinePlayerTurns() {
+    public void determinePlayerTurns() {
 
         // holds a list of team ids
         ArrayList<Integer> teamIds = new ArrayList<>();
@@ -91,6 +87,7 @@ public class ProgressManager {
 
             // set number of players in current team iteration
             numberOfPlayers = players.size();
+
 
             // create an empty ids array
             ArrayList<Integer> ids = new ArrayList<>();
