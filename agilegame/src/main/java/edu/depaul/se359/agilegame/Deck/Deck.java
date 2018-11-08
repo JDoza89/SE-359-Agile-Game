@@ -214,4 +214,17 @@ public class Deck
         System.out.println("//----------------------------------------------");
         System.out.println();
     }
+
+    public String getStory(int start, int end){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<StoryCard> s = getStoryDeck();
+
+        for (int i = start; i < end; i++){
+            sb.append(i+1);
+            sb.append(". ");
+            sb.append(s.get(i).getContent() + " - amount: " + s.get(i).getAmount());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
