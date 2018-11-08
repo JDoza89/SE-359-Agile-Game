@@ -123,7 +123,7 @@
         {
             "ID": "CP002",
             "Role": "PM",
-            "Content": "Pizza Partyy!! You motivate your team",
+            "Content": "Pizza Party!! You motivate your team",
             "Description": "They get ahead",
             "Effect": "pointChange",
             "Amount": "-2"
@@ -184,12 +184,28 @@
           "Effect": "pointChange",
           "Amount": "+5"
         },
+        {
+          "ID": "CP010",
+          "Role": "PM",
+          "Content": "Your client re-prioritized the product backlog after a shift in the market trend.",
+          "Description": "Product backlog was shuffled (figuratively). Points were not affected.",
+          "Effect": "pointChange",
+          "Amount": "0"
+        },
+        {
+          "ID": "CP011",
+          "Role": "PM",
+          "Content": "Your rival product released a popular feature, and the client wants it as well.",
+          "Description": "Add a story to the backlog",
+          "Effect": "addStory",
+          "Amount": "+8"
+        },
 		{
             "ID": "CS000",
             "Role": "SM",
 			"Content": "Priorities change!",
-			"Description": "Remove one card from the back log",
-            "Effect": "pointChange",
+			"Description": "Remove one card from the backlog",
+            "Effect": "removeStory",
             "Amount": "-5"
 		},
 
@@ -198,8 +214,24 @@
             "Role": "SM",
 			"Content": "You’re not quite sure how it happened, but everyone came together and were simply more productive.",
 			"Description": "Move the top story from the backlog to done",
-			"Effect": "cardChange",
+			"Effect": "pointChange",
             "Amount": "-1"
+        },
+        {
+          "ID": "CS002",
+          "Role": "SM",
+          "Content": "A team member was taking on more stories than he/she can handle.",
+          "Description": "Points are added.",
+          "Effect": "pointChange",
+          "Amount": "+5"
+        },
+        {
+          "ID": "CS003",
+          "Role": "SM",
+          "Content": "The team over estimated some stories.",
+          "Description": "Points are removed.",
+          "Effect": "pointChange",
+          "Amount": "-5"
         },
         {
           "ID": "COS000",
