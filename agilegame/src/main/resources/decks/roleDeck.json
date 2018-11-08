@@ -103,6 +103,54 @@
       "Effect": "pointChange",
       "Amount": "-5",
       "ChanceCard": "CD005"
+    },
+    {
+      "ID": "RD011",
+      "Role": "PM",
+      "Content": "You throw a pizza party!.",
+      "Description": "Motivate your workers, increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+    {
+      "ID": "RD012",
+      "Role": "PM",
+      "Content": "You did some solid backlog grooming.",
+      "Description": "You are on track!.",
+      "Effect": "pointChange",
+      "Amount": "-3"
+    },
+    {
+      "ID": "RD013",
+      "Role": "PM",
+      "Content": "The clients like the presentation.",
+      "Description": "What more is there to say?",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+    {
+      "ID": "RD014",
+      "Role": "SM",
+      "Content": "Your stand-up was productive.",
+      "Description": "Motivate your workers, increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+    {
+      "ID": "RD015",
+      "Role": "SM",
+      "Content": "You lead some awesome Sprint planning",
+      "Description": "Increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-6"
+    },
+    {
+      "ID": "RD016",
+      "Role": "SM",
+      "Content": "ProductManager isn't mad at you! :D",
+      "Description": "You aren't made at the developers! :D",
+      "Effect": "pointChange",
+      "Amount": "-5"
     }
   ]
 }

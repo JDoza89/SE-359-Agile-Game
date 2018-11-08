@@ -19,6 +19,8 @@ public class Deck
     private ArrayList<StoryCard> m_storyDeck;
     private ArrayList<RoleCard> m_roleDeck;
 
+    private int total;
+
     private static Deck instance = null;
 
     public static Deck getInstance()
@@ -223,8 +225,15 @@ public class Deck
             sb.append(i+1);
             sb.append(". ");
             sb.append(s.get(i).getContent() + " - amount: " + s.get(i).getAmount());
+            total += Integer.parseInt(s.get(i).getAmount());
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    public int getTotal(){
+        int t = total;
+        total = 0;
+        return t;
     }
 }

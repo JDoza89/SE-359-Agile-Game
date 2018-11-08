@@ -31,19 +31,20 @@ public class Gui extends Application {
     private TeamManager teams;
     private ProgressManager progress;
 
-    private int score = 0;
-    private Text hands = new Text();
+    private int team1Total = 0;
+    private int team2Total = 0;
+    private Text hands;
     private SecondStage cards;
 
-    private Text team1Score = new Text("Team 1: " + score);
-    private Text team2Score = new Text("Team 2: " + score);
+    private Text team1Score = new Text("Team 1: " + team1Total);
+    private Text team2Score = new Text("Team 2: " + team2Total);
     private ArrayList<Hand> team1Hand = new ArrayList<>();
     private ArrayList<Hand> team2Hand = new ArrayList<>();
     private ArrayList<StoryCard> story;
     private ArrayList<Card> storyTeam1;
     private ArrayList<Card> storyTeam2;
-    Text team1 = new Text("Team 1 Stories: ");
-    Text team2 = new Text("Team 2 Stories: ");
+    private Text team1 = new Text("Team 1 Stories: ");
+    private Text team2 = new Text("Team 2 Stories: ");
     private int len;
 
     private Button btnStart;
@@ -59,8 +60,8 @@ public class Gui extends Application {
     private Group root;
     private VBox vBox;
     private Scene scene;
-    private Text player = new Text();
-    private Text team = new Text();
+    private Text player;
+    private Text team;
     private SecondStage playerDeck;
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -74,8 +75,12 @@ public class Gui extends Application {
         len = Deck.getStoryDeck().size()-1;
         ArrayList<Card> temp = new ArrayList<Card>(Deck.getStoryDeck().subList(0,len/2));
         storyTeam1 = temp;
+        team1Total = Deck.getInstance().getTotal();
+        updateTotal(1, team1Total);
         temp = new ArrayList<Card>(Deck.getStoryDeck().subList((len/2)+1, len));
         storyTeam2 = temp;
+        team2Total = Deck.getInstance().getTotal();
+        updateTotal(2, team2Total);
 
         setUpUIEnvironment(primaryStage);
 
@@ -197,6 +202,9 @@ public class Gui extends Application {
             if(GameManager.getInstance() != null) {
                 game.endGame();
             }
+            vBox.getChildren().remove(team1Stories);
+            vBox.getChildren().remove(team2Stories);
+
         });
     }
 
@@ -215,22 +223,32 @@ public class Gui extends Application {
 
         team1Stories = new Text();
         team2Stories = new Text();
+        player = new Text();
+        team = new Text();
+        hands = new Text();
 
+        team1.setFont(Font.font ("Verdana", 25));
+        team2.setFont(Font.font ("Verdana", 25));
         team1Stories.setText("Welcome to Agile Game");
         team1Stories.setFont(Font.font ("Verdana", 20));
         team2Stories.setFont(Font.font ("Verdana", 20));
+        player.setFont(Font.font ("Verdana", 20));
+        team.setFont(Font.font ("Verdana", 20));
+        hands.setFont(Font.font ("Verdana", 25));
 
         // set the position of the text
         team1Stories.setWrappingWidth(800);
 
         team2Stories.setWrappingWidth(800);
 
+        hands.setWrappingWidth(800);
 
         txtCardNum = new Text("Enter card number you wish to select: ");
         txtCardNum.setFont(Font.font ("Verdana", 20));
 
         txtNumOfTeam = new Text("Number of players per team: ");
         txtNumOfTeam.setFont(Font.font ("Verdana", 20));
+
 
         txtPlayer = new Text("Player Hand: ");
     }
@@ -275,5 +293,17 @@ public class Gui extends Application {
         game = GameManager.getInstance();
         teams = TeamManager.getInstance();
         progress = ProgressManager.getInstance();
+    }
+
+    private void updateTotal(int team, int total){
+        if(team == 1){
+            team1Score.setText("Team 1: " + total);
+        }
+        else if(team == 2){
+            team2Score.setText("Team 2: " + total);
+        }
+        else{
+            System.out.println("Please select team 1 or 2");
+        }
     }
 }
