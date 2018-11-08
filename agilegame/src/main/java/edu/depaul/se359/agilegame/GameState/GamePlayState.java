@@ -18,10 +18,9 @@ public class GamePlayState implements GameState {
 
     private void gamePlay()
     {
-        // int playerID = ProgressManager.getInstance().circulateTurns();
-
-
         // do something in game play if any
+        ProgressManager.getInstance().determinePlayerTurns();
+
     }
 
     @Override
