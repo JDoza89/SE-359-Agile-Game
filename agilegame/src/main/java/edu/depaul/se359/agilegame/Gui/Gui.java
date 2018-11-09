@@ -35,6 +35,8 @@ public class Gui extends Application {
     private int team2Total = 0;
     private Text hands;
     private SecondStage cards;
+    private Player currPlayer;
+    private Team currTeam;
 
     private Text team1Score = new Text("Team 1: " + team1Total);
     private Text team2Score = new Text("Team 2: " + team2Total);
@@ -63,6 +65,7 @@ public class Gui extends Application {
     private Text player;
     private Text team;
     private SecondStage playerDeck;
+    private int currPlayerID;
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -90,6 +93,7 @@ public class Gui extends Application {
 
     //Second stage that will contain the players' hand
     public class SecondStage extends Stage {
+
         Label x = new Label("Player Hand");
         Group root2 = new Group(hands);
         VBox y = new VBox(team, player, txtCardNum,
@@ -100,6 +104,7 @@ public class Gui extends Application {
             this.setScene(new Scene(y, 800, 800));
             this.show();
         }
+
     }
 
     public static void main(String[] args) {
@@ -144,9 +149,9 @@ public class Gui extends Application {
             teams.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
             teams.createTeamsAndPlayers();
             game.startGame();
-            System.out.println("Num players: " + teams.getNumberOfPlayers());
-            System.out.println("Num teams: " + teams.getNumberOfTeams());
-            playerDeck = new SecondStage();
+            playCards();
+            updateHand();
+            cards = new SecondStage();
             vBox.getChildren().remove(txtNumOfTeam);
             vBox.getChildren().remove(tFieldNumOfPerTeam);
             vBox.getChildren().remove(btnStart);
@@ -154,43 +159,36 @@ public class Gui extends Application {
 
             team1Stories.setText(Deck.getInstance().getStory(0, len/2));
             team2Stories.setText(Deck.getInstance().getStory((len/2)+1, len));        });
+
     }
 
     private void btnPlayListen()
     {
+
         //Add the method that will play the card selected
         btnPlay.setOnAction(action -> {
+            playCards();
 
-            int currPlayerID = progress.circulateTurns();
-
-            // get the current player
-            Player currPlayer = TeamManager.getInstance().getPlayer(currPlayerID);
-
-            // get the current team from this player
-            Team currTeam = TeamManager.getInstance().getTeam(currPlayer.getTeamId());
-            team.setText("Team: " + currPlayer.getTeamId());
             // get the player's choice
             // TODO: either the index in the player's hand object
             // TODO: or the with the card ID
-          //  int cardIndex = Integer.parseInt(tFieldCardNum.getText());
+            int cardIndex = Integer.parseInt(tFieldCardNum.getText());
 
             // get the player's cards
             ArrayList<Card> playerCards = currPlayer.getPlayedCards();
 
             // get the player's chosen card
-          //  Card chosenCard = playerCards.get(cardIndex);
+            Card chosenCard = playerCards.get(cardIndex);
 
             // do the back-end effect, which is adding or reducing score
-          //  EffectManager.doEffect(currTeam, chosenCard);
+            EffectManager.doEffect(currTeam, chosenCard);
 
             System.out.println(progress.getCurrentTurnCount());
 
             //    hands.setText(Deck.getRoleDeck());
-
-            player.setText("Player: " + currPlayerID);
-            hands.setText(currPlayer.showHand().getHand());
-
+            updateHand();
             System.out.println(tFieldCardNum.getText());
+
         });
     }
 
@@ -208,6 +206,22 @@ public class Gui extends Application {
         });
     }
 
+    private void playCards(){
+        currPlayerID = progress.circulateTurns();
+        // get the current player
+        currPlayer = TeamManager.getInstance().getPlayer(currPlayerID);
+
+        // get the current team from this player
+        currTeam = TeamManager.getInstance().getTeam(currPlayer.getTeamId());
+        team.setText("Team: " + currPlayer.getTeamId());
+
+    }
+
+    private void updateHand(){
+        player.setText("Player: " + currPlayerID);
+        hands.setText(currPlayer.showHand().getHand());
+
+    }
     private void checkTeam(int n, Hand h) {
 
         if(n == 1){
