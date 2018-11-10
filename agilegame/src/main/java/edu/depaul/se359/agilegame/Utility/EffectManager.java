@@ -48,6 +48,9 @@ public class EffectManager
         // get the list of the team
         ArrayList<Team> teams = TeamManager.getInstance().getTeams();
 
+        // Shuffle story deck
+        GameUtility.shuffleCards(Deck.getStoryDeck());
+
         // assume the # of team is 2
         assert teams.size() == 2;
 
