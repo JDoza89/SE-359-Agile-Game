@@ -76,7 +76,7 @@ public class Hand {
     public String getHand(){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < hand.size(); i++){
-            sb.append(i+1);
+            sb.append(i);
             sb.append(". \n");
             sb.append(hand.get(i).getContent() + "\n-Description: " + hand.get(i).getDescription() + "\n-Amount: " + hand.get(i).getAmount());
             sb.append("\n");

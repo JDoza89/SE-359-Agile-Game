@@ -25,7 +25,7 @@ class ScrumMasterPlayer extends Player {
     @Override
     public void playCard(int num) {
 
-        Card card = this.ownHand.getCard(num - 1);
+        Card card = this.ownHand.getCard(num);
 
         playedCards.add(card);
         this.ownHand.removeCard(card);

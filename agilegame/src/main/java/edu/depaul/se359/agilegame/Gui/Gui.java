@@ -140,9 +140,13 @@ public class Gui extends Application {
             teamsManager.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
             teamsManager.createTeamsAndPlayers();
             gameManager.startGame();
+
+            updateScore();
+
+            // get the first player & hand
             getPlayer();
             updateHand();
-            updateScore();
+            
             cards = new SecondStage();
             vBox.getChildren().remove(txtNumOfTeam);
             vBox.getChildren().remove(tFieldNumOfPerTeam);
@@ -163,12 +167,8 @@ public class Gui extends Application {
 
         //Add the method that will play the card selected
         btnPlay.setOnAction(action -> {
-            getPlayer();
-            updateHand();
 
             // get the player's choice
-            // TODO: either the index in the player's hand object
-            // TODO: or the with the card ID
             int cardIndex = Integer.parseInt(tFieldCardNum.getText());
 
             // get the player's cards
@@ -188,6 +188,9 @@ public class Gui extends Application {
             //    hands.setText(Deck.getRoleDeck());
             System.out.println(tFieldCardNum.getText());
 
+            // get the next player & hand
+            getPlayer();
+            updateHand();
         });
     }
 
