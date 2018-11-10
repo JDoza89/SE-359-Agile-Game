@@ -8,6 +8,9 @@ package edu.depaul.se359.agilegame.Player;
     Created on: October 11, 2018
  */
 
+import edu.depaul.se359.agilegame.Card.Card;
+import edu.depaul.se359.agilegame.Card.StoryCard;
+
 import java.util.ArrayList;
 
 public class Team {
@@ -17,13 +20,14 @@ public class Team {
     private int storyPoint;
 
     private final ArrayList<Player> players;
+    private final ArrayList<StoryCard> stories;
 
     public Team() {
 
         this.id = Team.teamCount++;
         this.storyPoint = 0;
         this.players = new ArrayList<>();
-
+        this.stories = new ArrayList<>();
     }
 
     public int getId() {
@@ -50,6 +54,22 @@ public class Team {
         return this.storyPoint;
     }
 
+    public void setStory(StoryCard story){
+        this.stories.add(story);
+    }
+
+    public String getStoryCards(){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<StoryCard> s = this.stories;
+
+        for (int i = 0; i < stories.size(); i++){
+            sb.append(i+1);
+            sb.append(". ");
+            sb.append(s.get(i).getContent() + " - amount: " + s.get(i).getAmount());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 
     public void addPlayer(Player player) {
 

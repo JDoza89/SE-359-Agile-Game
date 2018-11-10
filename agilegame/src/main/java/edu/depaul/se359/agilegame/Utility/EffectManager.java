@@ -64,8 +64,15 @@ public class EffectManager
             int score = Integer.parseInt(amount.substring(1));
 
             // assign even index of card to team 0, odd to team 1
-            if (i % 2 == 0) teams.get(0).setStoryPoint(sign, score);
-            else teams.get(1).setStoryPoint(sign, score);
+            if (i % 2 == 0){
+                teams.get(0).setStoryPoint(sign, score);
+                teams.get(0).setStory(currCard);
+            }
+            else{
+                teams.get(1).setStoryPoint(sign, score);
+                teams.get(1).setStory(currCard);
+
+            }
         }
     }
 }

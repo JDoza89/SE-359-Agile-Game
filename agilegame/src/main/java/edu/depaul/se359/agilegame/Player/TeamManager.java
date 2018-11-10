@@ -10,6 +10,7 @@ package edu.depaul.se359.agilegame.Player;
 
 import java.util.ArrayList;
 import edu.depaul.se359.agilegame.GameState.GameManager;
+import edu.depaul.se359.agilegame.Utility.EffectManager;
 
 public class TeamManager {
 
@@ -61,6 +62,7 @@ public class TeamManager {
         }
 
         // save teams to the game state context
+        EffectManager.assignStoryPointToEachTeam();
         GameManager.getInstance().saveTeams(this.getTeams());
 
     }
