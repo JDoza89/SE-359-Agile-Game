@@ -15,6 +15,7 @@ import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -74,17 +75,7 @@ public class Gui extends Application {
         Deck.printAllDecks();
 
         story = Deck.getStoryDeck();
-        //deck = Deck.getRoleDeck();
-       /* len = Deck.getStoryDeck().size()-1;
-        ArrayList<Card> temp = new ArrayList<Card>(Deck.getStoryDeck().subList(0,len/2));
-        storyTeam1 = temp;
-        team1Total = Deck.getInstance().getTotal();
-        updateTotal(1, team1Total);
-        temp = new ArrayList<Card>(Deck.getStoryDeck().subList((len/2)+1, len));
-        storyTeam2 = temp;
-        team2Total = Deck.getInstance().getTotal();
-        updateTotal(2, team2Total);
-*/
+
         setUpUIEnvironment(primaryStage);
         listenButtons();
 
@@ -97,10 +88,11 @@ public class Gui extends Application {
         Group root2 = new Group(hands);
         VBox y = new VBox(team, player, txtCardNum,
                 tFieldCardNum, btnPlay, hands, root2);
+        ScrollPane scroll = new ScrollPane(y);
 
         SecondStage(){
             y.getChildren().add(x);
-            this.setScene(new Scene(y, 800, 800));
+            this.setScene(new Scene(scroll, 820, 800));
             this.show();
         }
 
@@ -313,8 +305,8 @@ public class Gui extends Application {
     {
         vBox = new VBox(team1Score, team2Score, txtNumOfTeam,
                 tFieldNumOfPerTeam, btnStart, btnEnd, team1, team1Stories, team2, team2Stories, root);
-
-        scene = new Scene(vBox, 800, 800);
+        ScrollPane scroll = new ScrollPane(vBox);
+        scene = new Scene(scroll, 820, 800);
 
         // set the app title on top of the window
         primaryStage.setTitle("Agile Game");

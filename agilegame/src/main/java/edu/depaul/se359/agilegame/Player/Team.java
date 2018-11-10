@@ -65,7 +65,8 @@ public class Team {
         for (int i = 0; i < stories.size(); i++){
             sb.append(i+1);
             sb.append(". ");
-            sb.append(s.get(i).getContent() + " - amount: " + s.get(i).getAmount());
+            sb.append("\n");
+            sb.append(s.get(i).getContent() + "\n- Description: " + s.get(i).getDescription() + "\n - amount: " + s.get(i).getAmount());
             sb.append("\n");
         }
         return sb.toString();
