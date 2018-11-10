@@ -43,7 +43,7 @@ public class TeamManager {
         // first two players will always be project manager and scrum master
         for (Team team : this.getTeams()) {
 
-            for (int i = 0; i <= numPlayers; i++) {
+            for (int i = 0; i < numPlayers; i++) {
 
                 switch (i) {
                     case 0:
