@@ -30,9 +30,6 @@ public class GameStartState implements GameState {
         GameUtility.shuffleAllDecks();
         Deck.printAllDecks();
 
-        // assign story deck to each team
-        EffectManager.assignStoryPointToEachTeam();
-
         GameManager.getInstance().playGame();
     }
 

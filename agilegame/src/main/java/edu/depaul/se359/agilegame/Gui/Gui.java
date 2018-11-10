@@ -27,9 +27,9 @@ import java.util.ArrayList;
 
 public class Gui extends Application {
 
-    private GameManager game;
-    private TeamManager teams;
-    private ProgressManager progress;
+    private GameManager gameManager;
+    private TeamManager teamsManager;
+    private ProgressManager progressManager;
 
     private int team1Total = 0;
     private int team2Total = 0;
@@ -144,10 +144,10 @@ public class Gui extends Application {
         //Add the method to start the game
         btnStart.setOnAction(action -> {
             team1Stories.setText("The Game has started");
-            teams.setNumberOfTeams(2);
-            teams.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
-            teams.createTeamsAndPlayers();
-            game.startGame();
+            teamsManager.setNumberOfTeams(2);
+            teamsManager.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
+            teamsManager.createTeamsAndPlayers();
+            gameManager.startGame();
             getPlayer();
             updateHand();
             updateScore();
@@ -156,8 +156,8 @@ public class Gui extends Application {
             vBox.getChildren().remove(tFieldNumOfPerTeam);
             vBox.getChildren().remove(btnStart);
 
-            team1Stories.setText(teams.getTeam(1).getStoryCards());
-            team2Stories.setText(teams.getTeam(2).getStoryCards());
+            team1Stories.setText(teamsManager.getTeam(1).getStoryCards());
+            team2Stories.setText(teamsManager.getTeam(2).getStoryCards());
 
 /*
             team1Stories.setText(Deck.getInstance().getStory(0, len/2));
@@ -191,7 +191,7 @@ public class Gui extends Application {
 
             updateScore();
 
-            System.out.println(progress.getCurrentTurnCount());
+            System.out.println(progressManager.getCurrentTurnCount());
 
             //    hands.setText(Deck.getRoleDeck());
             System.out.println(tFieldCardNum.getText());
@@ -205,7 +205,7 @@ public class Gui extends Application {
         btnEnd.setOnAction(action -> {
             team1Stories.setText("Game has ended");
             if(GameManager.getInstance() != null) {
-                game.endGame();
+                gameManager.endGame();
             }
             vBox.getChildren().remove(team1Stories);
             vBox.getChildren().remove(team2Stories);
@@ -214,7 +214,7 @@ public class Gui extends Application {
     }
 
     private void getPlayer(){
-        currPlayerID = progress.circulateTurns();
+        currPlayerID = progressManager.circulateTurns();
         // get the current player
         currPlayer = TeamManager.getInstance().getPlayer(currPlayerID);
 
@@ -232,11 +232,12 @@ public class Gui extends Application {
 
     private void updateScore(){
         //update Score after card is played (display)
-        team1Total = teams.getTeam(1).getStoryPoint();
-        team2Total = teams.getTeam(2).getStoryPoint();
+        team1Total = teamsManager.getTeam(1).getStoryPoint();
+        team2Total = teamsManager.getTeam(2).getStoryPoint();
 
-        team1Score = new Text("Team 1: " + team1Total);
-        team2Score = new Text("Team 2: " + team2Total);
+        team1Score.setText("Team 1: " + String.valueOf(team1Total));
+        team2Score.setText("Team 2: " + String.valueOf(team2Total));
+
     }
     private void checkTeam(int n, Hand h) {
 
@@ -323,9 +324,9 @@ public class Gui extends Application {
 
     private void setUpManagers()
     {
-        game = GameManager.getInstance();
-        teams = TeamManager.getInstance();
-        progress = ProgressManager.getInstance();
+        gameManager = GameManager.getInstance();
+        teamsManager = TeamManager.getInstance();
+        progressManager = ProgressManager.getInstance();
     }
 
 }
