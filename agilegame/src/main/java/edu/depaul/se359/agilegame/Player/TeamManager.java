@@ -46,7 +46,7 @@ public class TeamManager {
 
                 switch (i) {
                     case 0:
-                        this.createPlayer(team.getId(), Role.PROJECT_MANAGER);
+                        this.createPlayer(team.getId(), Role.PRODUCT_OWNER);
                         break;
                     case 1:
                         this.createPlayer(team.getId(), Role.SCRUM_MASTER);
@@ -109,8 +109,8 @@ public class TeamManager {
             case SCRUM_MASTER:
                 player = new ScrumMasterPlayer(teamId);
                 break;
-            case PROJECT_MANAGER:
-                player = new ProjectManagerPlayer(teamId);
+            case PRODUCT_OWNER:
+                player = new ProductOwnerPlayer(teamId);
                 break;
 
         }

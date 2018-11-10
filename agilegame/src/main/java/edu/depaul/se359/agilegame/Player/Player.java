@@ -9,7 +9,10 @@ package edu.depaul.se359.agilegame.Player;
 
 import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Hand.Hand;
+import edu.depaul.se359.agilegame.Utility.GameUtility;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 public abstract class Player
 {
@@ -18,6 +21,7 @@ public abstract class Player
     int teamId = 0;
     Hand ownHand;
     ArrayList<Card> playedCards;
+    private Map<Role, String[]> roleDescriptions = GameUtility.getRoleDescriptions();
 
     public abstract int getTeamId();
     public abstract int getId();
@@ -26,4 +30,15 @@ public abstract class Player
     public abstract void playCard(int num);
     public abstract ArrayList<Card> getPlayedCards();
 
+    public String[] getNameAndDescription(){
+        return roleDescriptions.get(getRole());
+    }
+
+    public String getName(){
+        return getNameAndDescription()[0];
+    }
+
+    public String getDescription(){
+        return getNameAndDescription()[1];
+    }
 }

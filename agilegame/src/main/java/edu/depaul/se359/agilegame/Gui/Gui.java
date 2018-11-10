@@ -7,7 +7,6 @@ import edu.depaul.se359.agilegame.GameState.GameManager;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Hand.Hand;
 import edu.depaul.se359.agilegame.Player.Player;
-import edu.depaul.se359.agilegame.Player.Role;
 import edu.depaul.se359.agilegame.Player.Team;
 import edu.depaul.se359.agilegame.Player.TeamManager;
 import edu.depaul.se359.agilegame.Utility.EffectManager;
@@ -66,6 +65,13 @@ public class Gui extends Application {
     private Text team;
     private SecondStage playerDeck;
     private int currPlayerID;
+
+    private Text playerDescription = new Text();
+    private Label playerRole = new Label();
+
+    private Label currentPhase = new Label();
+    private Text phaseDescription = new Text();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -93,13 +99,14 @@ public class Gui extends Application {
 
     //Second stage that will contain the players' hand
     public class SecondStage extends Stage {
-
         Label x = new Label("Player Hand");
         Group root2 = new Group(hands);
         VBox y = new VBox(team, player, txtCardNum,
                 tFieldCardNum, btnPlay, hands, root2);
 
         SecondStage(){
+            y.getChildren().add(playerRole);
+            y.getChildren().add(playerDescription);
             y.getChildren().add(x);
             this.setScene(new Scene(y, 800, 800));
             this.show();
@@ -219,6 +226,8 @@ public class Gui extends Application {
 
     private void updateHand(){
         player.setText("Player: " + currPlayerID);
+        playerRole.setText("You are a " + currPlayer.getName());
+        playerDescription.setText(currPlayer.getDescription() + "\n\n");
         hands.setText(currPlayer.showHand().getHand());
 
     }
@@ -249,6 +258,7 @@ public class Gui extends Application {
         player.setFont(Font.font ("Verdana", 20));
         team.setFont(Font.font ("Verdana", 20));
         hands.setFont(Font.font ("Verdana", 25));
+        playerRole.setFont(Font.font ("Verdana", 20));
 
         // set the position of the text
         team1Stories.setWrappingWidth(800);

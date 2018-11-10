@@ -11,12 +11,12 @@ import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Hand.Hand;
 import java.util.ArrayList;
 
-class ProjectManagerPlayer extends Player {
+class ProductOwnerPlayer extends Player {
 
     private final int id = Player.id++;
-    private final Role role = Role.PROJECT_MANAGER;
+    private final Role role = Role.PRODUCT_OWNER;
 
-    ProjectManagerPlayer(int teamId) {
+    ProductOwnerPlayer(int teamId) {
         this.teamId = teamId;
         this.ownHand = new Hand(teamId, id, role);
         this.playedCards = new ArrayList<>();

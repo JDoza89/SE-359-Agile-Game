@@ -17,10 +17,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 //Utility class responsible for providing utility functions for agile game such as shuffling cards in deck.
 public final class GameUtility
 {
+    // JSON.Simple lib
+    private static JSONParser parser = new JSONParser();
+
     public static void shuffleAllDecks()
     {
         shuffleCards(Deck.getRoleDeck());
@@ -47,23 +52,18 @@ public final class GameUtility
     }
 
     public static void parseJSONtoDecks() throws IOException, ParseException {
-
-	    // JSON.Simple lib
-        JSONParser parser = new JSONParser();
-
         String[] fileNames = {"chanceDeck","roleDeck","storyDeck"};
 
         if (fileNames.length > 0) {
 
             for (String name : fileNames) {
-                parseJSONtoDecks(parser, name);
+                parseJSONtoDecks(name);
             }
 
         }
-
     }
 
-    private static void parseJSONtoDecks(JSONParser parser, String fileName) throws IOException, ParseException {
+    private static void parseJSONtoDecks(String fileName) throws IOException, ParseException {
 
 	    // grab whole file
         JSONObject jsonObject = (JSONObject)parser.parse(
@@ -90,6 +90,37 @@ public final class GameUtility
                          cardID, cardRole, cardContent,
                          cardDescription, cardEffect, cardAmount);
         }
+    }
+
+    public static Map<Role, String[]> getRoleDescriptions() {
+        HashMap<Role, String[]> roleMap = new HashMap<>();
+        try {
+            JSONObject jsonObject = (JSONObject) parser.parse(
+                    new InputStreamReader(Game.class.getResourceAsStream("/roles/scrum.json")));
+            JSONArray jsonArray = (JSONArray) jsonObject.get("Roles");
+
+            for (Object roleObject : jsonArray) {
+                JSONObject currObj = (JSONObject) roleObject;
+                String roleName = (String) currObj.get("Name");
+                String roleDescription = (String) currObj.get("Description");
+                Role role = Role.DEVELOPER;
+                if (roleName.equalsIgnoreCase("Product Owner")) {
+                    role = Role.PRODUCT_OWNER;
+                } else if (roleName.equalsIgnoreCase("Scrum Master")) {
+                    role = Role.SCRUM_MASTER;
+                }
+
+                roleMap.put(role, new String[]{roleName, roleDescription});
+            }
+        } catch (Exception e){
+            System.out.println("Unable to pare the role json. Setting default vales. See bellow for the error:");
+            System.out.println(e.getMessage());
+
+            for (Role role: Role.values()) {
+                roleMap.put(role, new String[] {role.toString(), "<-Trouble Parsing Values->\n This role is key to making SCRUM work!"});
+            }
+        }
+        return roleMap;
     }
 
     public static void doEffect(Card card, Team team)
