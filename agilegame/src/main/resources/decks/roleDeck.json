@@ -130,6 +130,62 @@
     },
     {
       "ID": "RD014",
+      "Role": "PM",
+      "Content": "You somehow managed to translate everything your customer wanted!",
+      "Description": "Promotion, the project was perfect.",
+      "Effect": "chanceCardRemove",
+      "Amount": "-15"
+    },
+    {
+      "ID": "RD015",
+      "Role": "PM",
+      "Content": "All of the stories are created and your team is on the same page.",
+      "Description": "You are ahead of schedule.",
+      "Effect": "chanceCardRemove",
+      "Amount": "-10"
+    },
+    {
+      "ID": "RD016",
+      "Role": "PM",
+      "Content": "If you finish the project early, you get a 15% bonus.",
+      "Description": "Motivate the hell out of your team, get ahead of schedule.",
+      "Effect": "pointChange",
+      "Amount": "-6"
+    },
+    {
+      "ID": "RD017",
+      "Role": "PM",
+      "Content": "Your product backlog is prioritized well.",
+      "Description": "Important functionality done first, customer is happy.",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+    {
+      "ID": "RD018",
+      "Role": "PM",
+      "Content": "No story point changes this sprint.",
+      "Description": "You are on track, great job!",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+    {
+      "ID": "RD019",
+      "Role": "PM",
+      "Content": "You finished approving the development team's stories..",
+      "Description": "They meet the requirements, no extra work added.",
+      "Effect": "pointChange",
+      "Amount": "-5"
+    },
+    {
+      "ID": "RD020",
+      "Role": "PM",
+      "Content": "Free coffee this morning.",
+      "Description": "You are awake and ready to conquer the day.",
+      "Effect": "pointChange",
+      "Amount": "-2"
+    },
+    {
+      "ID": "RD021",
       "Role": "SM",
       "Content": "Your stand-up was productive.",
       "Description": "Motivate your workers, increase productivity.",
@@ -137,7 +193,7 @@
       "Amount": "-5"
     },
     {
-      "ID": "RD015",
+      "ID": "RD022",
       "Role": "SM",
       "Content": "You lead some awesome Sprint planning",
       "Description": "Increase productivity.",
@@ -145,7 +201,7 @@
       "Amount": "-6"
     },
     {
-      "ID": "RD016",
+      "ID": "RD023",
       "Role": "SM",
       "Content": "ProductManager isn't mad at you! :D",
       "Description": "You aren't made at the developers! :D",
