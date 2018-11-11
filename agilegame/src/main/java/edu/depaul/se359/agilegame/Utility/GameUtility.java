@@ -1,11 +1,9 @@
 package edu.depaul.se359.agilegame.Utility;
 
 import edu.depaul.se359.agilegame.Card.Card;
-import edu.depaul.se359.agilegame.Card.ChanceCard;
-import edu.depaul.se359.agilegame.Card.RoleCard;
-import edu.depaul.se359.agilegame.Card.StoryCard;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.Game;
+import edu.depaul.se359.agilegame.GameState.Phase;
 import edu.depaul.se359.agilegame.Player.Role;
 import edu.depaul.se359.agilegame.Player.Team;
 import org.json.simple.JSONArray;
@@ -13,12 +11,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 //Utility class responsible for providing utility functions for agile game such as shuffling cards in deck.
 public final class GameUtility
@@ -121,6 +116,33 @@ public final class GameUtility
             }
         }
         return roleMap;
+    }
+
+    public static ArrayList<Phase> getPhases() {
+        ArrayList<Phase> phaseList = new ArrayList<>();
+        try {
+            JSONObject jsonObject = (JSONObject) parser.parse(
+                    new InputStreamReader(Game.class.getResourceAsStream("/phases/scrum.json")));
+            JSONArray jsonArray = (JSONArray) jsonObject.get("Phases");
+
+            for (Object roleObject : jsonArray) {
+                JSONObject currObj = (JSONObject) roleObject;
+                String phaseName = (String) currObj.get("Name");
+                String phaseDescription = (String) currObj.get("Description");
+                int phasePosition = ((Long) currObj.get("ID")).intValue();
+                phaseList.add(new Phase(phasePosition, phaseName, phaseDescription));
+            }
+        } catch (Exception e){
+            System.out.println("Unable to pare the role json. Setting default vales. See bellow for the error:");
+            System.out.println(e.getMessage());
+
+            phaseList.add(new Phase(0, "", ""));
+        }
+
+        // Make sure that the linked list is sorted by the phase position
+        phaseList.sort(Comparator.comparingInt(Phase::getPhasePosition));
+
+        return phaseList;
     }
 
     public static void doEffect(Card card, Team team)

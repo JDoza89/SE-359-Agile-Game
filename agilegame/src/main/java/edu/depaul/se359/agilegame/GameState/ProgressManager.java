@@ -11,6 +11,7 @@ package edu.depaul.se359.agilegame.GameState;
 import edu.depaul.se359.agilegame.Player.Player;
 import edu.depaul.se359.agilegame.Player.Team;
 import edu.depaul.se359.agilegame.Player.TeamManager;
+import edu.depaul.se359.agilegame.Utility.GameUtility;
 
 import java.util.*;
 
@@ -18,8 +19,10 @@ public class ProgressManager {
 
     private static ProgressManager instance = null;
     private final LinkedList<Integer> orderedPlayerIds = new LinkedList<>();
+    private ArrayList<Phase> phases;
     private int playerTurnCount = 0;
     private int currentTurnCount = 1;
+    private int phaseTurnCount = -1;
 
     public static ProgressManager getInstance() {
 
@@ -45,14 +48,27 @@ public class ProgressManager {
         // set turn to next player
         this.currentTurnCount++;
         this.playerTurnCount++;
+        phaseTurnCount++;
 
         // reset playerTurnCount to 0 if reached to the end of the ordered players array
         if (this.playerTurnCount >= this.orderedPlayerIds.size()) {
             this.playerTurnCount = 0;
         }
 
+        if(phaseTurnCount >= phases.size()){
+            phaseTurnCount = 0;
+        }
+
         return playerId;
 
+    }
+
+    public void determinePhases(){
+        phases = GameUtility.getPhases();
+    }
+
+    public Phase getCurrentPhase(){
+        return phases.get(phaseTurnCount);
     }
 
     public int getCurrentTurnCount() {

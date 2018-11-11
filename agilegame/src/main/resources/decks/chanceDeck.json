@@ -6,7 +6,7 @@
 		{
 			"ID": "CD000",
             "Role": "DEV",
-			"Content": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
+			"Content": "Your product manager informed your team that a rivalry develoPOent team is working on new groundbreaking feature. The team need to re-prioritize product backlog.",
 			"Description": "Your card deck get shuffled.",
 			"Effect": "pointChange",
             "Amount": "-10"
@@ -104,7 +104,7 @@
 
 		{
             "ID": "CP000",
-            "Role": "PM",
+            "Role": "PO",
 			"Content": "A Developer on your team got too lit last night, she called off today.",
 			"Description": "You are behind",
             "Effect": "pointChange",
@@ -113,7 +113,7 @@
 
 		{
             "ID": "CP001",
-            "Role": "PM",
+            "Role": "PO",
 			"Content": "Your Client wants to add a new feature",
 			"Description": "None",
             "Effect": "pointChange",
@@ -122,7 +122,7 @@
 
         {
             "ID": "CP002",
-            "Role": "PM",
+            "Role": "PO",
             "Content": "Pizza Party!! You motivate your team",
             "Description": "They get ahead",
             "Effect": "pointChange",
@@ -130,7 +130,7 @@
         },
         {
           "ID": "CP003",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "Your Client decides he doesn't need a certain feature",
           "Description": "None",
           "Effect": "removeStory",
@@ -138,7 +138,7 @@
         },
         {
           "ID": "CP004",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "A Developer on your team called in sick, and is unable to work for a few days",
           "Description": "You are behind",
           "Effect": "pointChange",
@@ -146,7 +146,7 @@
         },
         {
           "ID": "CP005",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "During backlog grooming, you and your team realizes their needs to be additional story added to the backlog to fulfill a certain request",
           "Description": "Add story to backlog",
           "Effect": "addStory",
@@ -154,7 +154,7 @@
         },
         {
           "ID": "CP006",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "Going over the product backlog, you realize there is redundancy in some stories being the same",
           "Description": "Remove duplicate story from backlog",
           "Effect": "removeStory",
@@ -162,7 +162,7 @@
         },
         {
           "ID": "CP007",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "During backlog grooming, you realize a story the was given too many story points.",
           "Description": "Decrease story points for specific story",
           "Effect": "pointChange",
@@ -170,7 +170,7 @@
         },
         {
           "ID": "CP008",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "During backlog grooming, the team realizes a story is no longer needed",
           "Description": "Remove story from backlog",
           "Effect": "removeStory",
@@ -178,7 +178,7 @@
         },
         {
           "ID": "CP009",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "During backlog grooming, the team realizes that a story was given too few story points",
           "Description": "Add story points for specific story",
           "Effect": "pointChange",
@@ -186,7 +186,7 @@
         },
         {
           "ID": "CP010",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "Your client re-prioritized the product backlog after a shift in the market trend.",
           "Description": "Product backlog was shuffled (figuratively). Points were not affected.",
           "Effect": "pointChange",
@@ -194,7 +194,7 @@
         },
         {
           "ID": "CP011",
-          "Role": "PM",
+          "Role": "PO",
           "Content": "Your rival product released a popular feature, and the client wants it as well.",
           "Description": "Add a story to the backlog",
           "Effect": "addStory",
@@ -252,7 +252,7 @@
         {
           "ID": "COS002",
           "Role": "NONE",
-          "Content": "Legal team just informed your team that a copyright lawsuit was brought to court. Further development was delayed",
+          "Content": "Legal team just informed your team that a copyright lawsuit was brought to court. Further develoPOent was delayed",
           "Description": "Skip two turns",
             "Effect": "skipTurn",
           "Amount": "+2"
@@ -284,7 +284,7 @@
         {
           "ID": "COS006",
           "Role": "NONE",
-          "Content": "Your product manager informed your team that a rivalry development team is working on new groundbreaking feature. The team need to re-prioritize product backlog. Your card deck get shuffled",
+          "Content": "Your product manager informed your team that a rivalry develoPOent team is working on new groundbreaking feature. The team need to re-prioritize product backlog. Your card deck get shuffled",
           "Description": "Shuffle the story deck",
           "Effect": "shuffleDeck",
           "Amount": "+1"

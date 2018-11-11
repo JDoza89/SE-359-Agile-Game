@@ -4,6 +4,7 @@ import edu.depaul.se359.agilegame.Card.Card;
 import edu.depaul.se359.agilegame.Card.StoryCard;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.GameState.GameManager;
+import edu.depaul.se359.agilegame.GameState.Phase;
 import edu.depaul.se359.agilegame.GameState.ProgressManager;
 import edu.depaul.se359.agilegame.Hand.Hand;
 import edu.depaul.se359.agilegame.Player.Player;
@@ -67,6 +68,7 @@ public class Gui extends Application {
     private Text team;
     private SecondStage playerDeck;
     private int currPlayerID;
+    private Label handLabel = new Label("Player Hand:");
 
     private Text playerDescription = new Text();
     private Label playerRole = new Label();
@@ -90,16 +92,16 @@ public class Gui extends Application {
 
     //Second stage that will contain the players' hand
     public class SecondStage extends Stage {
-        Label x = new Label("Player Hand");
         Group root2 = new Group(hands);
-        VBox y = new VBox(team, player, txtCardNum,
-                tFieldCardNum, btnPlay, hands, root2);
+        VBox y = new VBox(team, player, txtCardNum, tFieldCardNum, btnPlay);
         ScrollPane scroll = new ScrollPane(y);
 
         SecondStage(){
             y.getChildren().add(playerRole);
             y.getChildren().add(playerDescription);
-            y.getChildren().add(x);
+            y.getChildren().add(handLabel);
+            y.getChildren().add(hands);
+            y.getChildren().add(root2);
             this.setScene(new Scene(scroll, 820, 800));
             this.show();
         }
@@ -143,7 +145,6 @@ public class Gui extends Application {
     {
         //Add the method to start the game
         btnStart.setOnAction(action -> {
-            team1Stories.setText("The Game has started");
             teamsManager.setNumberOfTeams(2);
             teamsManager.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
             teamsManager.createTeamsAndPlayers();
@@ -162,6 +163,10 @@ public class Gui extends Application {
 
             team1Stories.setText(teamsManager.getTeam(1).getStoryCards());
             team2Stories.setText(teamsManager.getTeam(2).getStoryCards());
+
+            Phase tmpPhase = ProgressManager.getInstance().getCurrentPhase();
+            currentPhase.setText(tmpPhase.getPhaseName());
+            phaseDescription.setText(tmpPhase.getPhaseDescription());
 
 /*
             team1Stories.setText(Deck.getInstance().getStory(0, len/2));
@@ -199,6 +204,10 @@ public class Gui extends Application {
             // get the next player & hand
             getPlayer();
             updateHand();
+
+            Phase tmpPhase = ProgressManager.getInstance().getCurrentPhase();
+            currentPhase.setText(tmpPhase.getPhaseName());
+            phaseDescription.setText(tmpPhase.getPhaseDescription());
         });
     }
 
@@ -251,14 +260,16 @@ public class Gui extends Application {
         }
         team1Score.setText("Team 1: " + String.valueOf(team1Total));
         team2Score.setText("Team 2: " + String.valueOf(team2Total));
-
     }
 
     private void win(){
         cards.close();
         vBox.getChildren().remove(team2Stories);
         vBox.getChildren().remove(team2);
-        team1Stories.setText("Team " + winner + " is the winner!\nThe rest of you are fired.");
+        vBox.getChildren().remove(team1Stories);
+        vBox.getChildren().remove(team1);
+        vBox.getChildren().remove(phaseDescription);
+        currentPhase.setText("Team " + winner + " is the winner!\nThe rest of you are fired.");
     }
     private void checkTeam(int n, Hand h) {
 
@@ -284,13 +295,15 @@ public class Gui extends Application {
 
         team1.setFont(Font.font ("Verdana", 25));
         team2.setFont(Font.font ("Verdana", 25));
-        team1Stories.setText("Welcome to Agile Game");
+        currentPhase.setText("Welcome to Agile Game");
+        currentPhase.setFont(Font.font ("Verdana", 20));
         team1Stories.setFont(Font.font ("Verdana", 20));
         team2Stories.setFont(Font.font ("Verdana", 20));
         player.setFont(Font.font ("Verdana", 20));
         team.setFont(Font.font ("Verdana", 20));
-        hands.setFont(Font.font ("Verdana", 25));
+        hands.setFont(Font.font ("Verdana", 20));
         playerRole.setFont(Font.font ("Verdana", 20));
+        handLabel.setFont(Font.font ("Verdana", 25));
 
         // set the position of the text
         team1Stories.setWrappingWidth(800);
@@ -334,7 +347,8 @@ public class Gui extends Application {
     private void setPrimaryStageOnScreen(Stage primaryStage)
     {
         vBox = new VBox(team1Score, team2Score, txtNumOfTeam,
-                tFieldNumOfPerTeam, btnStart, btnEnd, team1, team1Stories, team2, team2Stories, root);
+                tFieldNumOfPerTeam, btnStart, btnEnd, currentPhase, phaseDescription,
+                team1, team1Stories, team2, team2Stories, root);
         ScrollPane scroll = new ScrollPane(vBox);
         scene = new Scene(scroll, 820, 800);
 
