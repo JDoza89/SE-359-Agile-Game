@@ -47,7 +47,7 @@ public class ProgressManager {
         this.playerTurnCount++;
 
         // reset playerTurnCount to 0 if reached to the end of the ordered players array
-        if (this.playerTurnCount >= this.orderedPlayerIds.size()-1) {
+        if (this.playerTurnCount >= this.orderedPlayerIds.size()) {
             this.playerTurnCount = 0;
         }
 

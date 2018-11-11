@@ -18,7 +18,7 @@
       "Content": "You have visited AWS Summit and did a cloud app hackathon there.",
       "Description": "You learn how to code on a cloud-based app.",
       "Effect": "storyChange",
-      "Amount": "+100%"
+      "Amount": "-60"
     },
 
     {
@@ -73,7 +73,7 @@
       "Content": "You win a Hackathon and your boss decide to have mercy on you in this sprint.",
       "Description": "Temporary push the top of the story to the next sprint.",
       "Effect": "storyChange",
-      "Amount": "+100%"
+      "Amount": "-60"
     },
 
     {

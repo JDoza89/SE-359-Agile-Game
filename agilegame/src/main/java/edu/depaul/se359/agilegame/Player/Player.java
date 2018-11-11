@@ -29,6 +29,7 @@ public abstract class Player
     public abstract Hand showHand();
     public abstract void playCard(int num);
     public abstract ArrayList<Card> getPlayedCards();
+   // public abstract ArrayList<Card> getHand();
 
     public String[] getNameAndDescription(){
         return roleDescriptions.get(getRole());

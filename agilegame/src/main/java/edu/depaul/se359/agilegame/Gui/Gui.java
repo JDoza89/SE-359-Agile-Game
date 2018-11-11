@@ -14,6 +14,7 @@ import edu.depaul.se359.agilegame.Utility.GameUtility;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -26,9 +27,9 @@ import java.util.ArrayList;
 
 public class Gui extends Application {
 
-    private GameManager game;
-    private TeamManager teams;
-    private ProgressManager progress;
+    private GameManager gameManager;
+    private TeamManager teamsManager;
+    private ProgressManager progressManager;
 
     private int team1Total = 0;
     private int team2Total = 0;
@@ -36,9 +37,10 @@ public class Gui extends Application {
     private SecondStage cards;
     private Player currPlayer;
     private Team currTeam;
+    private int winner;
 
-    private Text team1Score = new Text("Team 1: " + team1Total);
-    private Text team2Score = new Text("Team 2: " + team2Total);
+    private Text team1Score;
+    private Text team2Score;
     private ArrayList<Hand> team1Hand = new ArrayList<>();
     private ArrayList<Hand> team2Hand = new ArrayList<>();
     private ArrayList<StoryCard> story;
@@ -80,19 +82,8 @@ public class Gui extends Application {
         Deck.printAllDecks();
 
         story = Deck.getStoryDeck();
-        //deck = Deck.getRoleDeck();
-        len = Deck.getStoryDeck().size()-1;
-        ArrayList<Card> temp = new ArrayList<Card>(Deck.getStoryDeck().subList(0,len/2));
-        storyTeam1 = temp;
-        team1Total = Deck.getInstance().getTotal();
-        updateTotal(1, team1Total);
-        temp = new ArrayList<Card>(Deck.getStoryDeck().subList((len/2)+1, len));
-        storyTeam2 = temp;
-        team2Total = Deck.getInstance().getTotal();
-        updateTotal(2, team2Total);
 
         setUpUIEnvironment(primaryStage);
-
         listenButtons();
 
     }
@@ -103,12 +94,13 @@ public class Gui extends Application {
         Group root2 = new Group(hands);
         VBox y = new VBox(team, player, txtCardNum,
                 tFieldCardNum, btnPlay, hands, root2);
+        ScrollPane scroll = new ScrollPane(y);
 
         SecondStage(){
             y.getChildren().add(playerRole);
             y.getChildren().add(playerDescription);
             y.getChildren().add(x);
-            this.setScene(new Scene(y, 800, 800));
+            this.setScene(new Scene(scroll, 820, 800));
             this.show();
         }
 
@@ -152,20 +144,29 @@ public class Gui extends Application {
         //Add the method to start the game
         btnStart.setOnAction(action -> {
             team1Stories.setText("The Game has started");
-            teams.setNumberOfTeams(2);
-            teams.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
-            teams.createTeamsAndPlayers();
-            game.startGame();
-            playCards();
+            teamsManager.setNumberOfTeams(2);
+            teamsManager.setNumberOfPlayers(Integer.parseInt(tFieldNumOfPerTeam.getText()));
+            teamsManager.createTeamsAndPlayers();
+            gameManager.startGame();
+
+            updateScore();
+
+            // get the first player & hand
+            getPlayer();
             updateHand();
+            
             cards = new SecondStage();
             vBox.getChildren().remove(txtNumOfTeam);
             vBox.getChildren().remove(tFieldNumOfPerTeam);
             vBox.getChildren().remove(btnStart);
 
+            team1Stories.setText(teamsManager.getTeam(1).getStoryCards());
+            team2Stories.setText(teamsManager.getTeam(2).getStoryCards());
 
+/*
             team1Stories.setText(Deck.getInstance().getStory(0, len/2));
-            team2Stories.setText(Deck.getInstance().getStory((len/2)+1, len));        });
+            team2Stories.setText(Deck.getInstance().getStory((len/2)+1, len));       */
+        });
 
     }
 
@@ -174,28 +175,30 @@ public class Gui extends Application {
 
         //Add the method that will play the card selected
         btnPlay.setOnAction(action -> {
-            playCards();
 
             // get the player's choice
-            // TODO: either the index in the player's hand object
-            // TODO: or the with the card ID
             int cardIndex = Integer.parseInt(tFieldCardNum.getText());
 
             // get the player's cards
-            ArrayList<Card> playerCards = currPlayer.getPlayedCards();
+            Hand playerCards = currPlayer.showHand();
 
             // get the player's chosen card
-            Card chosenCard = playerCards.get(cardIndex);
+            Card chosenCard = playerCards.getCard(cardIndex);
 
+            currPlayer.playCard(cardIndex);
             // do the back-end effect, which is adding or reducing score
             EffectManager.doEffect(currTeam, chosenCard);
 
-            System.out.println(progress.getCurrentTurnCount());
+            updateScore();
+
+            System.out.println(progressManager.getCurrentTurnCount());
 
             //    hands.setText(Deck.getRoleDeck());
-            updateHand();
             System.out.println(tFieldCardNum.getText());
 
+            // get the next player & hand
+            getPlayer();
+            updateHand();
         });
     }
 
@@ -205,7 +208,7 @@ public class Gui extends Application {
         btnEnd.setOnAction(action -> {
             team1Stories.setText("Game has ended");
             if(GameManager.getInstance() != null) {
-                game.endGame();
+                gameManager.endGame();
             }
             vBox.getChildren().remove(team1Stories);
             vBox.getChildren().remove(team2Stories);
@@ -213,8 +216,8 @@ public class Gui extends Application {
         });
     }
 
-    private void playCards(){
-        currPlayerID = progress.circulateTurns();
+    private void getPlayer(){
+        currPlayerID = progressManager.circulateTurns();
         // get the current player
         currPlayer = TeamManager.getInstance().getPlayer(currPlayerID);
 
@@ -225,11 +228,37 @@ public class Gui extends Application {
     }
 
     private void updateHand(){
+        //update Current player and Team IDs
         player.setText("Player: " + currPlayerID);
         playerRole.setText("You are a " + currPlayer.getName());
         playerDescription.setText(currPlayer.getDescription() + "\n\n");
         hands.setText(currPlayer.showHand().getHand());
+    }
 
+    private void updateScore(){
+        //update Score after card is played (display)
+        team1Total = teamsManager.getTeam(1).getStoryPoint();
+        team2Total = teamsManager.getTeam(2).getStoryPoint();
+        if(team1Total <= 0){
+            team1Total = 0;
+            winner = 1;
+            this.win();
+        }
+        if(team2Total <= 0){
+            team2Total = 0;
+            winner = 2;
+            this.win();
+        }
+        team1Score.setText("Team 1: " + String.valueOf(team1Total));
+        team2Score.setText("Team 2: " + String.valueOf(team2Total));
+
+    }
+
+    private void win(){
+        cards.close();
+        vBox.getChildren().remove(team2Stories);
+        vBox.getChildren().remove(team2);
+        team1Stories.setText("Team " + winner + " is the winner!\nThe rest of you are fired.");
     }
     private void checkTeam(int n, Hand h) {
 
@@ -249,6 +278,9 @@ public class Gui extends Application {
         player = new Text();
         team = new Text();
         hands = new Text();
+
+        team1Score = new Text("Team 1: " + team1Total);
+        team2Score = new Text("Team 2: " + team2Total);
 
         team1.setFont(Font.font ("Verdana", 25));
         team2.setFont(Font.font ("Verdana", 25));
@@ -303,8 +335,8 @@ public class Gui extends Application {
     {
         vBox = new VBox(team1Score, team2Score, txtNumOfTeam,
                 tFieldNumOfPerTeam, btnStart, btnEnd, team1, team1Stories, team2, team2Stories, root);
-
-        scene = new Scene(vBox, 800, 800);
+        ScrollPane scroll = new ScrollPane(vBox);
+        scene = new Scene(scroll, 820, 800);
 
         // set the app title on top of the window
         primaryStage.setTitle("Agile Game");
@@ -314,20 +346,9 @@ public class Gui extends Application {
 
     private void setUpManagers()
     {
-        game = GameManager.getInstance();
-        teams = TeamManager.getInstance();
-        progress = ProgressManager.getInstance();
+        gameManager = GameManager.getInstance();
+        teamsManager = TeamManager.getInstance();
+        progressManager = ProgressManager.getInstance();
     }
 
-    private void updateTotal(int team, int total){
-        if(team == 1){
-            team1Score.setText("Team 1: " + total);
-        }
-        else if(team == 2){
-            team2Score.setText("Team 2: " + total);
-        }
-        else{
-            System.out.println("Please select team 1 or 2");
-        }
-    }
 }

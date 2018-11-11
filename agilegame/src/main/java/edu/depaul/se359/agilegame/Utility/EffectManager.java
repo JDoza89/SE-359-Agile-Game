@@ -48,6 +48,9 @@ public class EffectManager
         // get the list of the team
         ArrayList<Team> teams = TeamManager.getInstance().getTeams();
 
+        // Shuffle story deck
+        GameUtility.shuffleCards(Deck.getStoryDeck());
+
         // assume the # of team is 2
         assert teams.size() == 2;
 
@@ -64,8 +67,15 @@ public class EffectManager
             int score = Integer.parseInt(amount.substring(1));
 
             // assign even index of card to team 0, odd to team 1
-            if (i % 2 == 0) teams.get(0).setStoryPoint(sign, score);
-            else teams.get(1).setStoryPoint(sign, score);
+            if (i % 2 == 0){
+                teams.get(0).setStoryPoint(sign, score);
+                teams.get(0).setStory(currCard);
+            }
+            else{
+                teams.get(1).setStoryPoint(sign, score);
+                teams.get(1).setStory(currCard);
+
+            }
         }
     }
 }
