@@ -134,7 +134,7 @@
           "Content": "Your Client decides he doesn't need a certain feature",
           "Description": "None",
           "Effect": "removeStory",
-          "Amount": "-1"
+          "Amount": "-5"
         },
         {
           "ID": "CP004",

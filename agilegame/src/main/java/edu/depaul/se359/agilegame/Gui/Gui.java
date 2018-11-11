@@ -38,6 +38,7 @@ public class Gui extends Application {
     private SecondStage cards;
     private Player currPlayer;
     private Team currTeam;
+    private int winner;
 
     private Text team1Score;
     private Text team2Score;
@@ -229,10 +230,26 @@ public class Gui extends Application {
         //update Score after card is played (display)
         team1Total = teamsManager.getTeam(1).getStoryPoint();
         team2Total = teamsManager.getTeam(2).getStoryPoint();
-
+        if(team1Total <= 0){
+            team1Total = 0;
+            winner = 1;
+            this.win();
+        }
+        if(team2Total <= 0){
+            team2Total = 0;
+            winner = 2;
+            this.win();
+        }
         team1Score.setText("Team 1: " + String.valueOf(team1Total));
         team2Score.setText("Team 2: " + String.valueOf(team2Total));
 
+    }
+
+    private void win(){
+        cards.close();
+        vBox.getChildren().remove(team2Stories);
+        vBox.getChildren().remove(team2);
+        team1Stories.setText("Team " + winner + " is the winner!\nThe rest of you are fired.");
     }
     private void checkTeam(int n, Hand h) {
 
