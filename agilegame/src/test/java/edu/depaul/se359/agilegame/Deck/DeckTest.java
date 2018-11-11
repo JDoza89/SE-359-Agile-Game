@@ -27,7 +27,7 @@ class DeckTest {
 
         String type = "Chance";
         String id = "CP001";
-        String role = "PM";
+        String role = "PO";
         String content = "Your Client wants to add a new feature";
         String description = "None";
         String effect = "pointChange";

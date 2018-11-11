@@ -20,7 +20,7 @@ public class GamePlayState implements GameState {
     {
         // do something in game play if any
         ProgressManager.getInstance().determinePlayerTurns();
-
+        ProgressManager.getInstance().determinePhases();
     }
 
     @Override

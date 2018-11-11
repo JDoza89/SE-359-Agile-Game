@@ -1,0 +1,29 @@
+{
+  "Phases": [
+    {
+      "ID": 0,
+      "Name": "Sprint Planning",
+      "Description": "* Define the sprint goal.\n* Select items from the product backlog to comprise the sprint backlog.\n* Detail the time it will take to complete the items on the sprint backlog.\n* Communicate the amount of work that is likely to be done during the sprint."
+    },
+    {
+      "ID": 1,
+      "Name": "Daily Scrum / Standup",
+      "Description": "Each member answers 3 questions:\n* What have you done since yesterday?\n* What are you planning to do today?\n* Do you have any obstacles?\n\nThere are rules for this meeting to be successful:\n* Every member comes prepared with their updates.\n* The meeting starts on time - even if people are late.\n* The meeting length is timeboxed to 15 minutes.\n* No detailed discussions happen during this meeting."
+    },
+    {
+      "ID": 2,
+      "Name": "Sprint Review",
+      "Description": "* Review work that was planned but not completed.\n* Demonstrate to the stakeholders the work that was completed."
+    },
+    {
+      "ID": 3,
+      "Name": "Retrospective",
+      "Description": "At the end of each sprint, a sprint retrospective is facilitated by the Scrum Master. The goal of this meeting is to reflect on the past sprint with an eye toward making incremental process improvements:\n* What went well?\n* What needs improvement?"
+    },
+    {
+      "ID": 4,
+      "Name": "Backlog Grooming",
+      "Description": "* Estimate the existing stories.\n* Refine the acceptance criteria.\n* Split larger stories into smaller ones"
+    }
+  ]
+}

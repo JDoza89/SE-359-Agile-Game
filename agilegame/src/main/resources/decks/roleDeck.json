@@ -106,7 +106,7 @@
     },
     {
       "ID": "RD011",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "You throw a pizza party!.",
       "Description": "Motivate your workers, increase productivity.",
       "Effect": "pointChange",
@@ -114,7 +114,7 @@
     },
     {
       "ID": "RD012",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "You did some solid backlog grooming.",
       "Description": "You are on track!.",
       "Effect": "pointChange",
@@ -122,7 +122,7 @@
     },
     {
       "ID": "RD013",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "The clients like the presentation.",
       "Description": "What more is there to say?",
       "Effect": "pointChange",

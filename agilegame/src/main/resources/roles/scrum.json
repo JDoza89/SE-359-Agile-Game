@@ -1,0 +1,19 @@
+{
+  "Roles": [
+    {
+      "ID": 0,
+      "Name": "Product Owner",
+      "Description": "They are responsible for the business value of the project."
+    },
+    {
+      "ID": 1,
+      "Name": "Scrum Master",
+      "Description": "They ensure that the team is functional and productive."
+    },
+    {
+      "ID": 2,
+      "Name": "Developer",
+      "Description": "They self-organize to complete the work."
+    }
+  ]
+}

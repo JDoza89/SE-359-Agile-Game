@@ -1,11 +1,9 @@
 package edu.depaul.se359.agilegame.Utility;
 
 import edu.depaul.se359.agilegame.Card.Card;
-import edu.depaul.se359.agilegame.Card.ChanceCard;
-import edu.depaul.se359.agilegame.Card.RoleCard;
-import edu.depaul.se359.agilegame.Card.StoryCard;
 import edu.depaul.se359.agilegame.Deck.Deck;
 import edu.depaul.se359.agilegame.Game;
+import edu.depaul.se359.agilegame.GameState.Phase;
 import edu.depaul.se359.agilegame.Player.Role;
 import edu.depaul.se359.agilegame.Player.Team;
 import org.json.simple.JSONArray;
@@ -13,14 +11,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.*;
 
 //Utility class responsible for providing utility functions for agile game such as shuffling cards in deck.
 public final class GameUtility
 {
+    // JSON.Simple lib
+    private static JSONParser parser = new JSONParser();
+
     public static void shuffleAllDecks()
     {
         shuffleCards(Deck.getRoleDeck());
@@ -47,23 +47,18 @@ public final class GameUtility
     }
 
     public static void parseJSONtoDecks() throws IOException, ParseException {
-
-	    // JSON.Simple lib
-        JSONParser parser = new JSONParser();
-
         String[] fileNames = {"chanceDeck","roleDeck","storyDeck"};
 
         if (fileNames.length > 0) {
 
             for (String name : fileNames) {
-                parseJSONtoDecks(parser, name);
+                parseJSONtoDecks(name);
             }
 
         }
-
     }
 
-    private static void parseJSONtoDecks(JSONParser parser, String fileName) throws IOException, ParseException {
+    private static void parseJSONtoDecks(String fileName) throws IOException, ParseException {
 
 	    // grab whole file
         JSONObject jsonObject = (JSONObject)parser.parse(
@@ -90,6 +85,64 @@ public final class GameUtility
                          cardID, cardRole, cardContent,
                          cardDescription, cardEffect, cardAmount);
         }
+    }
+
+    public static Map<Role, String[]> getRoleDescriptions() {
+        HashMap<Role, String[]> roleMap = new HashMap<>();
+        try {
+            JSONObject jsonObject = (JSONObject) parser.parse(
+                    new InputStreamReader(Game.class.getResourceAsStream("/roles/scrum.json")));
+            JSONArray jsonArray = (JSONArray) jsonObject.get("Roles");
+
+            for (Object roleObject : jsonArray) {
+                JSONObject currObj = (JSONObject) roleObject;
+                String roleName = (String) currObj.get("Name");
+                String roleDescription = (String) currObj.get("Description");
+                Role role = Role.DEVELOPER;
+                if (roleName.equalsIgnoreCase("Product Owner")) {
+                    role = Role.PRODUCT_OWNER;
+                } else if (roleName.equalsIgnoreCase("Scrum Master")) {
+                    role = Role.SCRUM_MASTER;
+                }
+
+                roleMap.put(role, new String[]{roleName, roleDescription});
+            }
+        } catch (Exception e){
+            System.out.println("Unable to pare the role json. Setting default vales. See bellow for the error:");
+            System.out.println(e.getMessage());
+
+            for (Role role: Role.values()) {
+                roleMap.put(role, new String[] {role.toString(), "<-Trouble Parsing Values->\n This role is key to making SCRUM work!"});
+            }
+        }
+        return roleMap;
+    }
+
+    public static ArrayList<Phase> getPhases() {
+        ArrayList<Phase> phaseList = new ArrayList<>();
+        try {
+            JSONObject jsonObject = (JSONObject) parser.parse(
+                    new InputStreamReader(Game.class.getResourceAsStream("/phases/scrum.json")));
+            JSONArray jsonArray = (JSONArray) jsonObject.get("Phases");
+
+            for (Object roleObject : jsonArray) {
+                JSONObject currObj = (JSONObject) roleObject;
+                String phaseName = (String) currObj.get("Name");
+                String phaseDescription = (String) currObj.get("Description");
+                int phasePosition = ((Long) currObj.get("ID")).intValue();
+                phaseList.add(new Phase(phasePosition, phaseName, phaseDescription));
+            }
+        } catch (Exception e){
+            System.out.println("Unable to pare the role json. Setting default vales. See bellow for the error:");
+            System.out.println(e.getMessage());
+
+            phaseList.add(new Phase(0, "", ""));
+        }
+
+        // Make sure that the linked list is sorted by the phase position
+        phaseList.sort(Comparator.comparingInt(Phase::getPhasePosition));
+
+        return phaseList;
     }
 
     public static void doEffect(Card card, Team team)
