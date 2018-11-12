@@ -23,6 +23,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.paint.Color;
+
 
 import java.util.ArrayList;
 
@@ -75,6 +77,7 @@ public class Gui extends Application {
 
     private Label currentPhase = new Label();
     private Text phaseDescription = new Text();
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -253,13 +256,25 @@ public class Gui extends Application {
             winner = 1;
             this.win();
         }
-        if(team2Total <= 0){
+        if(team2Total <= 0) {
             team2Total = 0;
             winner = 2;
             this.win();
         }
         team1Score.setText("Team 1: " + String.valueOf(team1Total));
         team2Score.setText("Team 2: " + String.valueOf(team2Total));
+        this.checkScore();
+    }
+
+    private void checkScore(){
+        if(team1Total > team2Total){
+            team1Score.setFill(Color.BLUE);
+            team2Score.setFill(Color.RED);
+        }
+        else if(team2Total > team1Total){
+            team2Score.setFill(Color.BLUE);
+            team1Score.setFill(Color.RED);
+        }
     }
 
     private void win(){
