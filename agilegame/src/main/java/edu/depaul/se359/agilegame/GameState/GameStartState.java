@@ -26,10 +26,6 @@ public class GameStartState implements GameState {
 
     private void startGame()
     {
-        // shuffle all 3 decks
-        GameUtility.shuffleAllDecks();
-        Deck.printAllDecks();
-
         GameManager.getInstance().playGame();
     }
 

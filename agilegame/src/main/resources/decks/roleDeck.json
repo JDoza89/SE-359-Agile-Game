@@ -53,8 +53,8 @@
       "Role": "DEV",
       "Content": "I Work out a lot, no cold could conquer me.",
       "Description": "You won’t get any effect when you are experiencing “Cold” from a chance card.",
-      "Effect": "chanceCardRemove",
-      "Amount": "1",
+      "Effect": "pointChange",
+      "Amount": "-5",
       "ChanceCard": "CD001"
     },
 
@@ -81,9 +81,8 @@
       "Role": "DEV",
       "Content": "You are lucky.",
       "Description": "You remove one of the chance cards out of your face.(randomly)",
-      "Effect": "chanceCardRemove",
-      "Amount": "1",
-      "ChanceCard": "Random"
+      "Effect": "pointChange",
+      "Amount": "-4"
     },
 
     {
@@ -91,8 +90,8 @@
       "Role": "DEV",
       "Content": "You are super-lucky.",
       "Description": "You could remove all the chance cards out of your face.",
-      "Effect": "chanceCardRemove",
-      "Amount": "All"
+      "Effect": "pointChange",
+      "Amount": "-10"
     },
 
     {
@@ -133,7 +132,7 @@
       "Role": "PM",
       "Content": "You somehow managed to translate everything your customer wanted!",
       "Description": "Promotion, the project was perfect.",
-      "Effect": "chanceCardRemove",
+      "Effect": "pointChange",
       "Amount": "-15"
     },
     {
@@ -141,7 +140,7 @@
       "Role": "PM",
       "Content": "All of the stories are created and your team is on the same page.",
       "Description": "You are ahead of schedule.",
-      "Effect": "chanceCardRemove",
+      "Effect": "pointChange",
       "Amount": "-10"
     },
     {
