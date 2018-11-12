@@ -129,7 +129,7 @@
     },
     {
       "ID": "RD014",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "You somehow managed to translate everything your customer wanted!",
       "Description": "Promotion, the project was perfect.",
       "Effect": "pointChange",
@@ -137,7 +137,7 @@
     },
     {
       "ID": "RD015",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "All of the stories are created and your team is on the same page.",
       "Description": "You are ahead of schedule.",
       "Effect": "pointChange",
@@ -145,7 +145,7 @@
     },
     {
       "ID": "RD016",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "If you finish the project early, you get a 15% bonus.",
       "Description": "Motivate the hell out of your team, get ahead of schedule.",
       "Effect": "pointChange",
@@ -153,7 +153,7 @@
     },
     {
       "ID": "RD017",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "Your product backlog is prioritized well.",
       "Description": "Important functionality done first, customer is happy.",
       "Effect": "pointChange",
@@ -161,7 +161,7 @@
     },
     {
       "ID": "RD018",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "No story point changes this sprint.",
       "Description": "You are on track, great job!",
       "Effect": "pointChange",
@@ -169,7 +169,7 @@
     },
     {
       "ID": "RD019",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "You finished approving the development team's stories..",
       "Description": "They meet the requirements, no extra work added.",
       "Effect": "pointChange",
@@ -177,7 +177,7 @@
     },
     {
       "ID": "RD020",
-      "Role": "PM",
+      "Role": "PO",
       "Content": "Free coffee this morning.",
       "Description": "You are awake and ready to conquer the day.",
       "Effect": "pointChange",
