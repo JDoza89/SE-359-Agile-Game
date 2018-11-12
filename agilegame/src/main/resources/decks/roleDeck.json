@@ -17,7 +17,7 @@
       "Role": "DEV",
       "Content": "You have visited AWS Summit and did a cloud app hackathon there.",
       "Description": "You learn how to code on a cloud-based app.",
-      "Effect": "storyChange",
+      "Effect": "pointChange",
       "Amount": "-60"
     },
 
@@ -52,7 +52,7 @@
       "ID": "RD005",
       "Role": "DEV",
       "Content": "I Work out a lot, no cold could conquer me.",
-      "Description": "You won’t get any effect when you are experiencing “Cold” from a chance card.",
+      "Description": "You won’t get any effect when you are experiencing Cold from a chance card.",
       "Effect": "pointChange",
       "Amount": "-5",
       "ChanceCard": "CD001"
@@ -72,7 +72,7 @@
       "Role": "DEV",
       "Content": "You win a Hackathon and your boss decide to have mercy on you in this sprint.",
       "Description": "Temporary push the top of the story to the next sprint.",
-      "Effect": "storyChange",
+      "Effect": "pointChange",
       "Amount": "-60"
     },
 

@@ -68,7 +68,6 @@ public class Gui extends Application {
     private Scene scene;
     private Text player;
     private Text team;
-    private SecondStage playerDeck;
     private int currPlayerID;
     private Label handLabel = new Label("Player Hand:");
 
@@ -222,7 +221,7 @@ public class Gui extends Application {
     {
         //Add the method that ends the game
         btnEnd.setOnAction(action -> {
-            team1Stories.setText("Game has ended");
+            team1.setText("Game has ended");
             if(GameManager.getInstance() != null) {
                 gameManager.endGame();
             }
@@ -271,11 +270,11 @@ public class Gui extends Application {
     }
 
     private void checkScore(){
-        if(team1Total > team2Total){
+        if(team1Total < team2Total){
             team1Score.setFill(Color.BLUE);
             team2Score.setFill(Color.RED);
         }
-        else if(team2Total > team1Total){
+        else if(team2Total < team1Total){
             team2Score.setFill(Color.BLUE);
             team1Score.setFill(Color.RED);
         }
@@ -286,9 +285,10 @@ public class Gui extends Application {
         vBox.getChildren().remove(team2Stories);
         vBox.getChildren().remove(team2);
         vBox.getChildren().remove(team1Stories);
-        vBox.getChildren().remove(team1);
         vBox.getChildren().remove(phaseDescription);
-        currentPhase.setText("Team " + winner + " is the winner!\nThe rest of you are fired.");
+        vBox.getChildren().remove(currentPhase);
+        team1.setFont(Font.font ("Verdana", 30));
+        team1.setText("Team " + winner + " is the winner!\nThe rest of you are fired.");
     }
     private void checkTeam(int n, Hand h) {
 
