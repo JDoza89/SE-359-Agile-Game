@@ -163,6 +163,7 @@ public class Gui extends Application {
             updateHand();
             
             cards = new SecondStage();
+            cards.setX(400);
             vBox.getChildren().remove(txtNumOfTeam);
             vBox.getChildren().remove(tFieldNumOfPerTeam);
             vBox.getChildren().remove(btnStart);
