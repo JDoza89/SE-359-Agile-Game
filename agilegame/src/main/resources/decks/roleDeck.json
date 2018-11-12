@@ -206,6 +206,62 @@
       "Description": "You aren't made at the developers! :D",
       "Effect": "pointChange",
       "Amount": "-5"
+    },
+    {
+      "ID": "RD024",
+      "Role": "SM",
+      "Content": "Your just finished reading Head First SM.",
+      "Description": "You know the tricks to improve productivity.",
+      "Effect": "pointChange",
+      "Amount": "-10"
+    },
+    {
+      "ID": "RD025",
+      "Role": "SM",
+      "Content": "Company sent you some nice video for improving the relationship between Devs and you!",
+      "Description": "Increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-8"
+    },
+    {
+      "ID": "RD026",
+      "Role": "SM",
+      "Content": "You did some side project so you are really on the same page with Devs.",
+      "Description": "assigning task for Devs in an optimized way.",
+      "Effect": "pointChange",
+      "Amount": "-12"
+    },
+    {
+      "ID": "RD027",
+      "Role": "SM",
+      "Content": "Your learn to say some random jokes during the ceremony so more Devs participate.",
+      "Description": "Motivate your workers, increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-9"
+    },
+    {
+      "ID": "RD028",
+      "Role": "SM",
+      "Content": "You got a gift from your friend to optimize the product backlog.",
+      "Description": "Increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-6"
+    },
+    {
+      "ID": "RD029",
+      "Role": "SM",
+      "Content": "You got a job for teaching Agile at local college.",
+      "Description": "You master your Scrum knowledge during your teaching.",
+      "Effect": "pointChange",
+      "Amount": "-8"
+    },
+    {
+      "ID": "RD030",
+      "Role": "SM",
+      "Content": "Your Devs work their ass off because you provide extra pizza at Weekday.",
+      "Description": "Increase productivity.",
+      "Effect": "pointChange",
+      "Amount": "-10"
     }
   ]
 }
