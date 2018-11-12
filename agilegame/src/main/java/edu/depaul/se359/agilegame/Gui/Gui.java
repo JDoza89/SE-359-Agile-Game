@@ -81,7 +81,7 @@ public class Gui extends Application {
 
         // parse json file to decks
         GameUtility.parseJSONtoDecks();
-        
+
         // shuffle all 3 decks
         GameUtility.shuffleAllDecks();
         Deck.printAllDecks();
